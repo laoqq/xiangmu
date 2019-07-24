@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>输入两个数，求两个数的最小公倍数</h1>
+    <label for="text1">第一个数：</label>
+    <input type="text" name="" id="text1">
+    <label for="text2"> 第二个数：</label>
+    <input type="text" name="" id="text2">
+    <input type="button" id="bt" value="最小公倍数是">
+    <input type="text" id="tb">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+    var bt = document.getElementById("bt");
+    var tb = document.getElementById("tb");
+    //求两个 数的约数
+    function su(m1, m2) {
+        m1 = Number(m1);
+        m2 = Number(m2);
+        console.log(m1, m2);
+        var z = new Array();
+        var t = 0;
+        if (m1 > m2) {
+            var t = m2;
+        } else {
+            t = m1;
+        }
+        var j = 0;
+        for (var i = 1; i <= t; i++) {
+            if (m1 % i == 0 && m2 % i == 0) {
+                z[j] = i;
+                j++;
+            }
+        }
+        // console.log(z);
+        return z;
+    }
+    bt.onclick = function () {
+        var m = new Array();
+        m = su(text1.value, text2.value);
+        // if (text1.value % text2.value == 0 || text2.value % text1.value == 0){
+        // m[0]=
+        // }
+        // console.log(text1.value, text2.value);
+        for (var i = 0; i < m.length - 1; i++) {
+            for (var j = 0; j < m.length - 1; j++) {
+                if (m[j] < m[j + 1]) {
+                    var nm = m[j +
+                        1];
+                    m[j + 1] = m[j];
+                    m[j] = nm;
+                }
+            }
+        }
+        tb.value = text1.value * text2.value / m[0];
+    }
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="year"> <input type="button" id="judge" value="判断"><br>
+    <input type="text" id="reulst">
+</body>
+<script>
+    var year = document.getElementById("year");
+    var judge = document.getElementById("judge");
+    var reulst = document.getElementById("reulst");
+    judge.onclick = function () {
+
+        var y = year.value;
+        y = parseInt(y);
+        if (y % 4 == 0) {
+            if (y % 100 != 0) {
+                reulst.value = y + "年是闰年";
+            } else {
+                reulst.value = y + "年不是闰年";
+            }
+        }
+        if (y % 400 == 0) {
+            reulst.value = y + "年是闰年";
+        }
+
+        console.log(y);
+
+
+    }
+</script>
+
+</html>

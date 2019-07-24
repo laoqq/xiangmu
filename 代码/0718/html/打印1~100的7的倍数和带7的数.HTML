@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>打印1~100的7的倍数和带7的数</h1>
+</body>
+<script>
+    var mub1;
+    var mub2;
+    for (var i = 1; i <= 100; i++) {
+        if (i % 7 == 0) {
+            document.write('7的倍数' + i + '&nbsp&nbsp&nbsp&nbsp');
+        } else if (i > 10) {
+            mub1 = i / 10;
+            mub2 = i % 10;
+            if (mub1 == 7 || mub2 == 7) {
+                document.write('含有7的数' + i + '&nbsp&nbsp&nbsp&nbsp');
+            }
+
+        }
+    }
+</script>
+
+</html>

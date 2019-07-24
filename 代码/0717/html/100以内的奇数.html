@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>100以内的所有奇数</h1>
+    <input type="button" value="打印" id="bt">
+    <input id="text1" width="1000px"></input>
+</body>
+<script>
+    var bt = document.getElementById("bt"); //事件按钮
+    var text1 = document.getElementById("text1"); //结果显示
+    //判定函数
+    function judge(m) {
+        m = Number(m);
+        if (m % 2 != 0) {
+            return m;
+        }
+    }
+    //按钮事件
+
+    bt.onclick = function () {
+        var i = 1;
+        while (i <= 100) {
+
+            var j = judge(i);
+            if (j != undefined) {
+                // text1.value = j;
+                console.log(text1.value);
+                document.write(j + ',');
+            }
+
+            i++;
+        }
+    }
+</script>
+
+</html>

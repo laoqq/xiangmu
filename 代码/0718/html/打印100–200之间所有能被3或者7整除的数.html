@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>打印100–200之间所有能被3或者7整除的数</h1>
+</body>
+<script>
+    function count(i) {
+        if (i % 7 == 0 || i % 3 == 0) {
+            return i;
+        }
+    }
+    var m = 0;
+    for (var i = 100; i <= 200; i++) {
+
+        if (count(i) != undefined) {
+
+            document.write(count(i) + '&nbsp&nbsp&nbsp&nbsp');
+            m++;
+        }
+        if (m == 10) {
+            document.write('<br>');
+            m = 0;
+        }
+    }
+</script>
+
+</html>

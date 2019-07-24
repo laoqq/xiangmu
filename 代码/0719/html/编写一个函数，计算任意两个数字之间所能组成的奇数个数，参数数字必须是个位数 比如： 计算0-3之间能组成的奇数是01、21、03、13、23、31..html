@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            color: black;
+            background-color: #ccc;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>编写一个函数，计算任意两个数字之间所能组成的奇数个数，参数数字必须是个位数 比如： 计算0-3之间能组成的奇数是01、21、03、13、23、31</h1>
+    <label for="text1">第一个数：</label>
+    <input type="text" id="text1">
+    <label for="text2">第二个数：</label>
+    <input type="text" id="text2">
+    <input type="button" id="btn" value="结果">
+    <div id="result">
+        <!-- <span></span> -->
+    </div>
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+    var btn = document.getElementById("btn");
+    var result = document.getElementById("result");
+
+    //组合判断函数
+    function cunot(x, y) {
+        var html = '';
+        x = Number(x);
+        y = Number(y);
+        var m = 0;
+        var n = 0;
+        if (x > y) {
+            m = y;
+            n = x;
+        } else {
+            m = x;
+            n = y;
+        }
+        for (var i = m; i <= n; i++) {
+
+            for (var j = m; j <= n; j++) {
+                if ((i * 10 + j) % 2 != 0) {
+                    if (i != j) {
+                        html += '<span>' + i + j + '</span>'
+                        // html = html + '<span>' + i + j + '</span>'
+                    }
+                }
+
+            }
+        }
+        return html;
+
+    }
+    btn.onclick = function () {
+        result.innerHTML = cunot(text1.value, text2.value); 
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>用递归实现阶乘</h1>
+    <label for="text1">输入：</label>
+    <input type="text" id="text1">
+    <input type="button" value="结果" id="btn">
+    <input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById('text1');
+    var btn = document.getElementById('btn');
+    var text1 = document.getElementById('text1');
+    //递归函数
+    function sun(mun) {
+        if (mun <= 1) {
+            return 1;
+
+        } else {
+            return mun * sun(mun - 1);
+        }
+    }
+    btn.onclick = function () {
+        text2.value = sun(Number(text1.value));
+    }
+</script>
+
+</html>

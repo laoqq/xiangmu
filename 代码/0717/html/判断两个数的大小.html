@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>判断两个数的大小</h1>
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <input type="button" value="比较" id="btn">
+    较大的数：<input type="text" id="result">
+</body>
+<script>
+    var text1 = document.getElementById("text1"); //数1
+    var text2 = document.getElementById("text2"); //数2
+    var btn = document.getElementById("btn"); //按钮
+    var result = document.getElementById("result"); //结果
+    //比较大小的函数
+    function judge(m1, m2) {
+        m1 = Number(m1);
+        m2 = Number(m2);
+        if (m1 > m2) {
+            return m1;
+
+        } else if (m1 < m2) {
+            return m2;
+        } else {
+            return '一样大';;
+        }
+    }
+    //按钮事件
+
+    btn.onclick = function () {
+        result.value = judge(text1.value, text2.value);
+    }
+</script>
+
+</html>

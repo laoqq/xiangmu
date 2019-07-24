@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>判断奇偶性</h1>
+    <input type="text" id="mub"><input type="button" id="btn" value="判断"><input type="text" id="result">
+</body>
+<script>
+    /*
+     *需求判断一个数的奇偶性
+     *首选要判断这个数是不是非零的正数
+     *再判断奇偶性
+     *偶数能被2整除，奇数不能被2整除。
+     *逻辑   
+     */
+    //绑定节点
+    var mub = document.getElementById("mub");
+    var btn = document.getElementById("btn");
+    var result = document.getElementById("result");
+
+    function judge(m) {
+        m = Number(m);
+        if (m <= 0) {
+            return '输入有误请重新输入';
+        } else if (m % 2 == 0) {
+            return m + '为偶数';
+        } else {
+            return m + '为奇数'
+        }
+    }
+    btn.onclick = function () {
+
+        result.value = judge(mub.value);
+        // document.write(result.value + ", ");
+
+    }
+</script>
+
+</html>

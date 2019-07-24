@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 1000px;
+        height: 400px;
+    }
+</style>
+
+<body>
+    <img src="../images/ia_10007.jpg" alt="">
+    <br>
+    <span>小米手机大促销</span><br>
+    价格￥<span id="price">1999</span><br>
+    购买数量<input type="button" id="cut" value="-"><input type="text" value="1" id="num"><input type="button" id="add"
+        value="+">(库存量1000)
+    <br>
+    总价格￥<span id="tp">1999</span>
+</body>
+<script>
+    var price = document.getElementById("price");
+
+    var cut = document.getElementById("cut"); //减
+    var num = document.getElementById("num"); //数量
+    var add = document.getElementById("add"); //加
+    var tp = document.getElementById("tp"); //总价格
+    cut.onclick = function () {
+        var newnum = num.value;
+        newnum--;
+        if (newnum <= 1) {
+            newnum = 1;
+        }
+        num.value = newnum;
+        tp.innerHTML = price.innerHTML * newnum;
+        tp.innerHTML = tp.innerHTML.toFixed(2);
+    }
+    add.onclick = function () {
+        var newnum = num.value;
+        newnum++;
+        if (newnum >= 1000) {
+            newnum = 1000;
+        }
+        num.value = newnum;
+        tp.innerHTML = price.innerHTML * newnum;
+        tp.innerHTML = tp.innerHTML.toFixed(2);
+    }
+    num.oninput = function () {
+        var newnum = num.value;
+
+        if (newnum >= 1000) {
+            newnum = 1000;
+        } else if (newnum <= 1) {
+            newnum = 1;
+        }
+        num.value = newnum;
+        tp.innerHTML = price.innerHTML * newnum;
+        tp.innerHTML = tp.innerHTML.toFixed(2);
+    }
+</script>
+
+</html>

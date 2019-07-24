@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>随机生成一个五位以内的数，然后输出该数共有多少位，每位分别是什么</h1>
+    <input type="button" id="btn" value="结果">
+    <div id="text1"></div>
+    <div id="box"></div>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var text1 = document.getElementById("text1");
+    var box = document.getElementById("box");
+    // 计算函数n
+    function mt() {
+        var mun = parseInt(Math.random() * 100000);
+        var munstring = mun.toString();
+        var munlength = munstring.length;
+        var nb = new Array();
+        console.log(mun);
+        for (var i = 0; i < munlength; i++) {
+            nb[i] = Number(munstring[i]);
+        }
+        text1.innerHTML = '该数是' + mun + '共' + munlength + '位';
+        box.innerHTML = '每位上的数为' + nb;
+    }
+    btn.onclick = function () {
+        mt();
+    }
+</script>
+
+</html>

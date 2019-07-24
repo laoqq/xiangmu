@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div class="box"> -->
+    <input type="text" id="v1">
+    <select id="typ">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="v2">
+    <input type="button" id="an" value="=">
+    <input type="text" id="va1" value="">
+    <!-- </div> -->
+</body>
+<script>
+    var text1 = document.getElementById("v1");
+    var text2 = document.getElementById("v2");
+    var tp = document.getElementById("typ");
+    var bth = document.getElementById("an");
+    var va = document.getElementById("va1");
+
+    // var 
+    bth.onclick =
+        function () {
+            var va1 = text1.value;
+            var va2 = text2.value;
+            var bt = tp.value;
+
+            if (va1 && va2) {
+
+                if (bt == "+") {
+                    va.value = (va1 - 0) + (va2 - 0);
+
+                } else if (bt == "-") {
+                    va.value = (va1 - 0) - (va2 - 0);
+                } else if (bt == "*") {
+                    va.value = (va1 - 0) * (va2 - 0);
+                } else if (bt == "/") {
+                    va.value = (va1 - 0) / (va2 - 0);
+                } else {
+                    va.value = (va1 - 0) % (va2 - 0);
+                }
+                console.log(va1, va2, bt);
+                console.log(va.value);
+            } else {
+                alert("请输入数值");
+            }
+        }
+</script>
+
+</html>

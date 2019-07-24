@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            background: #ccc;
+            margin-right: 10px;
+            margin-top: 10px;
+
+        }
+
+        span:hover {
+            background: orange;
+            color: #fff;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>打印九九乘法表</h1>
+    <div id="box">
+
+        <!-- <span>1x1=1</span><br>
+    <span>1x1=1</span> <span>1x2=2</span><br> -->
+    </div>
+</body>
+<script>
+    var html = ""
+    for (var y = 1; y <= 9; y++) {
+        for (var x = 1; x <= y; x++) {
+            html += '<span>' + x + "x" + y + '=' + x * y + '</span>';
+        }
+        html += '<br>';
+    }
+    var box = document.getElementById('box');
+    box.innerHTML = html;
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>篮球从5米高的地方掉下来，每次弹起的高度是原来的30%，经过几次弹起，篮球弹起的最终高度小于0.1米</h1>
+</body>
+<script>
+    var m = 5;
+    for (var i = 0;; i++) {
+        m -= m * 0.3;
+        if (m < 0.1) {
+            document.write(i);
+            break;
+        }
+    }
+</script>
+
+</html>

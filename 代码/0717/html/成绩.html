@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>成绩判定 </h1>
+    <input type="text" id="text"><input type="button" id="btn" value="判定
+    "><input type="text" id="result">
+</body>
+<script>
+    //绑定节点
+    var text = document.getElementById("text"); //成绩输入
+    var btn = document.getElementById("btn"); //判定按钮
+    var result = document.getElementById("result"); //判定结果
+    //成绩判定函数
+    function judge(m) {
+        m = Number(m);
+        switch (true) {
+            case m > 85:
+                return '成绩优秀';
+                break;
+            case m >= 75 && m <= 85:
+                return '成绩良好';
+                break;
+            case m >= 60 && m < 75:
+                return '成绩及格';
+                break;
+            default:
+                return '成绩不及格';
+                break;
+        }
+    }
+    btn.onclick = function () {
+        result.value = judge(text.value);
+    }
+</script>
+
+</html>

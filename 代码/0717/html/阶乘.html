@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>阶乘</h1>
+    请输入数字<input type="text" id="text1"> <input type="button" id="btn" value="结果"><br>
+    <input type="text" id="result">
+</body>
+<script>
+    var text1 = document.getElementById("text1"); //数字输入
+    var btn = document.getElementById("btn"); //按钮
+    var result = document.getElementById("result"); //结果
+    //阶乘计算函数
+    function count(m) {
+        m = Number(m);
+        var n = 1;
+        var i;
+        for (i = 1; i <= m; i++) {
+            n = n * i;
+        }
+        return n;
+    }
+    //按钮事件
+    btn.onclick = function () {
+        result.value = count(text1.value);
+
+    }
+</script>
+
+</html>

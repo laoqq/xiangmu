@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，请编写一个函数，传入原文，输出密文</h1>
+    <label for="text1">输入</label><input type="text" id="text1">
+    <input type="button" id="btn" value="输出">
+    <label for="text2"></label><input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+    var btn = document.getElementById("btn");
+    //加密函数
+    function out(x) {
+        x = String(x);
+        var n = x.length;
+        var k = n;
+        var m = new Array();
+        // console.log(n);
+        for (var i = 0; i < n; i++) {
+            k--;
+            m[k] = (Number(x[i]) + 5) % 10;
+        }
+        // console.log(x, m);
+        return m;
+
+    }
+    btn.onclick = function () {
+        var y = new Array();
+
+        y = out(text1.value);
+        var m = y.join(""); //join() 方法用于把数组中的所有元素放入一个字符串。元素是通过指定的分隔符进行分隔的
+        text2.value = m;
+    }
+</script>
+
+</html>

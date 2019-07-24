@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    td {
+      display: inline-block;
+      width: 80px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号
+  </h1>
+  <!-- <input type="text"> -->
+  <input type="button" value="结果" id="btn" />
+  <h2>总成绩排名</h2>
+  <table border="1">
+    <tr>
+      <td>学号</td>
+      <td>语文</td>
+      <td>数学</td>
+      <td>英语</td>
+      <td>总成绩</td>
+      <td>名次</td>
+    </tr>
+  </table>
+
+  <table id="tb" border="1">
+    <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr> -->
+  </table>
+</body>
+<script>
+  var btn = document.getElementById("btn");
+  var tb = document.getElementById("tb");
+  //总成绩
+  function cun() {
+    var arr = [
+      [1, 105, 62, 118],
+      [2, 89, 78, 120],
+      [3, 86, 64, 80],
+      [4, 78, 99, 91],
+      [5, 107.5, 97, 70],
+      [6, 112, 61, 92],
+      [7, 101, 79, 104],
+      [8, 71, 72, 105],
+      [9, 56, 68, 61],
+      [10, 98, 83, 77]
+    ];
+    var html = "";
+    // for (var i = 0; i < 1; i++) {
+    //     a[i] = new Array();
+    //     for (var j = 0; j < 1; j++) {
+    //         a[i][j] = '';
+
+    //     }
+    // }
+    for (var i = 0; i < 10; i++) {
+      arr[i][4] = 0;
+
+      for (var m = 1; m < 4; m++) {
+        arr[i][4] += arr[i][m];
+      }
+    }
+    for (var x = 0; x < 9; x++) {
+      for (var j = 0; j < 9; j++) {
+        if (arr[j][4] < arr[j + 1][4]) {
+          var a = arr[j + 1];
+          arr[j + 1] = arr[j];
+          arr[j] = a;
+        }
+      }
+    }
+    for (var m = 0; m < 10; m++) {
+      // html +=
+      //   "<tr>" +
+
+      //   arr[m][1] +
+      //   "</td>" +
+      //   "td" +
+      //   arr[m][2] +
+      //   "</td>" +
+      //   "td" +
+      //   arr[m][3] +
+      //   "</td>" +
+      //   "td" +
+      //   arr[m][4] +
+      //   "</td>" +
+      //   "td" +
+      //   (m + 1) +
+      //   "</td>" +
+      //   "</tr>" +
+      //   "<br>";
+      html += '<tr>' + '<td>' + arr[m][0] + '</td>' + '<td>' + arr[m][1] + '</td>' + '<td>' + arr[m][2] + '</td>' +
+        '<td>' +
+        arr[m][3] + '</td>' + '<td>' +
+        arr[m][4] + '</td>' + '<td>' +
+        (m + 1) + '</td>' + '</tr>';
+    }
+    tb.innerHTML = html;
+  }
+  btn.onclick = function () {
+    // var arr = [
+    //     [1, 105, 62, 118],
+    //     [2, 89, 78, 120],
+    //     [3, 86, 64, 80],
+    //     [4, 78, 99, 91],
+    //     [5, 107.5, 97, 70],
+    //     [6, 112, 61, 92],
+    //     [7, 101, 79, 104],
+    //     [8, 71, 72, 105],
+    //     [9, 56, 68, 61],
+    //     [10, 98, 83, 77]
+    // ];
+    cun();
+  };
+</script>
+
+</html>

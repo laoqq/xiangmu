@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>求出1-1/2+1/3-1/4…..1/100的和</h1>
+</body>
+<script>
+    var mub1 = 0;
+    var mub2 = 0;
+    var mub = 0;
+    for (var i = 1; i <= 99; i++) {
+
+        if (i % 2 != 0) {
+            mub1 += 1 / i;
+            document.write(1 / i + '-');
+        } else {
+            mub2 += 1 / i;
+            document.write(1 / i + '+');
+        }
+
+
+    }
+    document.write(1 / 99);
+    mub = (mub1 - mub2 - 1 / 99).toFixed(2);
+    document.write('=' + mub + '保留两位小数');
+</script>
+
+</html>

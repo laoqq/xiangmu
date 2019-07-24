@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>您的体重是不是在健康范围呢，快来测一测吧</h1>
+    请输入您的体重：<input type="text" id="text1">KG<br>
+    请输入的您的身高：<input type="text" id="text2">M<br>
+    <input type="button" id="btn" value="测量"><br>
+    结果:<input type="text" id="result" width="300px">
+
+</body>
+<script>
+    //绑定节点
+    var text1 = document.getElementById("text1"); //输入的体重
+    var text2 = document.getElementById("text2"); //输入的身高
+    var btn = document.getElementById("btn"); //按钮
+    var result = document.getElementById("result"); //结果显示
+    //判断体重计算结果BIM值在那个范围
+    function judge(mub) {
+        mub = Number(mub)
+        if (mub < 18.5) {
+            return '您体重过轻，要多吃饭哦';
+        } else if (mub >= 18.5 && mub <= 24.99) {
+            return '您体重正常，继续保持哦';
+        } else if (mub >= 25 && mub < 28) {
+            return '您体重过重，注意饮食';
+        } else if (mub >= 28 && mub <= 32) {
+            return '您体重肥胖，为了你身体健康该减肥了';
+        } else if (mub > 32) {
+            return '您体重严重超标一定要减肥';
+        }
+
+    }
+    //根据体重计算BIM值
+    function count(n1, n2) {
+        n1 = Number(n1);
+        n2 = Number(n2);
+        var newn = (n1 / Math.pow(n2, 2)).toFixed(2);
+        return judge(newn);
+    }
+    //按钮事件
+    btn.onclick = function () {
+        result.value = count(text1.value, text2.value);
+    }
+</script>
+
+</html>

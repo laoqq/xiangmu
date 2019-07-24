@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>编写一个has(arr,60)函数，判断arr数组中是否包含60这个数</h1>
+    <label for="text1">请输入所要检测的数组，用逗号隔开</label> <input type="text" id="text1">
+    <input type="button" value="结果" id="btn"><input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var btn = document.getElementById("btn");
+    var text2 = document.getElementById("text2");
+    //函数
+    function has(arr, x = 60) {
+        for (var i = 0; i <= arr.length; i++) {
+            if (Number(arr[i]) == x) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+    btn.onclick = function () {
+        var a = '';
+        a = text1.value.split(',');
+        if (has(a) == 1) {
+            text2.value = '包含';
+        } else {
+            text2.value = '不包含';
+
+        }
+    }
+</script>
+
+</html>

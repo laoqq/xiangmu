@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>水仙花100-999以内的</h1>
+    <input type="button" id="bt" value="打印">
+</body>
+<script>
+    var bt = document.getElementById("bt"); //按钮事件
+    //判定函数
+    function judge(m, m1, m2, m3) {
+        if (m == Math.pow(m1, 3) + Math.pow(m2, 3) + Math.pow(m3, 3)) {
+            return 1; //符合返回1
+        } else {
+            return 0; //不符合返回0
+        }
+    }
+    //按钮事件
+    bt.onclick = function () {
+        var i;
+        var j = 0; //接受返回值
+        var n1 = 0; //存储百位数
+        var n2 = 0; //存储十位数
+        var n3 = 0; //存储个位数
+        for (i = 100; i <= 999; i++) {
+            n1 = parseInt(i / 100);
+            n2 = parseInt(i % 100 / 10);
+            n3 = parseInt(i % 10);
+            j = judge(i, n1, n2, n3);
+            if (j == 1) {
+                document.write(i + "    ");
+            }
+        }
+    }
+</script>
+
+</html>

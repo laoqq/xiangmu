@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>加减乘除</h1>
+    <label for="text1">第一个数：</label> <input type="text" id="text1">
+    <select name="" id="select1">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="/">%</option>
+    </select>
+    <label for="text2">第二个数：</label> <input type="text" id="text2">
+    <input type="button" id="btn" value="结果">
+    <input type="text" id="text3">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+    var text3 = document.getElementById("text3");
+    var select1 = document.getElementById("select1");
+    var btn = document.getElementById("btn");
+    //计算函数
+    function sum(x, z, y) {
+        x = Number(x);
+        y = Number(y);
+        if (z == "+") {
+            return x + y;
+
+        } else if (z == "-") {
+            return x - y;
+        } else if (z == "*") {
+            return x * y;
+        } else if (z == "/") {
+            return x / y;
+        } else if (z == "%") {
+            return x % y;
+        }
+    }
+    btn.onclick = function () {
+        var a = text1.value;
+        var b = text2.value;
+        var c = select1.value;
+        text3.value = sum(a, c, b);
+    }
+</script>
+
+</html>

@@ -1,0 +1,632 @@
+html.body {
+  width: 100%;
+}
+
+.conter {
+  width: 1228px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+#zsection {
+  width: 100%;
+}
+
+#zsection header {
+  width: 100%;
+  background-color: #333333;
+}
+
+#zsection header .conter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b0b0b0;
+  font-size: 13px;
+}
+
+#zsection header .conter li:hover {
+  color: white;
+}
+
+#zsection header .conter .h-ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#zsection header .conter .h-ul li:nth-child(11):hover .sp {
+  display: block;
+}
+
+#zsection header .conter .h-ul li {
+  line-height: 13px;
+  margin: 15px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #42403b;
+}
+
+#zsection header .conter .h-ul li:last-child {
+  border: 0;
+}
+
+#zsection header .conter .h-ul li:nth-child(11) {
+  position: relative;
+}
+
+#zsection header .conter .h-ul li:nth-child(11) .sp {
+  width: 124px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  padding: 18px 0px 14px;
+  background: white none repeat scroll 0% 0%;
+  margin-left: -55px;
+  box-shadow: #aaaaaa 0px 1px 5px;
+  display: none;
+  z-index: 2;
+}
+
+#zsection header .conter .h-ul li:nth-child(11) .sp img {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 0 auto;
+}
+
+#zsection header .h-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#zsection header .h-box li {
+  line-height: 13px;
+  margin: 15px 0px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #42403b;
+}
+
+#zsection header .h-box li:nth-child(3) {
+  border: 0;
+}
+
+#zsection header .h-box li:nth-child(4) {
+  background: #424242;
+  border: 0;
+  margin: 0;
+  padding: 15px;
+}
+
+#zsection main {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+#zsection main .m-box1 {
+  width: 100%;
+  position: relative;
+}
+
+#zsection main .m-box1 .conter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#zsection main .m-box1 .conter h5 {
+  background: url(../images/ia_10279.png) no-repeat;
+  background-size: contain;
+  width: 57px;
+  height: 56px;
+  display: block;
+}
+
+#zsection main .m-box1 .conter .ul1 {
+  width: 820px;
+  height: 88px;
+  padding: 12px 0 0 30px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 80px;
+  margin-left: 180px;
+}
+
+#zsection main .m-box1 .conter .ul1 li {
+  text-align: center;
+  flex: 1;
+  height: 100%;
+  line-height: 88px;
+}
+
+#zsection main .m-box1 .conter .ul1 li .list1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  height: 229px;
+  background: #ffffff;
+  z-index: 4;
+  display: none;
+}
+
+#zsection main .m-box1 .conter .ul1 li .list1 .conter {
+  display: flex;
+}
+
+#zsection main .m-box1 .conter .ul1 li .list1 .conter a {
+  flex-shrink: 0;
+  height: 100%;
+  width: 204px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+#zsection main .m-box1 .conter .ul1 li .list1 .conter a img {
+  width: 150px;
+  height: 170px;
+}
+
+#zsection main .m-box1 .conter .ul1 li .list1 .conter a::before {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  z-index: 1;
+  width: 1px;
+  height: 100px;
+  content: "";
+  background-color: #eee3e3;
+}
+
+#zsection main .m-box1 .conter .ul1 li:hover .list1 {
+  display: block;
+}
+
+#zsection main .m-box1 .conter .ul1 li:hover {
+  color: red;
+}
+
+#zsection main .m-box1 .box1 {
+  width: 296px;
+}
+
+#zsection main .m-box1 .box1 form {
+  width: 100%;
+  display: flex;
+}
+
+#zsection main .m-box1 .box1 form .input1 {
+  width: 223px;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #e0e0e0;
+}
+
+#zsection main .m-box1 .box1 form .input2 {
+  width: 52px;
+  height: 50px;
+  border: 1px solid #e0e0e0;
+}
+
+#zsection .m-box2 {
+  width: 100%;
+}
+
+#zsection .m-box2 .conter {
+  height: 460px;
+  background: url(../images/ia_10010.jpg) no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+#zsection .m-box2 .conter ul {
+  position: absolute;
+  height: 100%;
+  width: 230px;
+  top: 0;
+  font-size: 16px;
+  color: white;
+  left: 0;
+  background: #346780;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+#zsection .m-box2 .conter ul li:hover .list2 {
+  display: block;
+}
+
+#zsection .m-box2 .conter ul li:hover .list3 {
+  display: block;
+}
+
+#zsection .m-box2 .conter ul li {
+  display: block;
+  padding-left: 30px;
+  height: 42px;
+  line-height: 42px;
+}
+
+#zsection .m-box2 .conter ul li .list3 {
+  position: absolute;
+  left: 230px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 5;
+  height: 100%;
+  width: 500px;
+  display: none;
+}
+
+#zsection .m-box2 .conter ul li .list2 {
+  position: absolute;
+  left: 230px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 5;
+  height: 100%;
+  width: calc(1228px - 230px);
+  display: none;
+}
+
+#zsection .m-box2 .conter ul li i {
+  float: right;
+  display: block;
+  margin-right: 20px;
+}
+
+#zsection .m-box3 {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#zsection .m-box3 .conter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#zsection .m-box3 .conter ul {
+  width: 234px;
+  height: 170px;
+  background: #5f5750;
+}
+
+#zsection .m-box3 .conter ul li {
+  float: left;
+  width: 70px;
+  height: 82px;
+  padding: 0 3px;
+}
+
+#zsection .m-box3 .conter img {
+  height: 170px;
+  width: 315px;
+}
+
+#zsection .m-box4 {
+  width: 100%;
+  margin-top: 25px;
+  background: #f5f5f5;
+}
+
+#zsection .m-box4 .conter img {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 40px;
+}
+
+#zsection .m-box4 .conter .box4 {
+  width: 100%;
+}
+
+#zsection .m-box4 .conter .box4 p {
+  width: 100%;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+#zsection .m-box4 .conter .box4 p .span1 {
+  font-size: 23px;
+  line-height: 23px;
+  float: left;
+}
+
+#zsection .m-box4 .conter .box4 p .span2 {
+  float: right;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+#zsection .m-box4 .conter .box4 ul {
+  width: 100%;
+  height: 614px;
+  display: grid;
+  grid-template-columns: repeat(5, 234px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 15px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 6px 5px #ccc;
+}
+
+#zsection .m-box4 .conter .box4 ul li {
+  background-color: #fff;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 1ms;
+}
+
+#zsection .m-box4 .conter .box4 ul li a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 15px 35px 15px;
+}
+
+#zsection .m-box4 .conter .box4 ul li a h2 {
+  font-size: 13px;
+  line-height: 13px;
+  white-space: pre;
+}
+
+#zsection .m-box4 .conter .box4 ul li a .sp1 {
+  display: block;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 13px;
+  color: #b0b0b0;
+}
+
+#zsection .m-box4 .conter .box4 ul li a .sp2 {
+  font-size: 16px;
+  color: #ffb74f;
+}
+
+#zsection .m-box4 .conter .box4 ul li h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: 64px;
+  height: 20px;
+  margin-left: -32px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  background: #83c44e;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(1) {
+  grid-row: 1 / 3;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(1) a {
+  background: url(../images/ia_10029.jpg);
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(2) a {
+  background: url(../images/ia_10030.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(3) a {
+  background: url(../images/ia_10031.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(4) a {
+  background: url(../images/ia_10032.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(5) a {
+  background: url(../images/ia_10033.png) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(6) a {
+  background: url(../images/ia_10034.png) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(7) a {
+  background: url(../images/ia_10035.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(8) a {
+  background: url(../images/ia_10036.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(9) a {
+  background: url(../images/ia_10037.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box4 ul li:nth-child(10) a {
+  background: url(../images/ia_10038.jpg) no-repeat;
+  background-size: 70% 60%;
+  background-position: center 10px;
+}
+
+#zsection .m-box4 .conter .box41 {
+  width: 100%;
+}
+
+#zsection .m-box4 .conter .box41 .box411 {
+  width: 100%;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+#zsection .m-box4 .conter .box41 .box411 .span1 {
+  font-size: 23px;
+  line-height: 23px;
+  float: left;
+  display: block;
+}
+
+#zsection .m-box4 .conter .box41 .box411 li {
+  float: right;
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+}
+
+#zsection .m-box4 .conter .box41 .box411 li .span2 {
+  font-size: 16px;
+  line-height: 20px;
+  display: block;
+  height: 20px;
+}
+
+#zsection .m-box4 .conter .box41 .box411 li a:hover {
+  color: red;
+  border-bottom: 1px solid red;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 {
+  width: 100%;
+  height: 614px;
+  display: grid;
+  grid-template-columns: repeat(5, 234px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 15px;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:hover {
+  box-shadow: 3px 6px 5px #ccc;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:hover .lbox {
+  bottom: 0;
+  display: block;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li {
+  transform-style: preserve-3d;
+  transition: all 1ms;
+  background-color: #fff;
+  position: relative;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: 64px;
+  height: 20px;
+  margin-left: -32px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  background: #83c44e;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li .lbox {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  right: 0;
+  left: 0;
+  bottom: -80px;
+  background-color: orange;
+  transition: all 2s;
+  display: none;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(1) a {
+  background: url(../images/ia_10039.jpg);
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(2) a {
+  background: url(../images/ia_10044.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(3) a {
+  background: url(../images/ia_10041.png) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(4) a {
+  background: url(../images/ia_10042.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(5) a {
+  background: url(../images/ia_10043.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(6) a {
+  background: url(../images/ia_10040.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(7) a {
+  background: url(../images/ia_10045.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(8) a {
+  background: url(../images/ia_10046.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(9) a {
+  background: url(../images/ia_10047.jpg) no-repeat;
+  background-size: contain;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(10) a {
+  background-color: #f5f5f5;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(10) a span {
+  display: block;
+  width: 100%;
+  height: 140px;
+  background-color: #fff;
+}
+
+#zsection .m-box4 .conter .box41 .ul2 li:nth-child(10) a span:nth-child(1) {
+  margin-bottom: 15px;
+}

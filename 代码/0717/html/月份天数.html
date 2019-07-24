@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>月份天数的判定</h1>
+    月份<input type="text" id="text1"><input type="button" id="btn" value="结果"> <br>
+    天数<input type="text" id="result">
+</body>
+<script>
+    //绑定节点
+    var text1 = document.getElementById("text1"); //输入的月份
+    var btn = document.getElementById("btn"); //判定按钮
+    var result = document.getElementById("result"); //判定结果输出
+    //判定函数
+    function judge(month) {
+        month = Number(month);
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return '30';
+                break;
+            case 2:
+                return '28';
+            default:
+                return '31';
+
+        }
+    }
+    //按钮事件
+    btn.onclick = function () {
+        result.value = judge(text1.value);
+    }
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>返回最大的数 arguments</title>
+</head>
+
+<body>
+    <h1>返回最大的数 arguments</h1>
+    <label for="text1">输入：</label><input type="text" id="text1">
+    <input type="button" value="最大值为" id="btn">
+    <input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById('text1');
+    var text2 = document.getElementById('text2');
+    var btn = document.getElementById('btn');
+    // 计算函数
+    function sun(arr) {
+
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1; j++) {
+                if (Number(arr[j]) < Number(arr[j + 1])) {
+                    var m = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = m;
+                }
+            }
+        }
+        // console.log(arr);
+
+        text2.value = arr[0];
+
+    }
+    btn.onclick = function () {
+        var arr = text1.value.split(',');
+        sun(arr);
+        // var l = t.length;
+
+    }
+</script>
+
+</html>

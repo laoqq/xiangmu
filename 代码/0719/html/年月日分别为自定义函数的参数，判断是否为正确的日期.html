@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>年月日分别为自定义函数的参数，判断是否为正确的日期</h1>
+    <label for="year">年：</label><input type="text" id="year">
+    <label for="month">月：</label><input type="text" id="month">
+    <label for="day">日：</label><input type="text" id="day">
+    <input type="button" id="btn" value="结果">
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <input type="text" id="text3">
+</body>
+<script>
+    var year = document.getElementById("year");
+    var month = document.getElementById("month");
+    var day = document.getElementById("day");
+    var btn = document.getElementById("btn");
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+    var text3 = document.getElementById("text3");
+    //判断年
+    function yer(y) {
+
+        y = Number(y);
+        if (y > 0) {
+            if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
+                return 2;
+            } else {
+                return 1;
+            }
+        } else {
+            return 0;
+        }
+
+    }
+    //判断月
+    function mt(m) {
+        m = Number(m);
+        if (m >= 1 && m <= 12) {
+            switch (m) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    return '30';
+                    break;
+                case 2:
+                    return '28';
+                default:
+                    return '31';
+
+            }
+        } else {
+            return 0;
+        }
+    }
+    //判断日
+    function dy(a, d) {
+        d = Number(d);
+        if (a > 0) {
+            if (a == d) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+    btn.onclick = function () {
+        var y = yer(year.value);
+        var m = mt(month.value);
+        var d = 0;
+
+        if (y == 0) {
+            text1.value = ('年日期错误');
+        } else {
+            text1.value = ('年日期正确');
+        }
+        if (m == 0) {
+            text2.value = ('月日期错误');
+        } else {
+            text2.value = ('月日期正确');
+        }
+        if (y > 0 && m > 0) {
+            if (y == 2 && month.value == 2) {
+
+                d = dy(m + 1, day.value);
+
+            } else {
+                d = dy(m, day.value);
+            }
+        }
+        if (d > 0) {
+            text3.value = ('天日期正确');
+        } else {
+            text3.value = ('天日期错误');
+        }
+
+    }
+</script>
+
+</html>

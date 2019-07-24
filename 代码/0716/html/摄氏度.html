@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<input type="text" name="" id="w"> <input type="button" id="b" value="转换"> <input type="text" id="z">
+
+<body>
+    <script>
+        var w = document.getElementById("w");
+        var b = document.getElementById("b");
+        var z = document.getElementById("z");
+        b.onclick = function () {
+            var neww = w.value - 0;
+            z.value = (5 / 9.0 * (neww - 32)).toFixed(1);
+        }
+    </script>
+</body>
+
+</html>

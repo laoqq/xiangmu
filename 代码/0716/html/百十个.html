@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="mub">
+    <input type="button" id="btn" value="结果">
+    <div id="result1"> </div>
+    <div id="result2"> </div>
+    <div id="result3"> </div>
+</body>
+<script>
+    var mub = document.getElementById("mub");
+    var result1 = document.getElementById("result1");
+    var result2 = document.getElementById("result2");
+    var result3 = document.getElementById("result3");
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        var newnub = mub.value;
+        newnub = parseInt(newnub);
+        var a = parseInt(newnub / 100);
+        var b = parseInt(newnub % 100 / 10);
+        var c = parseInt(newnub % 10);
+        result1.innerHTML = '百位' + a;
+        result2.innerHTML = '十位' + b;
+        result3.innerHTML = '个位' + c;
+
+        // console.log(a, b, c);
+    }
+</script>
+
+</html>
