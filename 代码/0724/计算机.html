@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .box1 {
+            width: 250px;
+            height: 300px;
+            margin: 100px auto;
+            border-radius: 16px;
+            border: 1px solid red;
+            background-color: #fff;
+        }
+
+        #box2 {
+            width: 100%;
+            height: 50px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            border-radius: 16px;
+
+
+        }
+
+        #list {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #list .button {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            background: #ccc;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        #list .button:hover {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div id="box2"></div>
+        <div id="list">
+
+            <div class="button">1</div>
+            <div class="button">2</div>
+            <div class="button">3</div>
+            <div class="button">+</div>
+            <div class="button">4</div>
+
+            <div class="button">5</div>
+            <div class="button">6</div>
+            <div class="button">-</div>
+            <div class="button">7</div>
+            <div class="button">8</div>
+
+            <div class="button">9</div>
+            <div class="button">*</div>
+            <div class="button">0</div>
+            <div class="button">÷</div>
+            <div class="button">%</div>
+            <div class="button">=</div>
+
+
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+
+        var box2 = document.getElementById('box2');
+        var list = document.getElementById('list');
+        var lst = list.getElementsByClassName('button');
+        var m = lst.length;
+        // var a = [];
+        // var j = 0;
+        var a = '';
+
+        list.onclick = function () {
+            if (event.srcElement.innerText == '=') {
+                return;
+            } else {
+                a += event.srcElement.innerText;
+                box2.innerHTML = a;
+            }
+
+        }
+
+        lst[m - 1].onclick = function () {
+            var b = eval(a);
+            box2.innerHTML = b;
+            a = ''
+
+        }
+        // function sun() {
+        //     for (var i = 0; i < lst.length; i++) {
+
+        // lst[i].onclick = function () {
+
+        // if (Number(this.innerHTML) >= 0) {
+        // a[j] = this.innerHTML;
+        // j++;
+        // box2.innerHTML = this.innerHTML;
+        //     console.log(a);
+        // } else {
+        //     var c = this.innerHTML;
+        //     console.log(c);
+        //     box2.innerHTML = c;
+        // }
+
+        // switch (c) {
+        //     case '+':
+        //         box2.innerHTML = (Number(a[0]) + Number(a[1]));
+        //         console.log(c);
+        //         console.log(Number(a[0]) + Number(a[1]));
+        //         break;
+        //     case '-':
+        //         box2.innerHTML = Number(a[0]) - Number(a[1]);
+        //         break;
+        //     case '*':
+        //         box2.innerHTML = Number(a[0]) * Number(a[1]);
+        //         break;
+        //     case '/':
+        //         box2.innerHTML = Number(a[0]) / Number(a[1]);
+        //         break;
+        //     case '%':
+        //         box2.innerHTML = Number(a[0]) % Number(a[1]);
+        //         break;
+
+
+        // }
+
+
+
+
+    })();
+</script>
+
+</html>

@@ -29,6 +29,7 @@ function randomColor(type) {
         // console.log(color);
     }
     return color;
+
 }
 
 /*

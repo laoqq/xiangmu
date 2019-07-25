@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        #box1 {
+            width: 500px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+
+        #bul {
+            border: 1px solid #ccc;
+
+            width: 480px;
+            margin: 0 10px;
+            margin-bottom: 100px;
+        }
+
+        #bul li {
+            font-size: 16px;
+            line-height: 16px;
+            margin-top: 20px;
+        }
+
+        #box2 {
+            width: 100%;
+            text-align: center;
+        }
+
+        #box2 #text1 {
+            width: 300px;
+            height: 50px;
+        }
+
+        #box2 #btn {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <h2>最新留言</h2>
+        <ul id="bul">
+            <!-- <li></li> -->
+
+        </ul>
+
+        <div id="box2"><input type="text" id="text1">
+            <input type="button" value="上传" id="btn">
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+        var bul = document.getElementById('bul');
+        var text1 = document.getElementById('text1')
+        var btn = document.getElementById('btn');
+        var list = bul.getElementsByTagName('li');
+        var news = ['小明由于调戏女老师再次被滚粗教室', 'iPhone10发布,屏幕高度亮瞎了所有小伙伴', '为了弘扬乐于助人的精神，中国人大开会决定授予老王“中国好邻居”称号'];
+
+        function int() {
+            var html = '';
+            for (var i = 0; i < news.length; i++) {
+                html += '<li>' + (i + 1) + '.' + news[i] + '</li>';
+            }
+            bul.innerHTML = html;
+        }
+        int();
+
+        function incident() {
+            var tex = text1.value;
+            if (tex) {
+                news.unshift(tex);
+                if (news.length > 5) {
+                    news.pop();
+                }
+
+                int()
+                text1.value = '';
+                text1.focus();
+            } else {
+                alert('请重新输入');
+            }
+        }
+        btn.onclick = function () {
+            incident();
+        }
+        btn.onkeyup = function (e) {
+            if (e.keyCode == 13) {
+                incident();
+            }
+        }
+    })();
+</script>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/taopao.css
+    ">
+
+</head>
+
+<body>
+    <div id="box">
+        <div id="lst">
+            <!-- <div class="bul">
+                <div class="bu12">
+                    <img class="img1" src="../img/pic1.jpg" alt="">
+                    <div class="bu13">
+                        <a href="">找相似</a><a href="">找同款</a>
+                    </div>
+                </div>
+                <ul id="list">
+                    <li><img  src="../img/pic1s.jpg" alt=""></li>
+                    <li><img src="../img/pic3.jpg " alt=""></li>
+                    </li>
+                    <li><img src="../img/pic2s.jpg" alt=""></li>
+                    </li>
+                </ul>
+                <div class="box1">
+                    <p class="p1">
+                        <span class="span1">￥399 </span>
+                        <span class="span2">1099人付款</span>
+                    </p>
+                    <p class="p2">
+                        <span class="span3">包邮</span> 欧洲站连衣裙2019春夏新款短袖韩版中长款荷叶边裙子宽松显瘦女装</p>
+                    <p class="p3">
+                        <i class="iconfont icon-liebiao-copy-copy-copy"></i><span>大侠</span><span class="span4">法国</span>
+                    </p>
+                    <p class="p4"><span class="span5"><i class="iconfont icon-jinpai"></i></span><span class="span6"><i
+                                class="iconfont icon-aliwangwang"></i></span></p>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</body>
+<script>
+    (function () {
+        //假数据
+        var data = [{
+            id: 001,
+            price: '￥' + 756.00,
+            imgurl: ['../img/pic1.jpg', '../img/pic2.jpg', '../img/pic3.jpg'],
+            name: '伊诺法代maje19春夏高圆圆明星同款蓝色衬衫绑带气质OL连衣裙3色',
+            address: '爱尚宝贝116',
+            more: '169人付款',
+            city: '法国'
+
+        }, {
+            id: 002,
+            price: '￥' + 980.00,
+            imgurl: ['../img/pic4.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国'
+        }, {
+            id: 002,
+            price: '￥' + 980.00,
+            imgurl: ['../img/pic4.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国'
+        }, {
+            id: 002,
+            price: '￥' + 980.00,
+            imgurl: ['../img/pic4.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国'
+        }, {
+            id: 003,
+            price: '￥' + 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利'
+        }, {
+            id: 003,
+            price: '￥' + 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利'
+        }, {
+            id: 003,
+            price: '￥' + 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利'
+        }, {
+            id: 004,
+            price: '￥' + 168.00,
+            imgurl: ['../img/pic6.jpg', '../img/pic2.jpg'],
+            name: '【KiKi法代】maje 19春夏V领束腰荷叶边褶皱印花连衣裙 RUFFLE',
+            address: '紫韩衣阁66',
+            more: '85人付款',
+            city: '法国'
+        }];
+        //找节点
+        var lst = document.getElementById('lst');
+
+        //拼接
+        var html = '';
+
+        data.forEach(function (item) {
+            var str = '';
+            item.imgurl.forEach(function (ite) {
+                str += ` <li>
+                    <img  class="img2" src="${ite}" alt="">
+                    </li>`
+            })
+
+            html += `
+             <div class="bul">
+                <div class="bu12">
+                    <img class="img1" src="${item.imgurl[0]}" alt="">
+                    <div class="bu13">
+                        <a href="">找相似</a><a href="">找同款</a>
+                    </div>
+                </div>
+                <ul class="list">
+                    ${str}
+                </ul>
+                <div class="box1">
+                    <p class="p1">
+                        <span class="span1">${item.price} </span>
+                        <span class="span2">${item.more}</span>
+                    </p>
+                    <p class="p2">
+                        <span class="span3">包邮</span> ${item.name}</p>
+                    <p class="p3">
+                        <i class="iconfont icon-liebiao-copy-copy-copy"></i><span>${item.address}</span><span
+                            class="span4">${item.city}</span>
+                    </p>
+                    <p class="p4"><span class="span5"><i class="iconfont icon-jinpai"></i></span><span class="span6"><i
+                                class="iconfont icon-aliwangwang"></i></span></p>
+                </div>
+            </div> `;
+
+        });
+        //渲染
+        lst.innerHTML = html;
+        var bul = document.getElementsByClassName('bul');
+        var list1 = document.getElementsByClassName('list');
+        var bu12 = document.getElementsByClassName('bu12');
+        var img1 = document.getElementsByClassName('img1'); //大图
+        var img2 = document.getElementsByClassName('img2'); //小图
+        var bu12 = document.getElementsByClassName('bu12');
+        var bu13 = document.getElementsByClassName('bu13');
+
+        console.log(list1, img1, img2);
+        // img2.forEach(function (m, i) {
+        //     m.s
+        // })
+        for (var j = 0; j < list1.length; j++) {
+            list1[j].index = j;
+        }
+
+        for (var i = 0; i < img2.length; i++) {
+            img2[i].onmouseover = function () {
+                var smll = this.src;
+
+                // var fa = this.parentNode.index;
+                // console.log(fa);
+                var index = this.parentNode.
+                parentNode.index;
+                img1[index].src = smll;
+            }
+
+        }
+
+    })();
+</script>
+
+</html>

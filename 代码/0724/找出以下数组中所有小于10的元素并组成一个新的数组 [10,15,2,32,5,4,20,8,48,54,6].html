@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>找出以下数组中所有小于10的元素并组成一个新的数组 [10,15,2,32,5,4,20,8,48,54,6]</h1>
+    <input type="button" value="结果" id="btn"><input type="text" name="" id="text1">
+</body>
+<script>
+    (function () {
+
+        var btn = document.getElementById('btn');
+        var text1 = document.getElementById('text1');
+        var m = 0;
+        var n = new Array();
+
+        function seach(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < 10) {
+                    n[m] = arr[i];
+                    m++;
+                }
+            }
+
+            text1.value = n;
+        }
+        btn.onclick = function () {
+            var a = [10, 15, 2, 32, 5, 4, 20, 8, 48, 54, 6];
+            seach(a);
+        }
+    })();
+</script>
+
+</html>

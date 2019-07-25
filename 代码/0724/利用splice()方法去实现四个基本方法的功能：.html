@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>利用splice()方法去实现四个基本方法的功能：push() unshift() pop() shift()</h1>
+    原数组
+    <div id="box"></div>
+    <label for="slt">选择操作</label>
+    <select name="" id="slt">
+        <option value="push">push</option>
+        <option value="unshift">unshift</option>
+        <option value="pop">pop</option>
+        <option value="shift">shift</option>
+    </select>
+    <label for="text1">若选择插入或删除操作，请输入数据</label>
+    <input type="text" id="text1">
+    <input type="button" value="结果" id="btn">
+    <div id="text2"></div>
+</body>
+<script>
+    (function () {
+        var box = document.getElementById('box');
+        var slt = document.getElementById('slt');
+        var text1 = document.getElementById('text1');
+        var text2 = document.getElementById('text2');
+        var btn = document.getElementById('btn');
+        var arr = [10, 15, 2, 32, 5, 4, 20, 8, 48, 54, 6];
+        box.innerHTML = arr;
+        btn.onclick = function () {
+            var a = slt.value;
+            var b = text1.value;
+            var legh = arr.length;
+            text1.value = '';
+            if (a == 'push') {
+                arr.splice(0, 0, b);
+
+
+            } else if (a == 'unshift') {
+                arr.splice(legh, 0, b);
+            } else if (a == 'pop') {
+                arr.splice(legh - 1, 1);
+            } else {
+                arr.splice(0, 1);
+            }
+            text2.innerHTML = arr;
+        }
+
+    })();
+</script>
+
+</html>

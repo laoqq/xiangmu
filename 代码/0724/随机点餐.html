@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>随机点餐</h1>
+    <input type="button" value="吃啥" id="btn">
+    <input type="text" name="" id="text1" color="red">
+    <input type="text" name="" id="text2" color="red">
+</body>
+<script>
+    (function () {
+        var btn = document.getElementById('btn');
+        var text1 = document.getElementById('text1');
+        var text2 = document.getElementById('text2');
+        var m = new Array();
+        var n = 0;
+
+        function dd(arr) {
+            var mb = parseInt(Math.random() * arr.length);
+            return mb;
+        }
+        btn.onclick = function () {
+            var arr = ['糖醋排骨', '红烧排骨', '红烧肉', '网红鸡爪', '清蒸鲤鱼', '馒头配菜', '糖醋鲤鱼', '西红柿炒鸡蛋'];
+            var a = dd(arr);
+            text2.value = '';
+            text1.value = arr[a];
+            console.log(a);
+            if (n > 0) {
+                for (var j = 0; j < m.length; j++) {
+                    if (Number(m[j]) == a) {
+                        text2.value = '你吃过这个菜了';
+                    }
+                    console.log(m, n)
+
+                }
+
+            }
+
+            m.push(a);
+            n++;
+
+            console.log(m, n)
+
+        }
+    })();
+</script>
+- 9
+
+</html>

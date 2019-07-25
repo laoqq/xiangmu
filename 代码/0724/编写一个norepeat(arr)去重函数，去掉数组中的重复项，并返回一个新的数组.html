@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>编写一个norepeat(arr)去重函数，去掉数组中的重复项，并返回一个新的数组</h1>
+    <label for="text1"> 输入要去重的数组</label>
+    <input type="text" id="text1">
+    <input type="button" id="btn" value="结果">
+    <input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var btn = document.getElementById("btn");
+    var text2 = document.getElementById("text2");
+    //去重
+    function dw(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (Number(arr[i]) == Number(arr[j])) {
+                    arr.splice(j, 1);
+                }
+            }
+        }
+        return arr;
+    }
+    btn.onclick = function () {
+        var arr = text1.value.split(' ');
+        text2.value = dw(arr);
+    }
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>有一个从小到大排序的数组[3,5,6,20,22,33,88]。现输入一个数，要求按原来的规律将它插入数组中，并打印出新的数组</h1>
+    <label for="text1">请输入要插入到数组的数</label><input type="text" id="text1">
+    <input type="button" value="结果" id="btn"><input type="text" id="text2">
+</body>
+<script>
+    var text1 = document.getElementById("text1");
+    var btn = document.getElementById("btn");
+    var text2 = document.getElementById("text2");
+    // 插入函数
+    function insert(arr, a) {
+        a = Number(a);
+        for (var i = 0; i <= arr.length; i++) {
+            if (arr[i] >= a) {
+                arr.splice(i, 0, a);
+                return arr;
+            }
+        }
+
+    }
+    btn.onclick = function () {
+        var ar = new Array(3, 5, 6, 20, 22, 33, 88);
+        var x = text1.value;
+        text2.value = insert(ar, x);
+    }
+</script>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+
+        td {
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>
+            以下是某班级一次考试的成绩表。请计算每个学生总成绩，并按总成绩排名。统计各单科成绩第一名，输出其成绩与学号
+        </h1>
+        <!-- <input type="text"> -->
+        <input type="button" value="结果" id="btn" />
+        <h2>总成绩排名</h2>
+        <div class="box1">
+            <table border="1">
+                <tr>
+                    <td>学号</td>
+                    <td>语文</td>
+                    <td>数学</td>
+                    <td>英语</td>
+                    <td>总成绩</td>
+                    <td>名次</td>
+                </tr>
+            </table>
+
+            <table id="tb" border="1">
+                <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr> -->
+            </table>
+            <h2>各科成绩最高</h2>
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <div id="box3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+        var data = [{
+                sno: 1,
+                chinese: 105,
+                math: 62,
+                english: 118
+            },
+            {
+                sno: 2,
+                chinese: 89,
+                math: 78,
+                english: 120
+            }, {
+                sno: 3,
+                chinese: 86,
+                math: 64,
+                english: 80
+            }, {
+                sno: 4,
+                chinese: 78,
+                math: 99,
+                english: 91
+            }, {
+                sno: 5,
+                chinese: 107.5,
+                math: 97,
+                english: 70
+            }, {
+                sno: 6,
+                chinese: 112,
+                math: 61,
+                english: 92
+            }, {
+                sno: 7,
+                chinese: 101,
+                math: 79,
+                english: 104
+            }, {
+                sno: 8,
+                chinese: 71,
+                math: 72,
+                english: 105
+            }, {
+                sno: 9,
+                chinese: 56,
+                math: 68,
+                english: 61
+            }, {
+                sno: 10,
+                chinese: 98,
+                math: 83,
+                english: 77
+            }
+        ]
+
+        var tb = document.getElementById('tb');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            data.forEach(function (item) {
+                item.total = item.chinese + item.math + item.english;
+            })
+            data.sort(function (x, y) {
+                return y.total - x.total;
+            })
+            var html = '';
+            data.forEach(function (item, index) {
+                html += `<tr>
+                <td>${item.sno}</td>
+                <td>${item.chinese}</td>
+                <td>${item.math}</td>
+                <td>${item.english}</td>
+                <td>${item.total}</td>
+                <td>${index+1}</td>
+            </tr>`
+            })
+            tb.innerHTML = html;
+            data.sort(function (a, b) {
+                return b.chinese - a.chinese;
+            });
+            var box1 = document.getElementById('box1');
+            box1.innerHTML = ('语文最高成绩：' + ' 学号：' + data[0].sno + ' 成绩: ' + data[0].chinese + '<br>');
+            data.sort(function (a, b) {
+                return b.math - a.math;
+            });
+            var box2 = document.getElementById('box2');
+            box2.innerHTML = ('数学最高成绩：' + ' 学号：' + data[0].sno + ' 成绩: ' + data[0].math + '<br>');
+            data.sort(function (a, b) {
+                return b.english - a.english;
+            })
+            var box3 = document.getElementById('box3');
+            box3.innerHTML = ('英语最高成绩：' + ' 学号：' + data[0].sno + ' 成绩: ' + data[0].english + '<br>');
+        }
+    })();
+</script>
+
+</html>
