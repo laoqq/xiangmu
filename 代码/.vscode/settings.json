@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.fontSize": 18,
+    "files.autoSave": "off",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.wordWrap": "on",
+    "cssrem.rootFontSize": 75,
+    "window.zoomLevel": 1
+}

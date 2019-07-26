@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    (function () {
+        var a = [1, 38, 5, 65, 9, 2, 3];
+        var leg = a.length;
+        var inde;
+        var conten;
+
+        function su() {
+            for (var i = 1; i < leg; i++) {
+                inde = i - 1;
+                conten = a[i];
+                while (inde >= 0 && a[inde] > conten) {
+                    a[inde + 1] = a[inde];
+                    inde--;
+                }
+                a[inde + 1] = conten;
+            }
+            console.log(a);
+        }
+        su();
+    })();
+</script>
+
+</html>
