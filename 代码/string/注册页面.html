@@ -61,39 +61,22 @@
                     <label for="bgword">重复密码：</label><input type="password" name="password" id="bgword"
                         placeholder="密码">
                 </div>
-                <input type="button" value="注册">
+                <input type="button" value="注册" id="btn">
             </fieldset>
 
         </form>
     </div>
 </body>
 <script>
-    var mysql = require('mysql');
+    (function () {
 
-    var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '123456',
-        port: '3306',
-        database: 'test'
-    });
+        var name = document.getElementById('name');
+        var password = document.getElementById('password');
+        var bgword = document.getElementById('bgword');
+        var btn = document.getElementById('btn');
 
-    connection.connect();
 
-    var sql = 'SELECT * FROM websites';
-    //查
-    connection.query(sql, function (err, result) {
-        if (err) {
-            console.log('[SELECT ERROR] - ', err.message);
-            return;
-        }
-
-        console.log('--------------------------SELECT----------------------------');
-        console.log(result);
-        console.log('------------------------------------------------------------\n\n');
-    });
-
-    connection.end();
+    })();
 </script>
 
 </html>

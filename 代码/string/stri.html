@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网址解析成对象：面试题</title>
+    <script>
+        /*
+            网址解析成对象：面试题
+                已知条件：url，问号后面的是参数:以后用于页面跳转带参数
+                    http://www.taobao.com/index.php?key0=0&key1=1&key2=2
+                    
+                求：得到一个对象
+
+                    {
+                        key0 ： 0,
+                        key1 : 1,
+                        key2 : 2
+                    }
+        */
+
+        var url = "http://www.taobao.com/index.php?key0=0&key1=1&key2=2"
+
+        // //切掉？前面的部分
+        // var index = url.indexOf('?');//找到问号所在的位置
+        // console.log(index);            
+        // var str = url.slice(index+1);//key0=0&key1=1&key2=2
+        // console.log(str);     
+        // //切割第一次      
+        // var arr1 = str.split('&');//["key0=0", "key1=1", "key2=2"]
+        // console.log(arr1);
+        // //切割第二次
+        // var json = {}
+        // // json.name = '张三';
+        // // json[item] = '李四';
+        // arr1.forEach(function(item) {
+        //     var arr2 = item.split('=');//['key0','0']
+        //     json[arr2[0]] = arr2[1];
+        // });
+        // console.log(json);//对象 {key0: "0", key1: "1", key2: "2"}
+
+
+        //封装方法实现字符串转成对象：字符串的格式是key0=0&key1=1&key2=2
+
+        function strToObj(str) {
+            var json = {};//准备用来存对象的
+            var data = '';//存参数：key0=0&key1=1&key2=2
+            if (str.indexOf('?') >= 0) {
+                //含有问号？，证明是一个完整的url，先截掉？前面的部分
+                data = str.slice(str.indexOf('?') + 1);
+            } else {
+                data = str;
+            }
+            //字符串转成对象：key0=0&key1=1&key2=2
+            var arr1 = data.split('&');///["key0=0", "key1=1", "key2=2"]
+            arr1.forEach(function (item) {
+                var arr2 = item.split('=');//['key0','0']
+                json[arr2[0]] = arr2[1];
+            });
+            // console.log(json);
+            return json;
+
+        }
+
+        var res = strToObj(url);
+        console.log(res);
+        // console.log('res' + res);
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li></li>
+    </ul>
+</body>
+
+</html>
