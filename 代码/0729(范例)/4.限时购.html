@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 800px;
+            margin: 100px auto;
+        }
+
+        img {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 26px;
+            color: red;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 200px;
+            background: url(img/06.png) no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+
+        .p1 {
+            width: 100%;
+            height: 30px;
+            font-size: 20px;
+            position: absolute;
+            bottom: 0;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            font-size: 26px;
+            text-align: center;
+            line-height: 40px;
+            color: red;
+            background: black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="img/02.gif" alt="">
+        <a href="">￥999999999999999</a><br>
+        <span>数量：9999</span>
+        <p>你买不了吃亏，买不了上当！快来抢购吧！</p>
+        <div class="box1">
+            <p class="p1"></p>
+        </div>
+        <input type="button" value="抢购" id="btn">
+    </div>
+</body>
+<script src="common.js"></script>
+<script>
+    (function () {
+        //找节点
+        var img = document.querySelector('#box img');
+        var time = document.querySelector('.box1 .p1');
+        var btn = document.querySelector('#box #btn');
+        var end = '2019-7-30 10:03:00'
+
+        function show() {
+            var data = Date.now(); //获取系统时间
+            var time2 = Date.parse(end); //将时间转换为微妙
+
+            var lead = (time2 - data) / 1000; //将时间差转换为秒
+
+            if (lead <= 0) {
+                img.src = `img/04.gif`; //改变图片
+                time.innerHTML = '抢购结束'; //渲染，
+                btn.style = 'background:#ccc';
+                btn.disabled = true; //给按钮设置disabled，不可在点击
+                clearInterval(timer); //关闭定时器
+            } else {
+                var obj = ctime(lead);
+                time.innerHTML =
+                    `抢购倒计时：${obj.days}:天 ${toDb(obj.hours)}:时 ${toDb(obj.mins)}:分 ${toDb(obj.secss)}:秒`; //渲染
+            }
+        };
+        show();
+        var timer = setInterval(show, 1000);
+
+        function ctime(t) { //时间形式的转换
+
+            var secs = parseInt(t % 60); //秒
+            var min = parseInt(t / 60) % 60; //分
+            var hour = parseInt(t / 60 / 60) % 24; //时
+            var day = parseInt(t / 60 / 60 / 24); //天
+            return {
+                secss: secs,
+                mins: min,
+                hours: hour,
+                days: day
+
+            }
+        };
+    })();
+</script>
+
+</html>

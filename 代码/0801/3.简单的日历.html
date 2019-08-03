@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        #box1 {
+            width: 200px;
+            height: 400px;
+            background: #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 100px auto;
+        }
+
+        #li_list {
+            width: 160px;
+            height: 250px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        li {
+            width: 50px;
+            height: 50px;
+            color: #ffffff;
+            background: #111;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        li:hover {
+            background: #58bc58;
+        }
+
+        #box {
+            width: 160px;
+            height: 100px;
+            background: #ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <ul id="li_list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+        </ul>
+        <div id="box"></div>
+    </div>
+</body>
+<script>
+    (function () {
+        var li_list = document.querySelectorAll('#li_list li');
+        var box = document.getElementById('box');
+        var ev = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        box.innerHTML = ev[0];
+        for (var i = 0; i < li_list.length; i++) {
+            li_list[i].index = i;
+            li_list[i].onmouseover = function () {
+                box.innerHTML = ev[this.index];
+            }
+        }
+    })();
+</script>
+
+</html>

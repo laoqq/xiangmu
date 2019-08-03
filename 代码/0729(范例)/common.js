@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-07-27 13:55:01
+ * @LastEditTime: 2019-08-02 18:51:55
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -97,9 +97,51 @@ function sun(arr) {
 function filtration(str) {
     var arr = ['fuck', '草', '操', '滚'];
     for (var i = 0; i < arr.length; i++) {
-        var ar = arr[0];
+        var ar = arr[i];
         var set = new RegExp(ar, 'ig');
         str = str.replace(set, '**');
+        console.log(set);
     }
     return str;
+}
+/*
+ * @Description: 补零
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function toDb(num) {
+    if (num < 10) {
+        return '0' + num;
+    } else {
+        return '' + num;
+    }
+}
+/*
+ * @Description: 能够获取元素的样式(行内和非行内)， 还能设置元素的样式（ 行内）
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function css() {
+    var ele = arguments[0];
+    var attr = arguments[1];
+    if (arguments.length == 2) {
+        //获取样式
+        if (getComputedStyle(ele, false)) {
+            //证明在主流浏览器下：IE9+ 和 主流的浏览器
+            return getComputedStyle(ele, false)[attr];
+        } else {
+            //低版本IE:IE678
+            return ele.currentStyle(attr);
+        }
+    } else if (arguments.length == 3) {
+        //设置样式
+        // box.style.display = 'block';
+        var val = arguments[2];
+        ele.style[attr] = val;
+    }
+
 }

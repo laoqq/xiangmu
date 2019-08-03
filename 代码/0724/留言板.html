@@ -67,6 +67,7 @@
         </div>
     </div>
 </body>
+<script src="common.js"></script>
 <script>
     (function () {
         var bul = document.getElementById('bul');
@@ -87,7 +88,8 @@
         function incident() {
             var tex = text1.value;
             if (tex) {
-                news.unshift(tex);
+                var t = filtration(tex);
+                news.unshift(t);
                 if (news.length > 5) {
                     news.pop();
                 }
@@ -107,6 +109,9 @@
                 incident();
             }
         }
+
+
+
     })();
 </script>
 

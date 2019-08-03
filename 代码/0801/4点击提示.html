@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            position: relative;
+            font-size: 16px
+        }
+
+        #box2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 20px;
+            left: 15px;
+            font-size: 13px;
+            background: goldenrod;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <input type="checkbox" id="btn">记住密码
+        <div id="box2">要谨慎的啊</div>
+    </div>
+</body>
+<script>
+    (function () {
+        var btn = document.getElementById('btn');
+        var box2 = document.getElementById('box2');
+        btn.onmouseover = function () {
+            box2.style.display = 'block';
+            setTimeout(function () {
+                box2.style.display = 'none';
+            }, 5000)
+        }
+    })();
+</script>
+
+</html>

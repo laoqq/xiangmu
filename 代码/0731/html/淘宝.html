@@ -48,7 +48,7 @@
 
     </div>
 </body>
-<script src="../js/"></script>
+<script src="../js/common copy.js"></script>
 <script>
     (function () {
         //假数据
@@ -133,7 +133,7 @@
             })
 
             html += `
-             <div class="bul" data-id="${item.id}">
+             <div class="bul">
                 <div class="bu12">
                     <img class="img1" src="${item.imgurl[0]}" alt="">
                     <div class="bu13">
@@ -191,6 +191,16 @@
                 img1[index].src = smll; //把小图的路径给大图
             }
 
+        }
+        for (let j = 0; j < bul.length; j++) {
+            bul[j].index = j;
+            bul[j].onclick = function () {
+                var str = data[this.index].id;
+                var st = 'id' + '=' + str;
+                window.open('2详细页.html?' + st);
+
+
+            }
         }
 
     })();

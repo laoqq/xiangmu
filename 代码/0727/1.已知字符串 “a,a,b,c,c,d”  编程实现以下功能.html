@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>已知字符串 “a,a,b,c,c,d” 编程实现以下功能。
+
+        统计每个字符出现的次数，结果显示 a：2、b：1、c：2、d：1
+
+        去掉重复的字符，使结果显示 abcd
+    </h1>
+    <div id="text1"></div>
+</body>
+<script src="common.js"></script>
+<script>
+    (function () {
+        // var url = "http://www.taobao.com/index.php?key10=0&key12=1&key13=2"; //测试
+        // var s = url.split('?')[1];
+        // console.log(incision(s));
+        // console.log(tojoint(incision(s)));
+        var text1 = document.getElementById('text1');
+        var set = 'a,a,b,c,c,d'
+        var str = set.split(','); //字符串转数组
+        var arr = [];
+        for (var i = 0; i < str.length; i++) { //去重，将不重复的值存到一个新的数组内
+            if (!arr.includes(str[i])) {
+                arr.push(str[i]);
+            }
+        }
+        var a = [];
+        console.log(set, arr);
+        var html = '';
+        for (var j = 0; j < arr.length; j++) { //查找字符串中重复字符的数量并储存到一个新的数组中
+            var s = new RegExp(arr[j], 'g');
+            a[j] = set.match(s).length;
+            html += arr[j] + ':' + a[j] + '、';
+            console.log(arr[j], ':', a[j]);
+        }
+        console.log(arr.join(''));
+        text1.innerHTML = set + '<br>' + html + '<br>' + arr.join('');
+
+
+    })();
+</script>
+
+</html>

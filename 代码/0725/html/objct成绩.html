@@ -127,6 +127,7 @@
                 return y.total - x.total;
             })
             var html = '';
+            //forEach
             data.forEach(function (item, index) {
                 html += `<tr>
                 <td>${item.sno}</td>
@@ -137,7 +138,19 @@
                 <td>${index+1}</td>
             </tr>`
             })
-            tb.innerHTML = html;
+            //map
+            var str = data.map(function (item, index) {
+                return `<tr>
+                    <td>${item.sno}</td>
+                    <td>${item.chinese}</td>
+                    <td>${item.math}</td>
+                    <td>${item.english}</td>
+                    <td>${item.total}</td>
+                    <td>${index+1}</td>
+                </tr>`
+            }).join('');
+
+            tb.innerHTML = str;
             data.sort(function (a, b) {
                 return b.chinese - a.chinese;
             });

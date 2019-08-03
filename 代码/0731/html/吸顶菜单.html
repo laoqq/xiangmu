@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        body {
+            height: 2000px;
+            background: #fff;
+
+        }
+
+        #head {
+            width: 100%;
+            height: 200px;
+            background: lightblue;
+
+        }
+
+        #menu {
+            width: 100%;
+            height: 45px;
+
+
+        }
+
+        .list1 {
+            width: 800px;
+            height: 100%;
+            margin: auto;
+            border: 1px solid #ccc;
+            display: flex;
+            background: #f6f6f6;
+        }
+
+        li {
+            width: 131px;
+            height: 46px;
+            margin-bottom: -2px;
+            border-right: 1px solid #E5E5E5;
+            padding: 0 10px;
+            color: #3C3C3C;
+            text-align: center;
+            line-height: 44px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background: #f6f6f6;
+        }
+
+        .h_li {
+            border-top: 2px solid red;
+            color: red;
+            background: #fff;
+        }
+
+        .fix {
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        #mian {
+
+            width: 800px;
+            margin: auto;
+
+            box-sizing: border-box;
+            padding: 10px 25px;
+
+
+
+        }
+
+        img {
+            width: 750px;
+            height: 950px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+
+    </div>
+    <div id="menu">
+        <ul class="list1">
+            <li>宝贝详情</li>
+            <li>累计评论</li>
+            <li>专项服务</li>
+        </ul>
+    </div>
+    <div id="mian"><img src="../img/t1.jpg" alt="">
+        <!-- <div class="box1"></div> -->
+        <!-- <div class="box2"></div> -->
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
+<script>
+    (function () {
+        //找节点
+        var head = document.getElementById('head');
+        var menu = document.getElementById('menu');
+        var arr_list1 = document.querySelectorAll('.list1 li');
+        var crollTop = menu.offsetTop;
+        var img = document.querySelector('#mian img');
+        //
+        window.onscroll = function () {
+            var scrollHight = window.scrollY;
+            if (scrollHight >= crollTop) {
+                menu.className = 'fix';
+            } else {
+                menu.className = '';
+            }
+        }
+        //
+        for (var i = 0; i < arr_list1.length; i++) {
+            arr_list1[i].index = i;
+            arr_list1[i].onclick = function () {
+                for (var j = 0; j < arr_list1.length; j++) {
+                    arr_list1[j].className = '';
+                }
+                this.className = 'h_li';
+                img.src = `../img/t${this.index+1}.jpg`;
+            }
+        }
+
+
+
+    })();
+</script>
+
+</html>

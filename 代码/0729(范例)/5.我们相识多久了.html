@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>我们认识多久了？</h1>
+    <label for="text1">输入认识的时间 年-月-日</label>
+    <input type="text" name="" id="text1">
+    <input type="button" value="相识就是缘" id="btn">
+    <div id="box"></div>
+</body>
+<script>
+    (function () {
+        //找节点
+        var text1 = document.querySelector('#text1');
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('#box');
+
+        btn.onclick = function () {
+            var data = Date.now(); //获取系统时间毫秒
+            var time = Date.parse(text1.value); //将时间转换成毫秒
+            var lade = data - time;
+            var day = parseInt(lade / 1000 / 60 / 60 / 24);
+            box.innerHTML = ('我们认识' + day + '天了');
+        }
+
+    })();
+</script>
+
+</html>

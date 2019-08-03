@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-07-27 13:55:01
+ * @LastEditTime: 2019-07-27 16:50:17
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -97,9 +97,42 @@ function sun(arr) {
 function filtration(str) {
     var arr = ['fuck', '草', '操', '滚'];
     for (var i = 0; i < arr.length; i++) {
-        var ar = arr[0];
+        var ar = arr[i];
         var set = new RegExp(ar, 'ig');
         str = str.replace(set, '**');
+        console.log(set);
     }
     return str;
+}
+/*
+ * @Description: 切割
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function incision(str) {
+    var arr = str.split('&');
+    var obj = {};
+
+    arr.forEach(function (item) {
+        var a = item.split('=');
+        obj[a[0]] = a[1];
+    })
+    return obj;
+}
+/*
+ * @Description: 拼接
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function tojoint(obj) {
+    var ht = ''
+    for (key in obj) {
+        ht += key + '=' + obj[key] + '&';
+    }
+    ht = ht.slice(0, -1);
+    return ht;
 }

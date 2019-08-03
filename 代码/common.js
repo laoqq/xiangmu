@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-07-27 13:55:01
+ * @LastEditTime: 2019-08-02 15:47:14
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -97,9 +97,86 @@ function sun(arr) {
 function filtration(str) {
     var arr = ['fuck', '草', '操', '滚'];
     for (var i = 0; i < arr.length; i++) {
-        var ar = arr[0];
+        var ar = arr[i];
         var set = new RegExp(ar, 'ig');
         str = str.replace(set, '**');
+        console.log(set);
     }
     return str;
+}
+/*
+ * @Description: 切割
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function incision(str) {
+    var arr = str.split('&');
+    var obj = {};
+
+    arr.forEach(function (item) {
+        var a = item.split('=');
+        obj[a[0]] = a[1];
+    })
+    return obj;
+}
+/*
+ * @Description: 拼接
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function tojoint(obj) {
+    var ht = ''
+    for (key in obj) {
+        ht += key + '=' + obj[key] + '&';
+    }
+    ht = ht.slice(0, -1);
+    return ht;
+}
+/*
+ * @Description: 补零
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function toDb(num) {
+    if (num < 10) {
+        return '0' + num;
+    } else {
+        return '' + num;
+    }
+}
+/*
+ * @Description: 将时间转换成年月日时分秒的形式
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function newdata(t) { //将时间转换成年月日的形式
+    var tt = new Date(t); //时间形式的转换
+    var year = tt.getFullYear(); //年
+
+    var month = tt.getMonth() + 1; //月
+
+    var day = tt.getDate(); //日
+    var hour = tt.getHours();
+    var minute = tt.getMinutes();
+    var seconds = tt.getSeconds();
+
+    return {
+
+        years: year,
+
+        months: month,
+
+        days: day,
+        hours: hour,
+        secs: seconds,
+        minutes: minute
+    }
 }

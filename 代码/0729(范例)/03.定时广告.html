@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: red;
+        }
+
+        #box {
+            width: 500px;
+            height: 800px;
+            margin: 100px auto;
+            background: url(img/03.gif) no-repeat;
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 50px;
+            box-sizing: border-box;
+            padding: 20px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <a href="" class="a1">5s</a><a href="" class="a2">X</a>
+    </div>
+</body>
+<script>
+    (function () {
+        //找节点
+        var box = document.querySelector('#box');
+
+        var a1 = document.querySelector('#box .a1');
+
+        var a2 = document.querySelector('#box .a2');
+
+        var m = 5; //默认时间
+
+        var n = 5; //换图片
+
+        var time = setInterval(function show() {
+            m--;
+
+            n--;
+
+            if (m <= 0) {
+
+                clearInterval(time);
+
+                a1.innerHTML = '';
+
+                box.style.display = "none";
+
+            } else {
+
+                a1.innerHTML = m + 's'; //时间渲染
+
+                box.style = `background: url(img/0${n}.gif) no-repeat` //更换图片
+
+            }
+        }, 1000);
+
+
+    })();
+</script>
+
+</html>

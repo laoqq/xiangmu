@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 100px auto;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <input type="checkbox" name="" id="all">
+            <label for="all">全选</label>&nbsp;&nbsp;
+            <input type="checkbox" name="" id="fall">
+            <label for="">反选</label><br>
+            <tbody id="tbody">
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+                <br>
+                <br>
+                <input type="checkbox" name="" id="sel"><label for="sel">爱好</label>
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+<script>
+    (function () {
+        var all = document.getElementById('all');
+        var fall = document.getElementById('fall');
+        var tbody = document.getElementById('tbody');
+        // var a_sel = tbody.getElementsByTagName('input');
+        var a_sel = document.querySelectorAll('#sel');
+        console.log(a_sel);
+
+        function allcheck() {
+            var a = [];
+            for (var i = 0; i < a_sel.length; i++) {
+                if (a_sel[i].checked) {
+                    a.push(1);
+                }
+            }
+            return a.length;
+        }
+
+        function checked() {
+            var mun = allcheck();
+            console.log(mun);
+            if (mun == a_sel.length) {
+                all.checked = true;
+            } else {
+                all.checked = false;
+            }
+        }
+        all.onclick = function () {
+            for (var i = 0; i < a_sel.length; i++) {
+                a_sel[i].checked = all.checked;
+            }
+        }
+        fall.onclick = function () {
+            for (var i = 0; i < a_sel.length; i++) {
+                a_sel[i].checked = !a_sel[i].checked;
+            }
+            checked()
+        }
+
+        for (var i = 0; i < a_sel.length; i++) {
+            a_sel[i].onclick = function () {
+                checked()
+            }
+
+        }
+    })();
+</script>
+
+</html>

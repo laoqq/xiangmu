@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="0.css" id="lin" />
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      #box {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        /* padding-bottom: 5px;
+        box-sizing: border-box; */
+      }
+
+      #box1 {
+        width: 800px;
+        height: 100%;
+        background-color: #fff;
+        margin: auto;
+        padding: 10px 20px;
+        box-sizing: border-box;
+      }
+
+      .bt {
+        text-decoration: none;
+        line-height: 30px;
+      }
+
+      #box3 {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 1s;
+      }
+
+      #box3 #cont {
+        box-sizing: border-box;
+        padding-top: 10px;
+        width: 800px;
+        height: 250px;
+        margin: auto;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        overflow: hidden;
+      }
+
+      .bg {
+        width: 150px;
+        height: 150px;
+        display: block;
+      }
+      p {
+        width: 100%;
+        text-align: center;
+      }
+      #main {
+        width: 100%;
+        transition: all 1s;
+      }
+      .co {
+        width: 800px;
+        height: 500px;
+        margin: auto;
+        background: #ccc;
+        text-align: center;
+        padding-top: 20px;
+        font-size: 26px;
+      }
+      li {
+        list-style: none;
+        text-align: center;
+      }
+      #sure {
+        background-color: #58bc58;
+      }
+      #off {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <div id="box1">
+        <a href="#" class="bt" id="bt1"> 换肤</a>
+
+        <a href="#" class="bt" id="bt2">默认</a>
+      </div>
+      <div id="box3">
+        <div id="cont">
+          <li>
+            <a href="#" class="bg"></a>
+            <input type="radio" name="1" id="" class="in" />
+          </li>
+          <li>
+            <a href="#" class="bg"></a>
+            <input type="radio" name="1" id="" class="in" />
+          </li>
+          <li>
+            <a href="#" class="bg"></a>
+            <input type="radio" name="1" id="" class="in" />
+          </li>
+          <li>
+            <a href="#" class="bg"></a>
+            <input type="radio" name="1" id="" class="in" />
+          </li>
+          <p>
+            <input type="button" value="确定" id="sure" />&nbsp;&nbsp;
+            <input type="button" value="取消" id="off" />
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="co">内容</div>
+    </div>
+  </body>
+  <script>
+    (function() {
+      //找节点
+      var bt1 = document.getElementById("bt1"); //换肤
+      var bt2 = document.getElementById("bt2"); //恢复默认
+      var box3 = document.getElementById("box3"); //装皮肤的盒子
+      var bg = document.querySelectorAll("#cont .bg"); //皮肤的
+      var link = document.getElementById("lin"); //css连接
+      var sure = document.getElementById("sure"); //确认按钮
+      var off = document.getElementById("off"); //取消按钮
+      var main = document.getElementById("main"); //主题内容
+      //   var cont = document.getElementById("cont");
+      var arr_in = document.querySelectorAll("#cont .in");
+      console.log(arr_in);
+      var b = 0; //记录下标用于换背景
+
+      var m_bg = link.href; //存原来的背景
+      console.log(link.href);
+      for (let i = 0; i < bg.length; i++) {
+        //换背景
+        bg[i].index = i;
+        bg[i].onclick = function() {
+          link.href = `${this.index + 1}.css`;
+          b = this.index + 1;
+          arr_in[this.index].checked = true;
+          console.log(b);
+        };
+        //单选按钮事件
+        for (let i = 0; i < arr_in.length; i++) {
+          arr_in[i].index = i;
+          arr_in[i].onclick = function() {
+            link.href = `${this.index + 1}.css`;
+            b = this.index + 1;
+          };
+        }
+        //换肤按钮事件
+        bt1.onclick = function() {
+          box3.style.height = "240px";
+
+          main.style = "margin-top:260px";
+        };
+        //确认按钮
+        sure.onclick = function() {
+          box3.style.height = "0px";
+
+          main.style = "margin-top:0px";
+          m_bg = `${b}.css`;
+        };
+        //取消按钮
+        off.onclick = function() {
+          box3.style.height = "0px";
+          main.style = "margin-top:0px";
+          link.href = m_bg;
+        };
+        //恢复默认按钮
+        bt2.onclick = function() {
+          box3.style.height = "0px";
+
+          main.style = "margin-top:0px";
+
+          link.href = `0.css`;
+        };
+      }
+    })();
+  </script>
+</html>

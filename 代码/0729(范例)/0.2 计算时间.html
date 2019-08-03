@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>n天的后的日期</h1>
+    <input type="text" name="" id="text1">
+    <input type="button" value="日期" id="btn">
+    <input type="text" id="text2" width="1100px">
+</body>
+<script src="common.js"></script>
+<script>
+    (function () {
+        //找节点
+        var text1 = document.getElementById('text1');
+
+        var btn = document.getElementById('btn');
+
+        var text2 = document.getElementById('text2');
+
+        function newdata(t) { //将时间转换成年月日的形式
+
+            var tt = new Date(t); //时间形式的转换
+
+
+
+            var year = tt.getFullYear(); //年
+
+            var month = tt.getMonth() + 1; //月
+
+            var day = tt.getDate(); //日
+
+            return {
+
+                years: year,
+
+                months: month,
+
+                days: day
+            }
+        }
+        btn.onclick = function () {
+            var data = new Date(); //获取系统时间
+
+
+
+            var day = data.getDate(); //系统日
+
+            var time = Number(text1.value); //获取输入的天数
+
+            var end = data.setDate(day + time); //时间相加
+
+            // console.log(end);
+
+            var newobj = newdata(end); //时间形式的转换
+
+
+
+            var html = newobj.years + '年' + toDb(newobj.months) + '月' + toDb(newobj.days) + '日'; //拼接
+            text2.value = html; //渲染
+            // var data = Date.now();
+            // console.log(data);
+
+            // var newtime = data + time;
+            // console.log(time);
+            // var da = new Date(newtime);
+            // text2.value = da;
+        }
+
+
+
+    })();
+</script>
+
+</html>

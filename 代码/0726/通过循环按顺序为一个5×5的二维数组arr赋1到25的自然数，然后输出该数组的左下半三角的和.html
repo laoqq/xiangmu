@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            text-align: center;
+            color: black;
+            background: #ccc;
+
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>通过循环按顺序为一个5×5的二维数组arr赋1到25的自然数，然后输出该数组的左下半三角的和。试编程。 左下半三角</h1>
+    <input type="button" value="输出" id="btn">
+    <div id="box">
+        <!-- <span></span> -->
+    </div>
+    <label for="text1">和为：</label>
+    <input type="text" id="text1">
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+    var text1 = document.getElementById("text1");
+
+    function mb() {
+        var m = 1;
+        var n = 0
+        var html = '';
+
+        var a = new Array();
+        for (var i = 0; i < 5; i++) {
+            a[i] = new Array();
+            for (var j = 0; j < 5; j++) {
+                a[i][j] = m;
+                html += '<span>' + a[i][j] + '</span>';
+                m++;
+            }
+            html += '<br>'
+        }
+        for (var x = 0; x < 5; x++) {
+            for (var y = 0; y <= x; y++) {
+                html += '<span>' + a[x][y] + '</span>';
+                n += a[x][y];
+            }
+            html += '<br>'
+        }
+        box.innerHTML = html;
+        text1.value = n;
+    }
+    btn.onclick = function () {
+        mb();
+    }
+</script>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: url(img/b.png);
+        }
+
+        #box1 {
+            width: 100px;
+            height: 50px;
+            margin: 100px auto;
+            font-size: 16px;
+            position: relative;
+
+        }
+
+        #box1 p {
+            width: 200px;
+            line-height: 50px;
+            background-color: green;
+            color: #fff;
+            text-align: center;
+        }
+
+        #box2 {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.7);
+
+            display: none;
+        }
+
+        #list {
+            width: 200px;
+            height: 400px;
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        #list li {
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            transition: padding-left 500ms;
+
+        }
+
+        #box3 {
+            width: 300px;
+            height: 450px;
+            position: absolute;
+            top: -50px;
+            left: 200px;
+            background: rgba(255, 255, 255, 0.7);
+
+            display: none;
+            box-sizing: border-box;
+            border: 1px solid #bbb;
+            padding: 20px 30px;
+        }
+
+        .active {
+            background: #fff;
+        }
+
+        span {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        li:hover {
+            box-sizing: border-box;
+            border: 1px solid #bbb;
+            border-right: 1px solid #fff;
+            padding-left: 10px;
+            color: green;
+
+        }
+
+        h1 {
+            color: green;
+            text-decoration: underline;
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+
+        <p>国产生鲜</p>
+
+        <div id="box2">
+            <ul id="list">
+                <li>蔬菜</li>
+                <li>海鲜</li>
+                <li>水果</li>
+                <li>鲜肉</li>
+                <li>干果</li>
+                <li>啥都有</li>
+            </ul>
+            <div id="box3"></div>
+        </div>
+
+    </div>
+</body>
+<script>
+    (function () {
+        //找节点
+        var box1 = document.querySelector('#box1');
+        var box2 = document.querySelector('#box2');
+        var a_list = document.querySelectorAll('#list li');
+        var box3 = document.querySelector('#box3');
+        // box1.onmouseover = function () {
+        //     box2.style.display = 'block';
+
+        // }
+        // box1.onmouseout = function () {
+        //     box2.style.display = 'none';
+
+        // }
+        // box2.onmouseover = function () {
+        //     box3.style.display = 'block';
+
+        // }
+        // box2.onmouseout = function () {
+        //     box3.style.display = 'none';
+        // }
+
+        //假数据
+        var data = [
+            ['苹果1', '苹果2', '苹果3', '苹果4', '苹果5'],
+            ['龙虾1', '龙虾2', '龙虾3', '龙虾4', '龙虾5'],
+            ['肉1', '肉2', '肉3', '肉4', '肉5'],
+            ['苹果1', '苹果2', '苹果3', '苹果4', '苹果5'],
+            ['龙虾1', '龙虾2', '龙虾3', '龙虾4', '龙虾5'],
+            ['肉1', '肉2', '肉3', '肉4', '肉5']
+        ]
+
+
+
+        //给一二级菜单绑定事件
+        function action(action1, action2) {
+            action1.onmouseout = function () {
+                action2.style.display = 'none';
+
+            }
+            action1.onmouseover = function () {
+                action2.style.display = 'block';
+
+            }
+        }
+        action(box1, box2); //一级菜单
+        action(box2, box3); //二级菜单
+
+        for (let i = 0; i < a_list.length; i++) { //给二级菜单添加样式和给三级样式添加内容
+            a_list[i].index = i;
+            a_list[i].onmouseover = function () {
+                for (let j = 0; j < a_list.length; j++) {
+                    a_list[j].className = '';
+                }
+                this.className = 'active';
+                jont(data[this.index]);
+            }
+        }
+
+        function jont(arr) {
+            var html = '';
+            html += `<h1>分类</h1>`
+            for (let i = 0; i < arr.length; i++) {
+                html += `<span>${arr[i]}</span>`
+            }
+            box3.innerHTML = html;
+        }
+    })();
+</script>
+
+</html>

@@ -1,0 +1,146 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <style>
+         ul {
+             list-style: none;
+             padding: 0;
+             margin: 0;
+         }
+
+         .msg-list {
+             position: relative;
+             width: 600px;
+             margin: 0 auto;
+         }
+
+         .msg-list ul {
+             padding: 10px;
+             min-height: 200px;
+             max-height: 400px;
+             /*超出部分出现滚动条*/
+             overflow-y: auto;
+             border: 1px solid #ddd;
+         }
+
+         .msg-list li {
+             float: left;
+             clear: both;
+             margin: 10px 0;
+             padding: 5px;
+             line-height: 2;
+             border-radius: 5px;
+             background-color: #efefef;
+         }
+
+         .msg-list .active {
+             float: right;
+             background-color: #58bc58;
+             color: #fff;
+         }
+
+         .msg-list textarea {
+             display: block;
+             min-height: 50px;
+             margin: 10px 0;
+             width: 100%;
+             box-sizing: border-box;
+
+         }
+
+         .status {
+             display: none;
+             position: absolute;
+             left: 0;
+             bottom: 0;
+             right: 0;
+             padding: 5px 10px;
+             text-align: center;
+             color: #999;
+
+         }
+     </style>
+ </head>
+
+ <body>
+     <h1>机器人</h1>
+     <div id="autoAnswer" class="msg-list">
+         <ul>
+             <!-- <li>机器人</li>
+            <li class="active">我方</li> -->
+         </ul>
+         <textarea></textarea>
+
+         <input type="button" value="提交">
+         <div class="status">123456789214</div>
+     </div>
+ </body>
+ <script>
+     (function () {
+         //找节点
+         var list = document.querySelectorAll('#autoAnswer');
+         var ul = autoAnswer.children[0];
+         var con = autoAnswer.children[1];
+         var btn = autoAnswer.children[2];
+         var status = autoAnswer.children[3];
+
+         var q = ['你', '在吗', 'hh', 'x', 'x+x'];
+         var a = ['我', '在', 'hh', 'y', 'x'];
+
+
+         function reply() {
+             if (con.value.trim()) { //我
+                 var li = document.createElement('li');
+                 li.className = 'active';
+                 li.innerHTML = con.value;
+                 ul.appendChild(li);
+                 ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+                 var r_text = con.value;
+                 con.value = '';
+                 con.focus();
+
+                 status.style.display = 'block';
+                 //机器人
+                 setTimeout(function () {
+                     status.style.display = 'none';
+                     //回复
+                     var index = q.indexOf(r_text);
+
+                     var html = ''; //存回复数据
+                     if (index >= 0) {
+                         //找：有数据回复你
+                         html = a[index];
+                     } else {
+                         //找不到：没有相关的数据回复你
+                         html = '打雷了！下雨了？';
+                     }
+                     //创建节点
+                     var li2 = document.createElement('li');
+                     li2.innerHTML = html;
+                     ul.appendChild(li2);
+                     ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+                 }, 2000)
+             } else {
+                 alert('输入内容');
+             }
+         }
+         btn.onclick = function () {
+             reply();
+         }
+
+         con.onkeydown = function (ev) {
+             //回车键：13
+             if (ev.keyCode == 13) {
+                 reply();
+             }
+             return false; //阻止默认行为:回车的时候不会换行
+         }
+     })();
+ </script>
+
+ </html>

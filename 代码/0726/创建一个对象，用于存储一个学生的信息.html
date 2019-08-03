@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>创建一个对象，用于存储一个学生的信息，该对象包含名字、学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息</h1>
+    <input type="button" value="小明的所有信息" id="btn">
+    <div id="message"></div>
+</body>
+<script>
+    (function () {
+        var btn = document.getElementById('btn');
+        var message = document.getElementById('message');
+        var data = {
+            name: '小明',
+            son: '160912120',
+            card: '123456789987654321',
+            age: '20',
+            sex: '男',
+            major: '美男一个',
+            intro: '不是什么样的生活决定我们有什么样的生活态度，而是我们拥有什么样的生活态度决定我们有怎样的生活。'
+        };
+        var html = '';
+        html = '名字：' + data.name + '<br>' + '学号：' + data.son + '<br>' + '身份证：' + data.card + '<br>' + '年龄：' + data
+            .age +
+            '<br>' + '性别：' + data.sex + '<br>' + '所学专业：' + data.major + '<br>' + '介绍：' + data.intro;
+        btn.onclick = function () {
+            message.innerHTML = html;
+        }
+
+
+    })();
+</script>
+
+</html>
