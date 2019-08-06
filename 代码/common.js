@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-08-02 15:47:14
+ * @LastEditTime: 2019-08-03 09:26:17
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -179,4 +179,31 @@ function newdata(t) { //将时间转换成年月日的形式
         secs: seconds,
         minutes: minute
     }
+}
+/*
+ * @Description: 能够获取元素的样式(行内和非行内)， 还能设置元素的样式（ 行内）
+ * @Author:
+ * @Date: 2019-07-23 20:55:46
+ * @LastEditTime: 2019-07-23 20:55:46
+ * @LastEditors: Please set LastEditors
+ */
+function css() {
+    var ele = arguments[0];
+    var attr = arguments[1];
+    if (arguments.length == 2) {
+        //获取样式
+        if (getComputedStyle(ele, false)) {
+            //证明在主流浏览器下：IE9+ 和 主流的浏览器
+            return getComputedStyle(ele, false)[attr];
+        } else {
+            //低版本IE:IE678
+            return ele.currentStyle(attr);
+        }
+    } else if (arguments.length == 3) {
+        //设置样式
+        // box.style.display = 'block';
+        var val = arguments[2];
+        ele.style[attr] = val;
+    }
+
 }

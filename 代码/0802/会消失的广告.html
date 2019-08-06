@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
         html.body {
             width: 100%;
             height: 100%;
@@ -15,15 +20,106 @@
         #bod {
             width: 100%;
             height: 100%;
+            /* display: flex;
+            flex-direction: column; */
+        }
+
+        #b_header {
+            width: 100%;
+            height: 100px;
+            background: red;
+        }
+
+        #b_main {
+            width: 100%;
+            height: 800px;
+            background: #58bc58;
+            /* flex: 2; */
+        }
+
+        #b_footer {
+            width: 100%;
+            height: 200px;
+            background: #ccc;
+        }
+
+        #ad {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            background: pink;
+            /* padding: 20px; */
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: all 0.5s;
+            opacity: 0.8;
+
+        }
+
+        a {
+            text-decoration: none;
+            float: right;
+            display: inline-block;
+            margin-right: 20px;
+            margin-top: 20px;
+            color: red;
+        }
+
+        span {
+            display: inline-block;
+
+            margin-left: 20px;
+            margin-top: 20px;
+            color: red;
+
         }
     </style>
 </head>
 
 <body>
     <div id="bod">
-        <header></header>
-
+        <header id="b_header"></header>
+        <main id="b_main"></main>
+        <footer id="b_footer"></footer>
+        <div id="ad">
+            <span id="ad_h">10秒后消失</span>
+            <a href="#" id="ad_x">X</a>
+            <br>
+            <br>
+            <h2>这是广告</h2>
+        </div>
     </div>
 </body>
+<script src="../common.js"></script>
+<script>
+    (function () {
+        //找节点
+        var ad = document.getElementById('ad');
+        var ad_h = document.querySelector('#ad #ad_h'); //倒计时
+        var ad_x = document.querySelector('#ad #ad_x'); //关闭广告
+        ad_x.onclick = function () {
+            css(ad, 'height', '0px');
+        }
+        window.onload = function () {
+            css(ad, 'height', '200px');
+            var i = 10;
+            var timer = setInterval(function () {
+
+                if (i >= 0) {
+                    ad_h.innerHTML = `${i}秒后消失`;
+                } else {
+                    css(ad, 'height', '0px');
+                    clearInterval(timer)
+                }
+                i--;
+            }, 1000)
+        }
+
+
+
+    })();
+</script>
 
 </html>

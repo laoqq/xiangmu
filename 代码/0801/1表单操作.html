@@ -1,185 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-      }
 
-      #box {
-        width: 800px;
-        margin: 50px auto;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-      #box1 {
-        width: 100%;
-        height: 50px;
-        margin-top: 20px;
-      }
+    #box {
+      width: 800px;
+      margin: 50px auto;
+    }
 
-      td {
-        width: 100px;
-        height: 30px;
-        margin-right: 20px;
-        border: 1px solid #cccccc;
-        line-height: 30px;
-        text-align: center;
-      }
+    #box1 {
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
+    }
 
-      .text {
-        width: 100px;
-        height: 20px;
-        font-size: 16px;
-      }
+    td {
+      width: 100px;
+      height: 30px;
+      margin-right: 20px;
+      border: 1px solid #cccccc;
+      line-height: 30px;
+      text-align: center;
+    }
 
-      #box2 {
-        width: 100%;
-        display: inline-block;
-      }
-    </style>
-  </head>
+    .text {
+      width: 100px;
+      height: 20px;
+      font-size: 16px;
+    }
 
-  <body>
-    <div id="box">
-      <div id="a_input">
-        <label for="text1">姓名</label>
-        <input type="text" id="text1" class="text" />
-        <label for="text1">性别</label>
-        <input type="text" id="text1" class="text" />
-        <label for="text1">年龄</label>
-        <input type="text" id="text1" class="text" />
-        <label for="text1">联系方式</label>
-        <input type="text" id="text1" class="text" />
-        <input type="button" value="提交" id="btn" />
-      </div>
+    #box2 {
+      width: 100%;
+      display: inline-block;
+    }
+  </style>
+</head>
 
-      <div id="box1">
-        <table>
-          <tr>
-            <td>序号</td>
-            <td>姓名</td>
-            <td>性别</td>
-            <td>年龄</td>
-            <td>联系方式</td>
-            <td>操作</td>
-          </tr>
-        </table>
-      </div>
-      <div id="box2">
-        <table id="n_table">
-          <!-- <tr>
+<body>
+  <div id="box">
+    <div id="a_input">
+      <label for="text1">姓名</label>
+      <input type="text" id="text1" class="text" />
+      <label for="text1">性别</label>
+      <input type="text" id="text1" class="text" />
+      <label for="text1">年龄</label>
+      <input type="text" id="text1" class="text" />
+      <label for="text1">联系方式</label>
+      <input type="text" id="text1" class="text" />
+      <input type="button" value="提交" id="btn" />
+    </div>
+
+    <div id="box1">
+      <table>
+        <tr>
+          <td>序号</td>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+          <td>联系方式</td>
+          <td>操作</td>
+        </tr>
+      </table>
+    </div>
+    <div id="box2">
+      <table id="n_table">
+        <!-- <tr>
                     <td></td>
                 </tr> -->
-        </table>
-      </div>
+      </table>
     </div>
-  </body>
-  <script>
-    (function() {
-      var btn = document.getElementById("btn");
-      var a_input = document.getElementById("a_input");
-      var box2 = document.getElementById("box2");
-      var j = 1;
-      var a_list = document.querySelectorAll("#a_input #text1");
-      var n_table = document.getElementById("n_table");
+  </div>
+</body>
+<script>
+  (function () {
+    var btn = document.getElementById("btn");
+    var a_input = document.getElementById("a_input");
+    var box2 = document.getElementById("box2");
+    var j = 1;
+    var a_list = document.querySelectorAll("#a_input #text1");
+    var n_table = document.getElementById("n_table");
 
-      btn.onclick = function() {
-        var n_tr = document.createElement("tr");
+    btn.onclick = function () {
+      var n_tr = document.createElement("tr");
+      var n_td = document.createElement("td");
+
+      n_td.innerHTML = j;
+      n_tr.appendChild(n_td);
+      for (let i = 0; i < a_list.length; i++) {
         var n_td = document.createElement("td");
-
-        n_td.innerHTML = j;
+        // var t = document.createElement('input');
+        // t.type = 'text';
+        // t.id = 'tex';
+        // t.border = 0;
+        // t.width = 80 + 'px';
+        // t.height = 30 + 'px';
+        // t.value
+        // n_td.appendChild(t);
+        n_td.class = "tt";
+        n_td.innerHTML = a_list[i].value;
         n_tr.appendChild(n_td);
-        for (let i = 0; i < a_list.length; i++) {
-          var n_td = document.createElement("td");
-          // var t = document.createElement('input');
-          // t.type = 'text';
-          // t.id = 'tex';
-          // t.border = 0;
-          // t.width = 80 + 'px';
-          // t.height = 30 + 'px';
-          // t.value
-          // n_td.appendChild(t);
-          n_td.id = "tt";
-          n_td.innerHTML = a_list[i].value;
-          n_tr.appendChild(n_td);
-        }
-
-        var n_td = document.createElement("td");
-
-        var f_btn = document.createElement("input");
-
-        f_btn.type = "button";
-
-        f_btn.id = "btn1";
-
-        f_btn.value = "复制";
-
-        var d_btn = document.createElement("input");
-
-        d_btn.type = "button";
-
-        d_btn.id = "btn2";
-
-        d_btn.value = "删除";
-
-        n_td.appendChild(f_btn); //复制btn
-
-        n_td.appendChild(d_btn); //删除btn..
-
-        n_tr.appendChild(n_td);
-
-        n_table.appendChild(n_tr);
-
-        box2.appendChild(n_table);
-
-        j++;
-        // var td_list = document.querySelectorAll("#box2 #tt");
-        // var d_list = document.querySelectorAll("#box2 #btn2");
-        // var f_list = document.querySelectorAll("#box2 #btn1");
-        b();
-
-        de();
-        copy();
-      };
-
-      function b() {
-        //内容修改
-        var td_list = document.querySelectorAll("#box2 #tt");
-        for (let i = 0; i < td_list.length; i++) {
-          td_list[i].contentEditable = "true";
-          console.log(td_list[i]);
-        }
       }
 
-      function de() {
-        //删除
-        var d_list = document.querySelectorAll("#box2 #btn2");
-        for (let i = 0; i < d_list.length; i++) {
-          d_list[i].onclick = function() {
-            var res = confirm("删除？");
-            if (res) {
-              n_table.removeChild(this.parentNode.parentNode);
-            }
-            de();
-          };
-        }
-      }
+      var n_td = document.createElement("td");
 
-      function copy() {
-        //复制
-        var f_list = document.querySelectorAll("#box2 #btn1");
-        for (let m = 0; m < f_list.length; m++) {
-          f_list[m].onclick = function() {
-            n_table.appendChild(this.parentNode.parentNode.cloneNode(true));
-            copy();
-          };
-        }
+      var f_btn = document.createElement("input");
+
+      f_btn.type = "button";
+
+      // f_btn.id = "btn1";
+      f_btn.class = "btn1";
+      f_btn.value = "复制";
+
+      var d_btn = document.createElement("input");
+
+      d_btn.type = "button";
+
+      // d_btn.id = "btn2";
+      d_btn.class = "btn2";
+      d_btn.value = "删除";
+
+      n_td.appendChild(f_btn); //复制btn
+
+      n_td.appendChild(d_btn); //删除btn..
+
+      n_tr.appendChild(n_td);
+
+      n_table.appendChild(n_tr);
+
+      box2.appendChild(n_table);
+
+      j++;
+      // var td_list = document.querySelectorAll("#box2 #tt");
+      // var d_list = document.querySelectorAll("#box2 #btn2");
+      // var f_list = document.querySelectorAll("#box2 #btn1");
+      b();
+
+      // de();
+      // copy();
+    };
+
+    function b() {
+      //内容修改
+      var td_list = document.querySelectorAll("#box2 .tt");
+      for (let i = 0; i < td_list.length; i++) {
+        td_list[i].contentEditable = "true";
+        console.log(td_list[i]);
       }
-    })();
-  </script>
+    };
+    n_table.onclick = function t(ev) {
+      var ev = ev || window.event;
+      if (ev.target.className = 'btn1') {
+        var e1 = ev.target.parentNode.parentNode.cloneNode(true);
+        n_table.appendChild(e1);
+      } else if (ev.target.className = 'btn2') {
+        var e2 = ev.target.parentNode.parentNode;
+        n_table.removeChild(e2);
+
+      }
+    }
+    // function de() {
+    //   //删除
+    //   var d_list = document.querySelectorAll("#box2 #btn2");
+    //   for (let i = 0; i < d_list.length; i++) {
+    //     d_list[i].onclick = function () {
+    //       var res = confirm("删除？");
+    //       if (res) {
+    //         n_table.removeChild(this.parentNode.parentNode);
+    //       }
+    //       de();
+    //     };
+    //   }
+    // }
+
+    // function copy() {
+    //   //复制
+    //   var f_list = document.querySelectorAll("#box2 #btn1");
+    //   for (let m = 0; m < f_list.length; m++) {
+    //     f_list[m].onclick = function () {
+    //       n_table.appendChild(this.parentNode.parentNode.cloneNode(true));
+    //       copy();
+    //     };
+    //   }
+    // }
+  })();
+</script>
+
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //传参
+    // function show(a, b, c) {
+    //     console.log(a + b + c);
+    // }
+
+    // show(3, 4, 5);
+    // show(3, 5);//参数不匹配会出bug
+    // show(3, 4, 5);//本意：3==a  4==c 5==b
+
+    //对象
+    function show(opt) {
+        //默认参数
+        var defaultobj = {
+            a: 1,
+            b: 2,
+            c: 3
+        }
+        extend(opt, defaultobj);//参数一：配置参数   参数二：默认参数
+        console.log(defaultobj.a + defaultobj.b + defaultobj.c);
+    }
+
+    // show({
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // });
+
+    show({//1.解决顺序问题 配置参数
+        b: 2,
+        a: 1,
+        c: 5
+    });
+
+    //2.个数不匹配:替补方案
+    var obj1 = { //主角 : 配置参数(优先级更高)
+        // name: '柯盛',
+        age: 19
+    }
+
+    var obj2 = {//替补 ：默认参数
+        name: '邓波',
+        age: 18
+    }
+
+    //踢足球
+    function extend(obj1, obj2) {
+        for (var key in obj1) {
+            obj2[key] = obj1[key];
+        }
+    }
+
+    extend(obj1, obj2);
+    //用替补
+    console.log(obj2.name);
+</script>
+
+</html>

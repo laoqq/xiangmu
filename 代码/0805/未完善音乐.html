@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-image: linear-gradient(200deg, #7f7280, #000000);
+    }
+
+    #box {
+      width: 800px;
+
+      margin: auto;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .so {
+      border-radius: 30px;
+      background: #ccc;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      width: 280px;
+      font-size: 16px;
+      position: relative;
+    }
+
+    #myinput {
+      font-size: 16px;
+      width: 200px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    #list {
+      overflow: auto;
+      position: absolute;
+      top: 40px;
+      background: #7f7280;
+      padding: 5px;
+
+      display: none;
+      border: 2px solid #fff;
+      border-radius: 8px;
+    }
+
+    #list>li {
+      width: 200px;
+      font-size: 16px;
+      line-height: 23px;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    li:hover {
+      background-color: #58bc58;
+    }
+
+    .box1 {
+      width: 100%;
+      margin-top: 100px;
+      padding: 20px;
+      color: #fff;
+    }
+
+    h2 {
+      font-weight: normal;
+      border: 1px solid #fff;
+      padding: 5px;
+      box-sizing: border-box;
+      width: 120px;
+      text-align: center;
+      margin-right: 30px;
+      float: left;
+    }
+
+    .list2 {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 30px;
+      overflow: auto;
+      height: 500px;
+    }
+
+    .list2>li {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .atuo {
+      width: 100%;
+    }
+
+    h2,
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="so">
+      <input type="text" placeholder="搜索..." id="myinput" />
+      <input type="button" id="btn" value="搜索" />
+
+      <ul id="list">
+        <li>牛奶面包1</li>
+        <li>牛奶面包2</li>
+        <li>牛奶面包3</li>
+        <li>牛奶面包4</li>
+        <li>牛奶面包5</li>
+        <li>牛奶面包6</li>
+        <li>牛奶面包6</li>
+      </ul>
+    </div>
+
+    <div class="box1">
+      <h2>音乐列表</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <h2>热门搜索</h2>
+      <br />
+
+      <ul class="list2">
+        <span>歌曲</span>
+        <!-- <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>2 -->
+      </ul>
+    </div>
+    <div class="atuo">
+      <input type="button" value="暂停" id="pause">
+      <audio controls="controls" id="au" src="mp3/1.mp3">
+        <!-- <source  type="audio/mpeg" id="sc"> -->
+      </audio>
+    </div>
+  </div>
+</body>
+<script src="../common.js"></script>
+<script>
+  (function () {
+    //数据
+    var data = [{
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包1",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包2",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包3",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包4",
+        path: "mp3/1.mp3"
+      },
+      {
+        sname: "牛奶面包5",
+        path: "mp3/1.mp3"
+      }
+    ];
+
+    //节点
+    var so = document.querySelector(".so");
+    var myinput = document.getElementById("myinput");
+    var list = document.getElementById("list");
+    var list2 = document.querySelector(".list2");
+    var au = document.querySelector("#au");
+    var pause = document.getElementById('pause');
+    //暂停按钮
+    pause.onclick = function () {
+      au.pause();
+      console.log(au.duration);
+
+    }
+
+    //搜索框
+    myinput.onclick = function (ev) {
+      list.style.display = "block";
+      ev.stopPropagation();
+    };
+    document.onclick = function (ev) {
+      list.style.display = "none";
+    };
+    so.onclick = function (ev) {
+      ev.stopPropagation();
+    };
+    //给第一个热门ul中的li绑定下标
+    var a_list1 = document.querySelectorAll("#list li");
+
+    // for (var i = 0; i < a_list1.length; i++) {
+    //     a_list1[i].index = i;
+    // }
+    // for (var i = 0; i < a_list1.length; i++) {
+    //     a_list1[i].onclick = function () {
+    //         myinput.value = this.innerHTML;
+
+    //     }
+    //     clik();
+    // }
+    //
+    //给第一个热门ul中的li绑定事件
+    list.onclick = function (ev) {
+      var va = ev.target.innerHTML;
+      // console.log(ev.target.index);
+      myinput.value = va;
+    };
+    //设置高亮和更改搜索框内容
+    function active(index) {
+      for (var j = 0; j < a_list1.length; j++) {
+        a_list1[j].style.background = "";
+      }
+      myinput.value = a_list1[index].innerHTML;
+      a_list1[index].style.background = "red";
+    }
+    //上下移动
+    var j = -1;
+    document.onkeydown = function (ev) {
+      ev = ev || window.event;
+      var jz = ev.keyCode;
+      console.log(jz);
+      var inde = a_list1.length;
+
+      if (jz == 40) {
+        j = j + 1;
+        console.log(jz);
+        if (j > inde - 1) {
+          j = 0;
+          myinput.value = a_list1[j].innerHTML;
+        }
+        active(j);
+      }
+      if (jz == 38) {
+        j--;
+        if (j < 0) {
+          j = inde - 1;
+          myinput.value = a_list1[j].innerHTML;
+        }
+      }
+      console.log(j);
+      active(j);
+    };
+    //渲染音乐列表
+    var html = "";
+    for (var i = 0; i < data.length; i++) {
+      html += ` <li>${data[i].sname}</li>`;
+    }
+    list2.innerHTML = html; //渲染
+    //给第一歌曲列表ul中的li绑定下标
+    var a_list2 = document.querySelectorAll(".list2 li");
+    for (var i = 0; i < a_list2.length; i++) {
+      a_list2[i].index = i;
+    }
+    list2.onclick = function (ev) {
+      var i = ev.target.index;
+      au.src = data[i].path;
+      console.log(au.src);
+      // console.log(data[i].path);
+    };
+  })();
+</script>
+
+</html>

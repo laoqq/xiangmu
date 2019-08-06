@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 50px;
+            position: relative;
+            margin: auto;
+            margin-top: 50px;
+            /* 
+            background-size: 50px 1px; */
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 32px
+        }
+
+        .after {
+
+            width: 0px;
+            height: 50px;
+            background-color: #58bc58;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 32px
+        }
+
+        .verify {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #ccc;
+            border-radius: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        按下鼠标滑动验证
+        <div class="verify"></div>
+        <div class="after"></div>
+    </div>
+
+
+
+</body>
+<script>
+    (function () {
+        var box = document.getElementById('box');
+        var after = document.querySelector('#box .after');
+        console.log(after)
+        var verify = document.querySelector('#box .verify');
+        verify.onmousedown = function () {
+            verify.onmousemove = function (e) {
+                var x = e.pageX;
+                var d = 0;
+                var px = x - box.offsetLeft - verify.offsetWidth / 2;
+                console.log(px);
+                if (px <= 0) {
+                    px = 0;
+
+
+                } else if (px >= box.offsetWidth - verify.offsetWidth) {
+                    px = box.offsetWidth - verify.offsetWidth;
+                    after.innerHTML = '验证通过';
+                    verify.onmousemove = '';
+                    verify.onmousedown = '';
+                    verify.style.background = '#fff';
+                    d = 50;
+                }
+                verify.style.left = px + 'px';
+                after.style.width = px + d + 'px';
+                // console.log(x, box.offsetLeft, verify.offsetWidth)
+                // after.style.width =
+
+            }
+
+        }
+        verify.onmouseup = function (ev) {
+            var x = ev.pageX;
+            console.log(x);
+            var px = x - box.offsetLeft - verify.offsetWidth / 2;
+            if (px < box.offsetWidth - verify.offsetWidth) {
+                // verify.style.left = after.style.width = box.offsetWidth - verify.offsetWidth + 'px';
+                // verify.onmousemove = '';
+                // verify.onmousedown = '';
+                verify.style.left = after.style.width = 0 + 'px'
+                verify.onmousemove = '';
+            }
+        }
+
+    })();
+</script>
+
+</html>
