@@ -1,0 +1,36 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 15:46:56
+ * @LastEditTime: 2019-08-09 20:23:11
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            color: black;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>欢迎<span>1</span> 来到此处点击 <a href="index.html">退出</a> 可返回到登陆界面
+    </h2>
+</body>
+<script src="common.js"></script>
+<script>
+    let span = document.querySelector('span');
+    var ur = location.search.slice(1)
+    let name = incision(ur);
+    span.innerHTML = name.name;
+</script>
+
+</html>

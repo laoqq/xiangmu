@@ -1,0 +1,182 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-07 15:54:46
+ * @LastEditTime: 2019-08-09 09:03:25
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="base.css" />
+  <style>
+    /* * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        } */
+
+    #box {
+      width: 800px;
+      height: 800px;
+      margin: 100px auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .list {
+      width: 500px;
+      height: 300px;
+      overflow: auto;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      font-size: 16px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    li {
+      font-size: 16px;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #ccc;
+      margin: 10px 0;
+    }
+
+    li:last-child {
+      border: 0;
+    }
+
+    textarea {
+      width: 500px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+    }
+
+    textarea:focus {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      padding: 3px 0px 3px 3px;
+      margin: 5px 1px 3px 0px;
+      border: 1px solid rgba(81, 203, 238, 1);
+    }
+
+    .span {
+      width: 100px;
+      display: inline-block;
+      color: #ccc;
+    }
+
+    .box1 {
+      width: 500px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    i {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul class="list"></ul>
+    <textarea name="" id="" maxlength="20"></textarea>
+    <div class="box1">
+      <input type="button" value="提交" id="btn" />
+      <span><i>0</i> /20</span>
+    </div>
+  </div>
+</body>
+<script src="common.js"></script>
+<script>
+  (function () {
+    //找节点
+    var list = document.querySelector(".list"); //留言板
+    var textarea = document.querySelector("textarea"); //输入
+    var btn = document.getElementById("btn");
+    var i = document.querySelector("i"); //统计字数
+    var p = document.querySelector("p");
+    var news = []; //存数据
+    var da = []; //存时间
+
+    //内容的拼接与渲染
+    function text(time) {
+      var da1 = newdata(time);
+
+      da.unshift(da1);
+      var html = "";
+      for (var i = 0; i < news.length; i++) {
+        // html += '<li>' + (i + 1) + '.' + news[i] + '</li>';
+        html += ` <li><span>${i + 1}.  ${news[i]}</span><span
+                            class="span1">${da[i].years}-${toDb(
+            da[i].months
+          )}-${toDb(da[i].days)}
+                            ${toDb(da[i].hours)}:${toDb(da[i].minutes)}:${toDb(
+            da[i].secs
+          )}</span></li>`; //数据拼接
+      }
+      list.innerHTML = html; //渲染
+    }
+    text();
+    //留言内容处理
+    function incident() {
+      var tex = textarea.value;
+      if (tex) {
+        var t = filtration(tex); //过滤
+        news.unshift(t);
+        // if (news.length > 5) {
+        //     news.pop();
+        // }
+        var time = Date.now();
+        text(time);
+        textarea.value = "";
+        textarea.focus();
+      } else {
+        alert("内容不能为空请重新输入");
+      }
+    }
+    //字数限制
+    textarea.oninput = function () {
+      var tex = textarea.value.length;
+
+      if (tex <= 20) {
+        i.innerHTML = tex;
+      }
+    };
+    //按钮
+    btn.onclick = function () {
+      incident();
+
+      i.innerHTML = 0;
+    };
+    //键盘
+    document.onkeyup = function (e) {
+      if (e.keyCode == 13 && e.ctrlKey) {
+        incident();
+
+        i.innerHTML = 0;
+      }
+      return false;
+    };
+  })();
+</script>
+
+</html>

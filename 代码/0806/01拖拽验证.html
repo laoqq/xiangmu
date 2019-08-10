@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-06 20:37:48
+ * @LastEditTime: 2019-08-09 21:03:48
+ * @LastEditors: Please set LastEditors
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,20 +101,19 @@
                 // after.style.width =
 
             }
-
-        }
-        verify.onmouseup = function (ev) {
-            var x = ev.pageX;
-            console.log(x);
-            var px = x - box.offsetLeft - verify.offsetWidth / 2;
-            if (px < box.offsetWidth - verify.offsetWidth) {
-                // verify.style.left = after.style.width = box.offsetWidth - verify.offsetWidth + 'px';
-                // verify.onmousemove = '';
-                // verify.onmousedown = '';
-                verify.style.left = after.style.width = 0 + 'px'
-                verify.onmousemove = '';
+            document.onmouseup = function (ev) {
+                var x = ev.pageX;
+                console.log(x);
+                var px = x - box.offsetLeft - verify.offsetWidth / 2;
+                if (px < box.offsetWidth - verify
+                    .offsetWidth) { // verify.style.left=after.style.width=box.offsetWidth -
+                    verify.offsetWidth + 'px'; // verify.onmousemove='' ; // verify.onmousedown='' ;
+                    verify.style.left = after.style.width = 0 + 'px'
+                    verify.onmousemove = '';
+                }
             }
         }
+
 
     })();
 </script>

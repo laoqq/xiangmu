@@ -1,3 +1,10 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-26 09:43:37
+ * @LastEditTime: 2019-08-09 19:52:03
+ * @LastEditors: Please set LastEditors
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,15 +75,35 @@
     </div>
 </body>
 <script>
-    (function () {
+    // (function () {
 
-        var name = document.getElementById('name');
-        var password = document.getElementById('password');
-        var bgword = document.getElementById('bgword');
-        var btn = document.getElementById('btn');
+    //     var name = document.getElementById('name');
+    //     var password = document.getElementById('password');
+    //     var bgword = document.getElementById('bgword');
+    //     var btn = document.getElementById('btn');
 
 
-    })();
+    // })();
+
+
+    function sun(arr) {
+
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1; j++) {
+                if (Number(arr[j]) <
+                    Number(arr[j + 1])) {
+                    var m = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = m;
+                }
+            }
+
+        }
+        return arr;
+    }
+
+    var a = [1, 4, 6, 5, 2]
+    console.log(sun(a));
 </script>
 
 </html>
