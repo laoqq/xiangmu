@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 11:12:08
- * @LastEditTime: 2019-08-15 22:53:50
+ * @LastEditTime: 2019-08-16 00:04:45
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -48,6 +48,16 @@
       padding: 5px;
       border-radius: 5px;
     }
+
+    #lst:last-child {
+      align-self: flex-start;
+    }
+
+    .pg {
+      width: 100%;
+      text-align: center;
+
+    }
   </style>
 </head>
 
@@ -58,6 +68,8 @@
         href="###" class="add">升序</a>
     </div>
     <div id="lst"></div>
+    <div class="pg"><a href="###" class="upd">上一页</a><a href="###" class="upd">下一页</a></div>
+  </div>
   </div>
 </body>
 <script src="../js/common.js"></script>
@@ -67,13 +79,17 @@
 
     // //节点
     let lst = document.getElementById("lst");
+    let iPage = 1; //获取第一页内容
+    let num = 4;
     lie = (url, da) => {
 
       ajax({
         type: "post",
         url: url,
         data: {
-          name: da
+          name: da,
+          page: iPage,
+          num: num
         },
         success: str => {
           let arr = JSON.parse(str);
@@ -114,7 +130,7 @@
     img = (id, i) => {
       ajax({
         type: "post",
-        url: "../api/img.php",
+        url: "../api/liebiao.php",
         data: {
           id: id
         },
@@ -134,8 +150,21 @@
         }
       });
     };
-    lie("../api/liebiao.php", "");
-    //拼接
+    lie("../api/fenye.php", "");
+
+    let pg = document.querySelector('.pg');
+    pg.onclick = (e) => {
+      if (e.target.value == '上一页') {
+        if (iPage <= 1) {
+          iPage = 1;
+        } else {
+          iPage--;
+
+        }
+      } else if (e.target.value = '下一页') {
+        iPage++;
+      }
+    }
     //
 
     //查询
