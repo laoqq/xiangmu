@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证用户名是否存在</title>
+</head>
+
+<body>
+    用户名：<input type="text" name="" id="name"><span id="inf"></span><br>
+    密码：<input type="text"><br>
+    <input type="button" value="注册">
+</body>
+<script src="../common.js"></script>
+<script>
+    (function () {
+
+        let name = document.getElementById('name');
+        let inf = document.getElementById('inf');
+
+        /*
+            封装ajax函数：jq 
+            $.ajax({
+                type : 'get',//请求方式
+                data : {//传输数据(选填)
+                    name : 'jingjing',
+                    pwd : 123455
+                },
+                asyn : true,//异步，(选填)
+                url : 路径，//请求的接口路径
+                success : function(str) {
+                    //成功的回调
+                },
+                failure : function(str) {
+                    //失败的回调
+                }
+            });
+        */
+
+
+
+        name.onblur = () => {
+            ajax({//调用ajax实现数据获取
+                type: 'get',
+                data: {
+                    username: name.value
+                },
+                url: 'api/07checkName.php',
+                success: function (str) {
+                    console.log(str);
+                    if (str == 'yes') {
+                        inf.innerHTML = '可以注册';
+                    } else {
+                        inf.innerHTML = '用户名太受欢迎啦。请换一个';
+                    }
+                }
+            });
+        }
+
+    })();
+</script>
+
+</html>

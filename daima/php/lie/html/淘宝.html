@@ -1,0 +1,203 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-15 11:12:08
+ * @LastEditTime: 2019-08-15 22:53:50
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../iconfont/iconfont.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/taopao.css
+    " />
+  <style>
+    .contion {
+      width: 100%;
+      text-align: center;
+      height: 100px;
+      font-size: 20px;
+      padding-bottom: 30px;
+      box-sizing: border-box;
+    }
+
+    #text1 {
+      border: 1px solid #ccc;
+      width: 200px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #btn {
+      line-height: 30px;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .upd,
+    .add {
+      display: inline-block;
+      border: 1px solid red;
+      margin: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="contion">
+      <input type="text" id="text1" /><input type="button" value="搜索" id="btn" /><a href="###" class="upd">降序</a><a
+        href="###" class="add">升序</a>
+    </div>
+    <div id="lst"></div>
+  </div>
+</body>
+<script src="../js/common.js"></script>
+<script>
+  (function () {
+    //假数据
+
+    // //节点
+    let lst = document.getElementById("lst");
+    lie = (url, da) => {
+
+      ajax({
+        type: "post",
+        url: url,
+        data: {
+          name: da
+        },
+        success: str => {
+          let arr = JSON.parse(str);
+          let i = 0;
+          arr.forEach(item => {
+            img(item.id, i);
+            console.log(item.id, i);
+            i++;
+            var html = ` <div class="bul">
+                                  <div class="bu12">
+                                        <div class="bu13">
+                                          <a href="">找相似</a><a href="">找同款</a>
+                                        </div>
+                                    </div>
+                                    <ul class="list">
+                                    </ul>
+                                    <div class="box1">
+                                        <p class="p1">
+                                            <span class="span1">￥${ item.price } </span>
+                                            <span class="span2">${ item.more}</span>
+                                        </p>
+                                        <p class="p2">
+                                            <span class="span3">包邮</span> ${ item.name }</p>
+                                        <p class="p3">
+                                            <i class="iconfont icon-liebiao-copy-copy-copy"></i><span>${  item.address}</span><span class="span4">${  item.city }</span>
+                                        </p>
+                                       
+                                    </div>
+                                </div> `;
+
+            lst.innerHTML += html;
+
+          });
+        }
+      });
+    };
+    // 拼接图
+    img = (id, i) => {
+      ajax({
+        type: "post",
+        url: "../api/img.php",
+        data: {
+          id: id
+        },
+        success: str => {
+          let arr3 = JSON.parse(str);
+          var str = "";
+          let st = document.createElement("img");
+          st.className = 'img1';
+          st.src = arr3[0].img;
+          lst.children[i].children[0].appendChild(st);
+          arr3.forEach(it => {
+            str += `<li>
+          <img class="img2" src="${it.img}" alt="">
+        </li>`;
+          });
+          lst.children[i].children[1].innerHTML = str;
+        }
+      });
+    };
+    lie("../api/liebiao.php", "");
+    //拼接
+    //
+
+    //查询
+    let btn = document.getElementById("btn");
+
+    btn.onclick = () => {
+      let text1 = document.getElementById("text1");
+
+      lst.innerHTML = "";
+      lie("../api/chaxun.php", text1.value);
+    };
+    //升序
+    let add = document.querySelector(".add");
+    add.onclick = () => {
+      lst.innerHTML = "";
+      lie("../api/add.php", "");
+    };
+    //降序
+    let upd = document.querySelector(".upd");
+    upd.onclick = () => {
+      lst.innerHTML = "";
+      lie("../api/apd.php", "");
+    };
+
+    //绑定节点
+    var bul = document.getElementsByClassName("bul");
+    var list1 = document.getElementsByClassName("list"); //包含小图的ul
+    // var bu12 = document.getElementsByClassName('bu12');
+    var img1 = document.getElementsByClassName("img1"); //大图
+    var img2 = document.getElementsByClassName("img2"); //小图
+    // var bu12 = document.getElementsByClassName('bu12');
+    // var bu13 = document.getElementsByClassName('bu13');
+
+
+    // img2.forEach(function (m, i) {
+    //     m.s
+    // })
+    //给ul绑定index
+    for (var j = 0; j < list1.length; j++) {
+      list1[j].index = j;
+    }
+
+    for (var i = 0; i < img2.length; i++) {
+      img2[i].onmouseover = function () {
+        var smll = this.src; //拿到到小图路径
+        console.log(smll);
+        // var fa = this.parentNode.index;
+        // console.log(fa);
+        var index = this.parentNode.parentNode.index; //获取小图父亲的父亲的节点
+        img1[index].src = smll; //把小图的路径给大图
+      };
+    }
+    // for (let j = 0; j < bul.length; j++) {
+    //     bul[j].index = j;
+    //     bul[j].onclick = function () {
+    //         var str = data[this.index].id;
+    //         var st = 'id' + '=' + str;
+    //         window.open('2详细页.html?' + st);
+
+    //     }
+    // }
+  })();
+</script>
+
+</html>

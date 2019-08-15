@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>06getdata</title>
+</head>
+
+<body>
+    <input type="button" value="获取数据" id="btn">
+    <ul id="list">
+        <!-- <li data-id="1">
+            <p>华为</p>
+            <p>900</p>
+            <p>红色</p>
+        </li> -->
+    </ul>
+</body>
+<script>
+    /*
+        ajax：异步，无刷新，局部数据加载；
+
+        应用：
+            * 车来了
+            * 股票信息
+            * 偷菜
+            * 美团骑手
+            * 新闻特殊板块
+            * 分页、懒加载
+            * 项目中用到的功能：
+                * 验证用户名是否存在
+                * 注册功能
+                * 登陆功能
+                * 列表页查询数据渲染：第1页(按需加载)
+                * 分页/懒加载
+                * 详情页加入购物车：把商品信息存到数据库
+                * 购物车页面：渲染数据、删除商品、修改数量
+
+        需求：获取上午的数据接口，渲染到这个页面
+            * 前端：124号线
+            * 后端：3号线，做接口
+    */
+
+    (function () {
+
+        let btn = document.getElementById('btn');
+        let list = document.getElementById('list');
+
+        btn.onclick = () => {
+            //创建ajax对象
+            let xhr = new XMLHttpRequest();
+
+            //1.告诉ajax你要什么
+            /*
+                open()
+                    * 参数一：发送请求的方式  get  post
+                    * 参数二：获取数据的路径 url
+                    * 参数三：是否异步  true异步
+            */
+            xhr.open('get', 'api/04goodlist.php', true);//xhr.readyState==1
+
+            //2.ajax帮忙发送请求
+            /*
+                send()
+                    * 如果是get方式：写null
+                    * 如果是post并且需要传数据：数据
+            */
+            xhr.send(null);//xhr.readyState==2
+
+            //3.后端做接口
+
+            //4.接收数据，渲染到页面
+            xhr.onreadystatechange = () => {//xhr.readyState==3 4
+                // console.log(xhr.readyState);
+                if (xhr.readyState == 4) {
+                    //完成不一定成功
+                    if (xhr.status == 200) {
+                        //正确的数据
+                        // console.log(xhr.responseText);
+                        //渲染
+                        let arr = JSON.parse(xhr.responseText);
+                        let html = arr.map(item => {
+                            return `<li data-id="${item.gid}">
+                                        <p>${item.name}</p>
+                                        <p>${item.price}</p>
+                                        <p>红${item.color}</p>
+                                    </li>`;
+                        }).join('');
+                        console.log(arr);
+                        list.innerHTML = html;//渲染数据到页面
+                    }
+                }
+            }
+
+        }
+    })();
+</script>
+
+</html>

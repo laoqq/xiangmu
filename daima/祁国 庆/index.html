@@ -1,0 +1,204 @@
+﻿<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-09 01:08:08
+ * @LastEditTime: 2019-08-10 17:27:12
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .span {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <div class="mian"
+    style="position: absolute; width: 100%;height: 50px; margin:100px auto;text-align: center;font-size: 26px;">
+    请先 <a href="###" id="login">登陆</a>
+  </div>
+  <section class="container">
+    <div class="login">
+      <h1 id="h1">用户登录 <input type="button" value="X" id="btn" /></h1>
+
+      <form>
+        <p>
+          <label for="ac">账号：</label>
+          <input type="text" name="login" value="" placeholder="账号字母开头,6-20位" id="ac" /><span class="acspan"
+            style="color: red;font-size: 13px "></span>
+        </p>
+        <p>
+          <label for="pass">密码：</label>
+          <input type="password" name="password" value="" placeholder="密码6-18位首字母开头" id="pass" /><span class="paspan"
+            style="color: red;font-size: 13px"></span>
+        </p>
+        <p class="remember_me">
+          <input type="checkbox" name="remember_me" id="remember_me" />
+          同意<span class="span">保密协议</span>
+        </p>
+        <p class="submit">
+          <input type="button" name="commit" value="登录" id="long_bt" />
+        </p>
+        <span style="color: red;" class="tspan"></span>
+      </form>
+    </div>
+
+    <div class="login-help">
+      <p>忘记密码?<a href="">点击修改</a></p>
+    </div>
+  </section>
+</body>
+<script src="common.js"></script>
+<script>
+  //节点
+  var box = document.getElementById("box");
+  var container = document.querySelector(".container "); //登陆窗口
+  var h1 = document.getElementById("h1"); //标题
+  var login = document.getElementById("login");
+  var btn = document.getElementById("btn"); //关闭
+  var ac = document.getElementById("ac"); //账号
+  var pass = document.getElementById("pass"); //密码
+  var long_bt = document.getElementById("long_bt"); //登陆按钮
+  var tspan = document.querySelector(".container .tspan");
+  var remember_me = document.getElementById("remember_me"); //协议
+  var acspan = document.querySelector(".acspan"); //提示信息显示
+  var paspan = document.querySelector(".paspan"); //提示信息显示
+  //自适应浏览器居中
+  wi = () => {
+    var wid = document.documentElement.clientWidth; //浏览器宽
+    var hgd = document.documentElement.clientHeight; //浏览器高
+    var ofw = container.offsetWidth; //登陆盒子的宽
+    var ofh = container.offsetHeight; //登陆盒子的高
+    container.style.top = (hgd - ofh) / 2 + "px";
+    container.style.left = (wid - ofw) / 2 + "px";
+  };
+  wi();
+  window.onresize = () => {
+    wi();
+  };
+
+  //登陆
+  login.onclick = () => {
+    box.style.display = "block";
+    container.style.display = "block";
+    wi();
+    tspan.innerHTML = ""; //清空内容
+    remember_me.checked = false;
+    ac.value = "";
+    pass.value = "";
+    acspan.innerHTML = "";
+    paspan.innerHTML = "";
+  };
+
+  //关闭登陆
+  btn.onclick = () => {
+    box.style.display = "none";
+    container.style.display = "none";
+  };
+  //ESC关闭登陆
+  window.onkeydown = ev => {
+    if (ev.keyCode == 27) {
+      box.style.display = "none";
+      container.style.display = "none";
+    }
+  };
+
+  //账号
+
+  var istrue1;
+  var istrue2;
+  ac.onblur = () => {
+    var act = ac.value.trim();
+    if (act) {
+      if (checkReg.name(act)) {
+        istrue1 = true;
+        acspan.innerHTML = "√";
+
+        acspan.style = "font-size: 26px;color:green;line-height: 30px;";
+      } else {
+        istrue1 = false;
+        acspan.innerHTML = "账号格式不正确";
+      }
+    } else {
+      acspan.style.display = "block";
+      acspan.innerHTML = "账号不能为空";
+    }
+  };
+
+  //密码
+
+  pass.onblur = () => {
+    var password = pass.value.trim();
+    if (password) {
+      if (checkReg.psweasy(password)) {
+        istrue2 = true;
+        paspan.innerHTML = "√";
+
+        paspan.style = "font-size: 26px;color:green;line-height: 30px;";
+      } else {
+        istrue2 = false;
+
+        paspan.innerHTML = "密码格式不正确";
+      }
+    } else {
+      paspan.innerHTML = "密码不能为空";
+      paspan.style.display = "block";
+    }
+  };
+  //登陆跳转
+  long_bt.onclick = () => {
+    if (remember_me.checked == true) {
+      if (istrue2 && istrue2) {
+        tspan.innerHTML = "";
+        var name = "name" + "=" + ac.value;
+        window.open("succes.html?" + name);
+      } else {
+        tspan.innerHTML = "账号或密码错误";
+        ac.focus();
+        pass.focus();
+      }
+    } else {
+      tspan.innerHTML = "请阅读并勾选同意按钮";
+    }
+  };
+  //拖拽
+  h1.onmousedown = e => {
+    var ofw = container.offsetWidth; //登陆盒子的宽
+    var ofh = container.offsetHeight; //登陆盒子的高
+    var dix = e.pageX - container.offsetLeft;
+    var diy = e.pageY - container.offsetTop;
+    console.log(dix, diy);
+    document.onmousemove = ev => {
+      var lt = ev.pageX - dix;
+      var tp = ev.pageY - diy;
+      console.log(tp, lt);
+      if (tp <= 0) {
+        tp = 0;
+      } else if (top >= window.innerHeight - ofh) {
+        tp = window.innerHeight - ofh;
+      }
+      if (lt <= 0) {
+        lt = 0;
+      } else if (lt >= window.innerWidth - ofw) {
+        lt = window.innerWidth - ofw;
+      }
+      container.style.top = tp + "px";
+      container.style.left = lt + "px";
+      ev.preventDefault();
+    };
+    document.onmouseup = () => {
+      document.onmousemove = null; //对象清空
+    };
+  };
+</script>
+
+</html>

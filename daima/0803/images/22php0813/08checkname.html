@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证用户名是否存在</title>
+</head>
+
+<body>
+    用户名：<input type="text" name="" id="name"><span id="inf"></span><br>
+    密码：<input type="text"><br>
+    <input type="button" value="注册">
+</body>
+<script>
+    (function () {
+
+        let name = document.getElementById('name');
+        let inf = document.getElementById('inf');
+
+        name.onblur = () => {
+            //创建对象
+            let xhr = new XMLHttpRequest();
+
+            //1.设置参数
+            /*
+                open():如果是get方式，用url传输数据，如果是post方式，用send传输
+                    * 参数一：发送请求的方式  get  post
+                    * 参数二：获取数据的路径 url?+参数  name=jingjing&psw=123456
+                    * 参数三：是否异步  true异步
+            */
+            let url = 'api/09checkName.php';
+            xhr.open('post', url, true);
+
+            //2.发送请求
+            /*
+                send()
+                    * 如果是get方式：写null
+                    * 如果是post并且需要传数据：数据
+            */
+            let data = 'username=' + name.value;
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+
+            //3.制作接口
+
+            //4.接收后端的数据做渲染
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    let data = xhr.responseText;
+                    console.log(data);
+                    if (data == 'yes') {
+                        inf.innerHTML = '可以注册';
+                    } else {
+                        inf.innerHTML = '用户名太受欢迎啦。请换一个';
+                    }
+                }
+            }
+        }
+    })();
+</script>
+
+</html>

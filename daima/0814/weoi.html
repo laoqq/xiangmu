@@ -1,0 +1,141 @@
+<!--
+ * @Description:文件的读写
+ * @Author: your name
+ * @Date: 2019-08-14 11:10:32
+ * @LastEditTime: 2019-08-14 12:40:33
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+            background: #d8d8d8;
+        }
+
+        li {
+            list-style: none;
+            background: #fff;
+            width: 600px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        li .title {
+            padding: 5px;
+            font-size: 14px;
+            font-weight: lighter;
+
+        }
+
+        li .name {
+            color: #ccc;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        li .good {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        li .good span {
+            display: block;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            margin-right: 10px;
+            float: left;
+            border-radius: 20px;
+
+        }
+
+        li .good span:nth-child(1) {
+            background: lightblue;
+        }
+
+        li .good span:nth-child(2) {
+            background: lightcoral;
+        }
+    </style>
+</head>
+<ul id="list">
+    <!-- <li data-id="">
+            <h3 class="title">说三条支撑你活下去的理由？因为我胡三六条，可是六条被人杠了……</h3>
+            <p class="name">malin</p>
+            <p class="good">
+                <span class="dianzan">点赞：15</span>
+                <span class="dis">评论：22</span>
+            </p>
+        </li> -->
+
+</ul>
+
+<body>
+
+</body>
+<script src="../common.js"></script>
+<script>
+    (function () {
+        let list = document.getElementById('list');
+        ajax({
+            type: 'post',
+            url: 'api/weibo.json',
+            success: str => {
+                let arr = JSON.parse(str);
+                console.log(arr);
+                let html = arr.map(item => {
+                    return `<li data-id="${item.id}">
+                        <h3 class="title">${item.content}</h3>
+                        <p class="name">${item.username}</p>
+                        <p class="good">
+                            <span class="dianzan">点赞：${item.good}</span>
+                            <span class="dis">评论：${item.con}</span>
+                        </p>
+                    </li> `;
+                }).join('');
+                list.innerHTML = html;
+            }
+        })
+        list.onclick = (e) => {
+            e = e || window.event;
+            if (e.target.className == 'dianzan') {
+                let id = e.target.parentNode.parentNode.dataset.id;
+                ajax({
+                    type: 'post',
+                    url: 'api/dianzan.php',
+                    data: {
+                        id: id
+                    },
+                    success: str => {
+                        e.target.innerHTML = `点赞：${str}`;
+                        console.log(str);
+                    }
+                })
+            }
+
+        }
+
+
+
+    })();
+</script>
+
+</html>
