@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表页数据渲染和分页功能实现</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #list {
+            margin-bottom: 50px;
+        }
+
+        #list li {
+            width: 600px;
+            border-bottom: 1px solid #000;
+            clear: both;
+            padding: 20px 0;
+        }
+
+        #list li .title {
+            float: left;
+        }
+
+        #list li .price {
+            float: right;
+        }
+
+        #pages a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            background: #C2C2C2;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #pages .active {
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>分页效果</h2>
+    <input type="button" id="btn" value="升序" />
+    <ul id="list">
+        <!-- <li data-id="1">
+            <p class="title">标题</p>
+            <p class="price">价格</p>
+        </li> -->
+    </ul>
+    <p id="pages">
+        <!-- <a class="active" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a> -->
+    </p>
+
+</body>
+<script src="../common.js"></script>
+<script>
+    /*
+        需求：
+            * 获取第一页的内容渲染到页面(按需加载)
+            * 根据总条数和每页的条数，生成页码  总条数：15  每页显示：10天  多少页：2== Math.ceil(15/10)
+            * 点击页码可以跳转到对应的页数
+    */
+
+    (function () {
+
+        let list = document.getElementById('list');
+        let pages = document.getElementById('pages');
+
+        //1.获取第一页的内容渲染到页面(按需加载)
+        //初始化数据
+        let ipage = 1;//获取第一页数据
+        let num = 5;//每页显示5条
+
+        function init() {
+            function creat(arr) {//DOM操作
+                //渲染第一页数据
+                let html = arr.data.map(item => {
+                    return `<li data-id="${item.uid}">
+                                <p class="title">${item.name}</p>
+                                <p class="price">${item.price}</p>
+                            </li>`;
+                }).join('');
+                list.innerHTML = html;
+
+                //渲染页码
+                let total = Math.ceil(arr.total / arr.num);
+                let spanstr = '';
+                for (let i = 0; i < total; i++) {
+                    spanstr += `<a href="###">${i + 1}</a>`;
+                }
+                pages.innerHTML = spanstr;
+                pages.children[ipage - 1].className = 'active';
+            }
+
+            ajax({//获取数据
+                type: 'get',
+                url: 'api/02getlist.php',
+                data: {
+                    page: ipage,
+                    num: num
+                },
+                success: str => {
+                    // console.log(str);
+                    let arr = JSON.parse(str);
+                    console.log(arr);
+                    creat(arr);
+                }
+            });
+        }
+
+        init();
+
+        //事件委托：实现翻页效果
+        pages.onclick = ev => {
+            if (ev.target.tagName.toLowerCase() == 'a') {
+                ipage = ev.target.innerHTML;
+                console.log(ipage);
+                init();
+            }
+        }
+    })();
+
+
+</script>
+
+</html>

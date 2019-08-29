@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 11:12:08
- * @LastEditTime: 2019-08-16 00:04:45
+ * @LastEditTime: 2019-08-16 09:19:39
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -68,7 +68,7 @@
         href="###" class="add">升序</a>
     </div>
     <div id="lst"></div>
-    <div class="pg"><a href="###" class="upd">上一页</a><a href="###" class="upd">下一页</a></div>
+    <div class="pg"><a href="###" class="upd" id='pgab'>上一页</a><a href="###" class="upd" id='pgd'>下一页</a></div>
   </div>
   </div>
 </body>
@@ -153,19 +153,23 @@
     lie("../api/fenye.php", "");
 
     let pg = document.querySelector('.pg');
-    pg.onclick = (e) => {
-      if (e.target.value == '上一页') {
-        if (iPage <= 1) {
-          iPage = 1;
-        } else {
-          iPage--;
-
-        }
-      } else if (e.target.value = '下一页') {
-        iPage++;
-      }
+    let pgab=document.getElementById('pgab');
+    let pgd=document.getElementById('pgd');
+    pgab.onclick=()=>{
+           if (iPage <= 1) {
+        iPage = 1;
+      } else {
+        iPage--;
     }
-    //
+         lst.innerHTML = "";
+      lie("../api/fenye.php", "");
+    }
+    pgd.onclick=()=>{
+           lst.innerHTML = "";
+       
+        lie("../api/fenye.php", "");
+    }
+
 
     //查询
     let btn = document.getElementById("btn");
@@ -180,13 +184,13 @@
     let add = document.querySelector(".add");
     add.onclick = () => {
       lst.innerHTML = "";
-      lie("../api/add.php", "");
+      lie("../api/add.php", "asc");
     };
     //降序
     let upd = document.querySelector(".upd");
     upd.onclick = () => {
       lst.innerHTML = "";
-      lie("../api/apd.php", "");
+          lie("../api/add.php", "desc");
     };
 
     //绑定节点

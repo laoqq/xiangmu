@@ -1,0 +1,1775 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-23 19:42:24
+ * @LastEditTime: 2019-08-26 20:19:57
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        .swiper-container {
+            width: 728px;
+            height: 266px;
+        }
+
+        .swiper-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-container .swiper-pagination-bullet {
+            display: block;
+            float: right;
+            width: 29px;
+            height: 29px;
+            line-height: 29px;
+            margin: 0 2px;
+            padding: 0;
+            /* background-color: #000; */
+            background: url("images/index1.png") no-repeat;
+            border: none;
+            color: #fcf5f5;
+            font-size: 16px;
+            text-decoration: none;
+            font-family: '微软雅黑';
+            font-weight: bold;
+            text-align: center;
+            opacity: 1;
+        }
+
+        .swiper-container .swiper-pagination-bullet-active {
+            background: url("images/index2.png") no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="index_body">
+        <div id="right"></div>
+        <div id="header"></div>
+        <div id="main">
+            <div class="main_container clearfix">
+                <div class="side_nav ">
+                    <div class="box-content">
+                        <ul class="sidenav-content">
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">文学小说</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">套装书</a></h2>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">经管励志</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">教育考试</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">文学小说</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">科学技术</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">人文社科</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">艺术设计</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">生活育儿</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">少儿童书</a></h2>
+                                <p class="clearfix">
+
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">科幻</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">历史</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">侦探推理</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">健康养生</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">小说</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">传记</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">青春文学</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">情感</a>
+
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">军事历史</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                </p>
+                            </li>
+                            <li class="clearfix">
+                                <h2><a href="html/list.html">军事历史</a></h2>
+                                <p class="clearfix">
+                                    <a href="html/list.html">动漫</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">诗歌</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">随笔</a>
+                                    <span>|</span>
+                                    <a href="html/list.html">世界名著</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main_container_news">
+                    <div class="imgPlayer">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img class="swiper-img"
+                                        src="http://static.wl.cn/upload/zhuanti/温阳/课外语文728-266.jpg" alt=""></div>
+                                <div class="swiper-slide"><img class="swiper-img"
+                                        src="http://static.wl.cn//upload/zhuanti/朗格728-266.jpg" alt=""></div>
+                                <div class="swiper-slide"><img class="swiper-img"
+                                        src="http://static.wl.cn//upload/zhuanti/20181116/728x266/728x266海报-2.jpg"
+                                        alt=""></div>
+                                <div class="swiper-slide"><img class="swiper-img"
+                                        src="http://static.wl.cn//upload/zhuanti/20181116/728x266/728x266海报-6.jpg"
+                                        alt=""></div>
+                            </div>
+                            <!-- 如果需要分页器 -->
+                            <div class="swiper-pagination" style="margin-right:10px "></div>
+
+                        </div>
+
+                    </div>
+                    <div class="img_block_plate clearfix">
+                        <a href="html/list.html" class="img-block1 img-block"><img src="images/picture/a-1.jpg" alt="">
+                            <i class="img_tuan"> </i></a>
+                        <a href="html/list.html" class="img-block1 img-block"><img src="images/picture/a-2.jpg" alt="">
+                            <i class="img-notice"> </i></a>
+                        <a href="html/list.html" class="img-block1 img-block"><img src="images/picture/a-3.jpg" alt="">
+                            <i class="img-flashsale"> </i></a>
+
+                    </div>
+                    <div class="flashsale">
+                        <div class="plate_title">
+                            <h2>限时抢购</h2>
+                            <div class="flashsale_remain_time">
+                                <span class="title">剩余时间:</span>
+                                <p class="clearfix" id="J_clockWrapper">
+                                    <span class="hours">00</span>
+                                    <span class="time-format">:</span>
+                                    <span class="minutes">00</span>
+                                    <span class="time-format">:</span>
+                                    <span class="seconds">00</span>
+                                </p>
+                            </div>
+                            <div class="flashsale-pagination clearfix">
+                                <a class="prev"></a>
+                                <a class="active">1</a>
+                                <a>2</a>
+                                <a>3</a>
+                                <a class="next"></a>
+                            </div>
+                        </div>
+                        <div class="boox_tips">
+                            <ul current="1" class="book-list clearfix" id="J_flashsale">
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html"
+                                        title="-好妈妈不打不骂培养男孩300个细节">
+                                        <img src="images/picture/8398828.jpg" alt="-好妈妈不打不骂培养男孩300个细节">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">-好妈妈不打不骂培养男孩300个细节</a>
+                                    <p class="price">￥ <span>26.10</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html"
+                                        title="-好妈妈不娇不惯培养女孩300个细节        （好妈妈胜过好老师+如何说孩子才会听怎么听孩子才肯说。不娇不惯，微博微信热议的家教话题。这是一本有勇气、有思想、有智慧的女孩教养书，龙应台尹建莉杨澜孙瑞雪黑幼龙等都在谈，给中国父母巨大帮助）">
+                                        <img src="images/picture/8398830.jpg"
+                                            alt="-好妈妈不娇不惯培养女孩300个细节        （好妈妈胜过好老师+如何说孩子才会听怎么听孩子才肯说。不娇不惯，微博微信热议的家教话题。这是一本有勇气、有思想、有智慧的女孩教养书，龙应台尹建莉杨澜孙瑞雪黑幼龙等都在谈，给中国父母巨大帮助）">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" " class=" book-intro">-好妈妈不娇不惯培养女孩300个细节
+                                        （好妈妈胜过好老师+如何说孩子才会听怎么听孩子才肯说。不娇不惯，微博微信热议的家教话题。这是一本有勇气、有思想、有智慧的女孩教养书，龙应台尹建莉杨澜孙瑞雪黑幼龙等都在谈，给中国父母巨大帮助）</a>
+                                    <p class="price">￥ <span>26.10</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="所谓情商高，就是会说话">
+                                        <img src="images/picture/8796987.jpg" alt="所谓情商高，就是会说话">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">所谓情商高，就是会说话</a>
+                                    <p class="price">￥ <span>28.80</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="https://www.wl.cn/8970368"
+                                        title="好妈妈胜过好老师（500万册纪念版）">
+                                        <img src="images/picture/9012312.jpg" alt="好妈妈胜过好老师（500万册纪念版）">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">好妈妈胜过好老师（500万册纪念版）</a>
+                                    <p class="price">￥ <span>38.75</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html"
+                                        title="脾虚的孩子不长个、胃口差、爱感冒（《让孩子不发烧、不咳嗽、不积食》2，不伤孩子的脾，别伤孩子的心，孩子从小到大不生病！）">
+                                        <img src="images/picture/8330308.jpg"
+                                            alt="脾虚的孩子不长个、胃口差、爱感冒（《让孩子不发烧、不咳嗽、不积食》2，不伤孩子的脾，别伤孩子的心，孩子从小到大不生病！）">
+                                    </a>
+                                    <a target="_blank" href="html/list.html"
+                                        class="book-intro">脾虚的孩子不长个、胃口差、爱感冒（《让孩子不发烧、不咳嗽、不积食》2，不伤孩子的脾，别伤孩子的心，孩子从小到大不生病！）</a>
+                                    <p class="price">￥ <span>25.10</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="马锐带你妆">
+                                        <img src="images/picture/8804168.jpg" alt="马锐带你妆">
+                                    </a>
+                                    <a target="_blank" href="https://www.wl.cn/8753056" class="book-intro">马锐带你妆</a>
+                                    <p class="price">￥ <span>24.40</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="克苏鲁神话">
+                                        <img src="images/picture/8822954.jpg" alt="克苏鲁神话">
+                                    </a>
+                                    <a target="_blank" href="https://www.wl.cn/8771216" class="book-intro">克苏鲁神话</a>
+                                    <p class="price">￥ <span>49.80</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html"
+                                        title="中国地图 世界地图:新编地理普及版">
+                                        <img src="images/picture/8928697.jpg" alt="中国地图 世界地图:新编地理普及版">
+                                    </a>
+                                    <a target="_blank" href="https://www.wl.cn/8824891" class="book-intro">中国地图
+                                        世界地图:新编地理普及版</a>
+                                    <p class="price">￥ <span>17.80</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="我们脑中那些挥之不去的问题">
+                                        <img src="images/picture/9539521.jpg" alt="我们脑中那些挥之不去的问题">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">我们脑中那些挥之不去的问题</a>
+                                    <p class="price">￥ <span>43.10</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="陪孩子走过高中三年">
+                                        <img src="images/picture/8524121.jpg" alt="陪孩子走过高中三年">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">陪孩子走过高中三年</a>
+                                    <p class="price">￥ <span>29.80</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" " title=" 摆渡人">
+                                        <img src="images/picture/8464422.jpg" alt="摆渡人">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">摆渡人</a>
+                                    <p class="price">￥ <span>32.40</span></p>
+                                </li>
+
+                                <li>
+                                    <a target="_blank" class="small-cover " href="html/list.html" title="把话说到孩子心里去">
+                                        <img src="images/picture/8795134.jpg" alt="把话说到孩子心里去">
+                                    </a>
+                                    <a target="_blank" href="html/list.html" class="book-intro">把话说到孩子心里去</a>
+                                    <p class="price">￥ <span>31.50</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flash-_ale_recommend_plate">
+                            <a class="plate-img1" title="数学衔接">
+                                <img src="images/picture/7887878.jpg" alt="数学衔接"></a>
+                            <a class="plate-img2" title="自在独行">
+                                <img src="images/picture/a-6.jpg" alt="自在独行"></a>
+                            <a class="plate-img3" title="">
+                                <img src="images/picture/a-7.jpg" alt="梦的解析"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="main_top clearfix">
+                <i></i>
+                <div class="mian_content">
+                    <div class="new_books">
+                        <div class="plate-title">
+                            <h2>新书上架</h2>
+                        </div>
+                        <ul class="new_boxlist clearfix">
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="zui初之前">
+                                    <img src="images/picture/9497284.jpg" alt="zui初之前">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">zui初之前</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover " href="  html/list.html" title="不管教的勇气">
+                                    <img src="images/picture/9385061.jpg" alt="不管教的勇气">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">不管教的勇气</a>
+                                <p class="price">
+                                    ￥
+                                    <span>42.00</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="漫画美的人（上）">
+                                    <img src="images/picture/9497034.jpg" alt="漫画美的人（上）">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">漫画美的人（上）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>39.30</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="成事:冯唐品读曾国籓嘉言钞">
+                                    <img src="images/picture/9512927.jpg" alt="成事:冯唐品读曾国籓嘉言钞">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">成事:冯唐品读曾国籓嘉言钞</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.80</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="半小时漫画帝王史(全3册)">
+                                    <img src="images/picture/9268798.jpg" alt="半小时漫画帝王史(全3册)">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">半小时漫画帝王史(全3册)</a>
+                                <p class="price">
+                                    ￥
+                                    <span>86.20</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html title=" 大冰书籍">
+                                    <img src="images/picture/9529484.jpg" alt="大冰书籍">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">大冰书籍</a>
+                                <p class="price">
+                                    ￥
+                                    <span>180.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="流浪地球+赡养人类+超新星纪元">
+                                    <img src="images/picture/9440210.jpg" alt="流浪地球+赡养人类+超新星纪元">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">流浪地球+赡养人类+超新星纪元</a>
+                                <p class="price">
+                                    ￥
+                                    <span>88.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                    <img src="images/picture/9486279.jpg" alt="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                </a>
+                                <a target="_blank" href="  html/list.html"
+                                    class="book-intro">罗生门+人间失格+月亮与六便士+1984（新版）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>135.00</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="presell">
+                        <div class="plate-title">
+                            <h2>新书推荐</h2>
+                        </div>
+                        <div class="presell-plate">
+                            <a target="_blank" href="html/list.html" title="1+2+3">
+                                <img src="images/picture/a_1.jpg" alt=""></a>
+                            <a target="_blank" href="html/list.html" title="深度社交">
+                                <img src="images/picture/a-3.jpg" alt="深度社交"></a>
+                            <a target="_blank" href="html/list.html" title="智能运动">
+                                <img src="images/picture/a-4.jpg" alt="智能运动"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="main_top clearfix">
+                <i style="background: url(images/bg-box-gap.png) left top no-repeat;height: 30px;"></i>
+                <div class="mian_content">
+                    <div class="new_books">
+                        <div class="plate-title">
+                            <h2>编辑推荐</h2>
+                        </div>
+                        <ul class="new_boxlist clearfix">
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="zui初之前">
+                                    <img src="images/picture/9497284.jpg" alt="zui初之前">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">zui初之前</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover " href="  html/list.html" title="不管教的勇气">
+                                    <img src="images/picture/9385061.jpg" alt="不管教的勇气">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">不管教的勇气</a>
+                                <p class="price">
+                                    ￥
+                                    <span>42.00</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="漫画美的人（上）">
+                                    <img src="images/picture/9497034.jpg" alt="漫画美的人（上）">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">漫画美的人（上）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>39.30</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="成事:冯唐品读曾国籓嘉言钞">
+                                    <img src="images/picture/9512927.jpg" alt="成事:冯唐品读曾国籓嘉言钞">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">成事:冯唐品读曾国籓嘉言钞</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.80</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="半小时漫画帝王史(全3册)">
+                                    <img src="images/picture/9268798.jpg" alt="半小时漫画帝王史(全3册)">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">半小时漫画帝王史(全3册)</a>
+                                <p class="price">
+                                    ￥
+                                    <span>86.20</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html title=" 大冰书籍">
+                                    <img src="images/picture/9529484.jpg" alt="大冰书籍">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">大冰书籍</a>
+                                <p class="price">
+                                    ￥
+                                    <span>180.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="流浪地球+赡养人类+超新星纪元">
+                                    <img src="images/picture/9440210.jpg" alt="流浪地球+赡养人类+超新星纪元">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">流浪地球+赡养人类+超新星纪元</a>
+                                <p class="price">
+                                    ￥
+                                    <span>88.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                    <img src="images/picture/9486279.jpg" alt="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                </a>
+                                <a target="_blank" href="  html/list.html"
+                                    class="book-intro">罗生门+人间失格+月亮与六便士+1984（新版）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>135.00</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="presell">
+                        <div class="plate-title">
+                            <h2>热销排行榜</h2>
+                        </div>
+                        <ol id="J_hot-sort" class="hot-sort clearfix">
+
+                            <li class="active">少儿</li>
+
+                            <li>教材</li>
+
+                            <li>艺术</li>
+
+                            <li>小说</li>
+                        </ol>
+                        <ul class="hot-list" style="display: block">
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">1</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/56445.jpg" width="36" height="54" />
+                                    </i>
+                                    <span class="infor" id="inf">绿野仙踪/影响孩子一生的世界十大名著(少儿注音彩图版)</span>
+                                    <span class="price">￥15.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="hot-list">
+
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="hot-list">
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">1</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/56445.jpg" width="36" height="54" />
+                                    </i>
+                                    <span class="infor" id="inf">绿野仙踪/影响孩子一生的世界十大名著(少儿注音彩图版)</span>
+                                    <span class="price">￥15.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <ul class="hot-list">
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">1</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/56445.jpg" width="36" height="54" />
+                                    </i>
+                                    <span class="infor" id="inf">绿野仙踪/影响孩子一生的世界十大名著(少儿注音彩图版)</span>
+                                    <span class="price">￥15.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main_top clearfix" style="height: 433px">
+                <i style="background: url(images/bg-box-gap.png) left top no-repeat;height: 30px;"></i>
+                <div class="mian_content">
+                    <div class="new_books">
+                        <div class="plate-title">
+                            <h2>特价推荐</h2>
+                        </div>
+                        <ul class="new_boxlist clearfix">
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="半小时漫画帝王史(全3册)">
+                                    <img src="images/picture/9268798.jpg" alt="半小时漫画帝王史(全3册)">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">半小时漫画帝王史(全3册)</a>
+                                <p class="price">
+                                    ￥
+                                    <span>86.20</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html "
+                                    title=" 大冰书籍">
+                                    <img src="images/picture/9529484.jpg" alt="大冰书籍">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">大冰书籍</a>
+                                <p class="price">
+                                    ￥
+                                    <span>180.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="流浪地球+赡养人类+超新星纪元">
+                                    <img src="images/picture/9440210.jpg" alt="流浪地球+赡养人类+超新星纪元">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">流浪地球+赡养人类+超新星纪元</a>
+                                <p class="price">
+                                    ￥
+                                    <span>88.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                    <img src="images/picture/9486279.jpg" alt="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                </a>
+                                <a target="_blank" href="  html/list.html"
+                                    class="book-intro">罗生门+人间失格+月亮与六便士+1984（新版）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>135.00</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="bargain-price-plate">
+                            <a style=" margin-left: 23px;
+            margin-right: 13px;" target="_blank" href="html/list.html" class="bargain-price-plate-a" title="海底小纵队">
+                                <img src="images/picture/212-106海底小纵队.jpg" alt="海底小纵队">
+                            </a>
+                            <a target="_blank" href="html/list.html" class="bargain-price-plate-a" title="读心术">
+                                <img src="images/picture/a-8.jpg" alt="读心术"></a>
+                            <a style="margin-left: 13px;" target="_blank" href="html/list.html"
+                                class="bargain-price-plate-a" title="大侦探福尔摩斯">
+                                <img src="images/picture/212-106大侦探福尔摩斯.jpg" alt="大侦探福尔摩斯">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="presell">
+                        <div class="plate-title">
+                            <h2>热销排行榜</h2>
+                        </div>
+                        <ul class="hot-list" style="display: block">
+
+                            <li>
+
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">1</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/56445.jpg" width="36" height="54" />
+                                    </i>
+                                    <span class="infor" id="inf">绿野仙踪/影响孩子一生的世界十大名著(少儿注音彩图版)</span>
+                                    <span class="price">￥15.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="main_top clearfix" style="height: 494px;">
+                <i style="height: 30px;background: url(images/bg-box-gap.png) left top no-repeat"></i>
+                <div class="mian_content" style="height: 494px;">
+                    <div class="new_books" style="height: 494px;">
+                        <div class="plate-title">
+                            <h2>
+                                名家名作
+                            </h2>
+                        </div>
+                        <div class="authorList clearfix">
+                            <li>
+                                <a target="_blank" href="html/list.html" class="img" title="苑子豪">
+                                    <img src="images/picture/aa-1.jpg" alt="苑子豪"></a>
+                                <p class="author-key-message">
+                                    <a href="html/list.html">苑子豪</a>
+                                </p>
+                                <p class="author-detail-message">
+                                    苑子豪，青年作家，演员。当当网年度新锐作家,第十届作家榜金奖·年度新锐作家,中华儿慈会益童成长中心爱心大使,星月榜样盛典年度青年榜样,《鲁豫有约》《天天向上》人气嘉宾。
+                                </p>
+                                <p class="author-related-works">
+                                    <span>相关作品：</span>
+
+                                    <a target="_blank" href="html/list.html" title="我们的十年（签名本 北大双胞胎苑子豪新书）">我们的十年（签名本
+                                        北大双胞胎苑子豪新书）</a>
+
+                                    <a target="_blank" href="html/list.html" title="不好意思，次当大人">不好意思，次当大人</a>
+
+                                    <a target="_blank" href="html/list.html" title="我们都一样.年轻又彷徨">我们都一样.年轻又彷徨</a>
+
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html" class="img" title="曹文轩">
+                                    <img src="images/picture/aa-2.jpg" alt="曹文轩"></a>
+                                <p class="author-key-message">
+                                    <a href="html/list.html">曹文轩</a>
+                                </p>
+                                <p class="author-detail-message">
+                                    曹文轩，北京大学中文系教授，中国作家协会主席团委员，北京作家协会副主席。 著有长篇小说《山羊不吃天堂草》《草房子》《红瓦》《根鸟》《细米》《青铜葵花》《火印》等。
+                                </p>
+                                <p class="author-related-works">
+                                    <span>相关作品：</span>
+
+                                    <a target="_blank" href="html/list.html"
+                                        title="草房子（曹文轩经典之作，经典中的经典！）">草房子（曹文轩经典之作，经典中的经典！）</a>
+
+                                    <a target="_blank" href="html/list.html" title="我们回家">我们回家</a>
+
+                                    <a target="_blank" href="html/list.html"
+                                        title="小酒店里的怪客  曹文轩小说馆        回顾大师三十年创作之路，展现一个完整的曹文轩">小酒店里的怪客 曹文轩小说馆
+                                        回顾大师三十年创作之路，展现一个完整的曹文轩</a>
+
+                                </p>
+                            </li>
+                        </div>
+                        <ul class="new_boxlist clearfix">
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="半小时漫画帝王史(全3册)">
+                                    <img src="images/picture/9268798.jpg" alt="半小时漫画帝王史(全3册)">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">半小时漫画帝王史(全3册)</a>
+                                <p class="price">
+                                    ￥
+                                    <span>86.20</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html" title=" 大冰书籍">
+                                    <img src="images/picture/9529484.jpg" alt="大冰书籍">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">大冰书籍</a>
+                                <p class="price">
+                                    ￥
+                                    <span>180.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="流浪地球+赡养人类+超新星纪元">
+                                    <img src="images/picture/9440210.jpg" alt="流浪地球+赡养人类+超新星纪元">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">流浪地球+赡养人类+超新星纪元</a>
+                                <p class="price">
+                                    ￥
+                                    <span>88.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                    <img src="images/picture/9486279.jpg" alt="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                </a>
+                                <a target="_blank" href="  html/list.html"
+                                    class="book-intro">罗生门+人间失格+月亮与六便士+1984（新版）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>135.00</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="presell" style="height: 494px;">
+                        <div class="plate-title">
+                            <h2>热门话题</h2>
+                        </div>
+                        <ul class="hot-topic-plate clearfix">
+
+                            <li>
+                                <a target="_blank" href="html/list.html" title="天幕红尘">
+                                    <img src="images/picture/aa-3.jpg" alt="天幕红尘"></a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html" title="心若从容 无所畏惧">
+                                    <img src="images/picture/心如从容218-188.jpg" alt="心若从容 无所畏惧"></a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="main_top clearfix">
+                <i style="background: url(images/bg-box-gap.png) left top no-repeat;height: 30px;"></i>
+                <div class="mian_content">
+                    <div class="new_books">
+                        <div class="plate-title">
+                            <h2>
+                                热门图书
+                            </h2>
+                        </div>
+                        <ul class="new_boxlist clearfix">
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="zui初之前">
+                                    <img src="images/picture/9497284.jpg" alt="zui初之前">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">zui初之前</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover " href="  html/list.html" title="不管教的勇气">
+                                    <img src="images/picture/9385061.jpg" alt="不管教的勇气">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">不管教的勇气</a>
+                                <p class="price">
+                                    ￥
+                                    <span>42.00</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="漫画美的人（上）">
+                                    <img src="images/picture/9497034.jpg" alt="漫画美的人（上）">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">漫画美的人（上）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>39.30</span>
+                                </p>
+                            </li>
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="成事:冯唐品读曾国籓嘉言钞">
+                                    <img src="images/picture/9512927.jpg" alt="成事:冯唐品读曾国籓嘉言钞">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">成事:冯唐品读曾国籓嘉言钞</a>
+                                <p class="price">
+                                    ￥
+                                    <span>49.80</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="半小时漫画帝王史(全3册)">
+                                    <img src="images/picture/9268798.jpg" alt="半小时漫画帝王史(全3册)">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">半小时漫画帝王史(全3册)</a>
+                                <p class="price">
+                                    ￥
+                                    <span>86.20</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html title=" 大冰书籍">
+                                    <img src="images/picture/9529484.jpg" alt="大冰书籍">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">大冰书籍</a>
+                                <p class="price">
+                                    ￥
+                                    <span>180.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="流浪地球+赡养人类+超新星纪元">
+                                    <img src="images/picture/9440210.jpg" alt="流浪地球+赡养人类+超新星纪元">
+                                </a>
+                                <a target="_blank" href="  html/list.html" class="book-intro">流浪地球+赡养人类+超新星纪元</a>
+                                <p class="price">
+                                    ￥
+                                    <span>88.00</span>
+                                </p>
+                            </li>
+
+                            <li>
+                                <a target="_blank" class="small-cover bk-img-box" href="  html/list.html"
+                                    title="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                    <img src="images/picture/9486279.jpg" alt="罗生门+人间失格+月亮与六便士+1984（新版）">
+                                </a>
+                                <a target="_blank" href="  html/list.html"
+                                    class="book-intro">罗生门+人间失格+月亮与六便士+1984（新版）</a>
+                                <p class="price">
+                                    ￥
+                                    <span>135.00</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="presell">
+                        <div class="plate-title">
+                            <h2>热销排行榜</h2>
+                        </div>
+
+                        <ul class="hot-list" style="display: block">
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">1</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/56445.jpg" width="36" height="54" />
+                                    </i>
+                                    <span class="infor" id="inf">绿野仙踪/影响孩子一生的世界十大名著(少儿注音彩图版)</span>
+                                    <span class="price">￥15.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">2</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/89162.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">我的野生动物朋友:[摄影集]</span>
+                                    <span class="price">￥29.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">3</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/95038.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">环游地球八十天</span>
+                                    <span class="price">￥5.60</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">4</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/99572.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">21 世纪中小学黑板报手册</span>
+                                    <span class="price">￥14.20</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">5</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/110324.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">脑力比拼三级跳 5-7岁C</span>
+                                    <span class="price">￥6.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">6</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/189679.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">中外快乐儿歌:幼读儿歌120</span>
+                                    <span class="price">￥12.80</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">7</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/214147.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">那个骑轮箱来的蜜儿</span>
+                                    <span class="price">￥15.00</span>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">8</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/239339.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">天上人间:中国星座的故事</span>
+                                    <span class="price">￥24.80</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">9</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/430976.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">趣味汉字</span>
+                                    <span class="price">￥28.00</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a target="_blank" href="html/list.html">
+                                    <span class="number">10</span>
+                                    <i class="small-img">
+                                        <img src="images/picture/488439.jpg" width="36" height="54">
+                                    </i>
+                                    <span class="infor">孩子们的拜厄</span>
+                                    <span class="price">￥38.00</span>
+                                </a>
+                            </li>
+
+                        </ul>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="index_footer"></div>
+    </div>
+</body>
+<script src="lib/jquery-1.10.1.min.js"></script>
+<script src="lib/swiper.js"></script>
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+
+
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>同步和异步</title>
+    <script>
+    
+        //同步代码：一步又一步
+        console.log('start');//1.start
+        for(let i = 0; i < 50; i++) {//2.打印50次666
+            console.log('666');
+        }
+        console.log('end');//3.end
+
+        //异步：多线程
+        console.log('异步start');
+       setTimeout(function() {
+            console.log('setTimeout');
+       },2000);
+       console.log('异步end');
+
+       //异步代码：定时器、ajax
+       //注意事项：如果某个功能需要用到某个ajax的数据，需要保证代码的顺序，记得要把该功能写在ajax的回调函数里面。
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

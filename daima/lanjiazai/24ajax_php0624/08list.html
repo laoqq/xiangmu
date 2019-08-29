@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表页</title>
+</head>
+<body>
+    <h1>列表页</h1>
+    <a href="###" id="login">登陆</a>
+</body>
+<script src="../common.js"></script>
+<script>
+    (function() {
+
+        
+        let login = document.getElementById('login');
+
+        //3.点击登陆，跳转到登陆页面，记录url地址
+        login.onclick = () => {
+            console.log(location.href);
+            setCookie('url',location.href,1);
+            // console.log();
+            location.href = '06login.html';
+        }
+
+    })();
+</script>
+</html>

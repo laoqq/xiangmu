@@ -1,0 +1,661 @@
+@charset "UTF-8";
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+#main {
+  width: 100%;
+}
+
+#main .main_container {
+  width: 998px;
+  margin: 0 auto;
+}
+
+#main .main_container .side_nav {
+  float: left;
+  width: 240px;
+  height: 819px;
+  position: relative;
+  padding-top: 30px;
+  z-index: 10;
+  padding: 0 0 0 8px;
+  margin-top: 0;
+  background: url(../images/sidenav-left-shadow.gif) left top repeat-y;
+  overflow: hidden;
+}
+
+#main .main_container .side_nav .box-content {
+  height: 819px;
+  padding: 0 10px 0 0;
+  background: url(../images/index-nav-gap.gif) right top no-repeat;
+  background-color: #fff;
+}
+
+#main .main_container .side_nav .box-content .sidenav-content {
+  padding: 0 17px 0 20px;
+}
+
+#main .main_container .side_nav .box-content .sidenav-content li {
+  padding: 5px 0 7px 6px;
+  border-bottom: 1px solid #d5ebfd;
+}
+
+#main .main_container .side_nav .box-content .sidenav-content li h2 a {
+  color: #4c85b2;
+  text-decoration: none;
+}
+
+#main .main_container .side_nav .box-content .sidenav-content li p a {
+  display: inline-block;
+  padding: 0 0px 0 0;
+  color: #666666;
+  word-break: keep-all;
+}
+
+#main .main_container .main_container_news {
+  float: right;
+  width: 750px;
+  height: 819px;
+  background: #fff url("../images/mian-news-right.gif") right top no-repeat;
+}
+
+#main .main_container .main_container_news h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 32px;
+  overflow: hidden;
+  line-height: 32px;
+  padding-left: 3px;
+  border-bottom: 2px solid #2ba2e6;
+  color: #2ba2e6;
+  font-size: 14px;
+}
+
+#main .main_container .main_container_news .imgPlayer {
+  width: 728px;
+  height: 266px;
+  padding: 10px 6px 6px 6px;
+  background: url("../images/index-imgplayer-top.gif") left top no-repeat;
+  background-color: transparent;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#main .main_container .main_container_news .img_block_plate {
+  width: 740px;
+  height: 132px;
+  padding-top: 7px;
+  padding-left: 3px;
+  background: url("../images/img-block-top.gif") left top no-repeat;
+}
+
+#main .main_container .main_container_news .img_block_plate .img-block1 {
+  width: 239px;
+  padding-right: 7px;
+  background: url("../images/img-tuan-right.gif") right top no-repeat;
+}
+
+#main .main_container .main_container_news .img_block_plate .img-block {
+  float: left;
+  position: relative;
+  height: 132px;
+  background-color: #fff;
+  zoom: 1;
+}
+
+#main .main_container .main_container_news .img_block_plate img {
+  width: 240px;
+  height: 131px;
+}
+
+#main .main_container .main_container_news .img_block_plate i {
+  display: block;
+  position: absolute;
+  right: 7px;
+  bottom: 0px;
+  width: 82px;
+  height: 65px;
+  z-index: 50;
+}
+
+#main .main_container .main_container_news .img_block_plate .img_tuan {
+  background: url("../images/tuan-block.png") no-repeat;
+}
+
+#main .main_container .main_container_news .img_block_plate .img-notice {
+  background: url("../images/block-notice.png") no-repeat;
+}
+
+#main .main_container .main_container_news .img_block_plate .img-flashsale {
+  background: url("../images/block-flashsale.png") no-repeat;
+}
+
+#main .main_container .main_container_news .flashsale {
+  width: 740px;
+  height: 373px;
+  _height: 369px;
+  padding-top: 10px;
+  background: url("../images/flashsale-top.jpg") left top no-repeat;
+  background-color: transparent;
+  background-color: #fff;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title {
+  position: relative;
+  height: 32px;
+  border-bottom: 2px solid #e6e7e8;
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale_remain_time {
+  position: absolute;
+  left: 502px;
+  top: 0;
+  height: 32px;
+  width: 157px;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale_remain_time .title {
+  position: absolute;
+  left: -5px;
+  top: 11px;
+  color: #888;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale_remain_time p {
+  position: absolute;
+  left: 50px;
+  top: 6px;
+  height: 26px;
+  line-height: 26px;
+  color: #cc3300;
+  font-size: 20.38px;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale_remain_time p span {
+  float: left;
+  font-weight: bolder;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale-pagination {
+  position: absolute;
+  left: 657px;
+  top: 11px;
+  height: 16px;
+  width: 76px;
+  overflow: hidden;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale-pagination a {
+  display: block;
+  float: left;
+  height: 16px;
+  width: 14px;
+  text-align: center;
+  color: #888;
+  cursor: pointer;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale-pagination .active {
+  color: #cc3300;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale-pagination .next {
+  width: 15px;
+  background: url("../images/flashsale-pagination-next.gif") no-repeat;
+}
+
+#main .main_container .main_container_news .flashsale .plate_title .flashsale-pagination .prev {
+  width: 15px;
+  background: url("../images/flashsale-pagination-prev.gif") no-repeat;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips {
+  width: 725px;
+  height: 234px;
+  overflow: hidden;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list {
+  padding-left: 15px;
+  width: 725px;
+  height: 0px;
+  overflow: hidden;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list li {
+  float: left;
+  width: 179px;
+  display: none;
+  animation: all 0.5;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list li .book-intro {
+  display: block;
+  height: 37px;
+  line-height: 18px;
+  width: 151px;
+  margin: 5px auto 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list li .price {
+  color: #cc3300;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list li .small-cover {
+  display: block;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-top: 13px;
+  text-align: center;
+}
+
+#main .main_container .main_container_news .flashsale .boox_tips .book-list li .small-cover img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+#main .main_container .main_container_news .flashsale .flash-_ale_recommend_plate {
+  margin-top: 13px;
+}
+
+#main .main_container .main_container_news .flashsale .flash-_ale_recommend_plate .plate-img1 {
+  margin-left: 23px;
+  margin-right: 11px;
+}
+
+#main .main_container .main_container_news .flashsale .flash-_ale_recommend_plate .plate-img3 {
+  margin-left: 11px;
+}
+
+#main .main_container .main_container_news .flashsale .flash-_ale_recommend_plate a {
+  display: inline-block;
+  width: 218px;
+  height: 89px;
+  border: 1px solid #e4e4e4;
+}
+
+#main .main_container .main_container_news .flashsale .flash-_ale_recommend_plate a img {
+  display: block;
+  width: 213px;
+  height: 86px;
+  margin: 1px auto;
+}
+
+#main .main_top {
+  margin: 0 auto;
+  width: 998px;
+  height: 526px;
+  position: relative;
+  padding-top: 24px;
+}
+
+#main .main_top i {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 24px;
+  font-size: 0;
+  content: " ";
+  height: 24px;
+  background: url("../images/mian-bottom.gif") no-repeat;
+}
+
+#main .main_top .mian_content {
+  position: relative;
+  zoom: 1;
+  display: block;
+  padding: 0 10px 0px 8px;
+  background: url(../images/bg-box.png) left bottom repeat-y;
+  overflow: hidden;
+}
+
+#main .main_top .mian_content .new_books,
+#main .main_top .mian_content .presell {
+  height: 526px;
+}
+
+#main .main_top .mian_content h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 32px;
+  overflow: hidden;
+  line-height: 32px;
+  padding-left: 3px;
+  border-bottom: 2px solid #2ba2e6;
+  color: #2ba2e6;
+  font-size: 14px;
+}
+
+#main .main_top .mian_content a {
+  color: #666666;
+}
+
+#main .main_top .mian_content .new_books {
+  float: left;
+  width: 730px;
+  background: #ffffff;
+}
+
+#main .main_top .mian_content .new_books .plate-title {
+  position: relative;
+  height: 32px;
+  border-bottom: 2px solid #e6e7e8;
+  margin-left: 6px;
+}
+
+#main .main_top .mian_content .new_books .authorList li {
+  float: left;
+  position: relative;
+  height: 200px;
+  width: 340px;
+  margin-left: 12px;
+  _margin-left: 8px;
+  margin-top: 12px;
+  background: #f5f5f5;
+  list-style: none;
+}
+
+#main .main_top .mian_content .new_books .authorList li img {
+  display: block;
+  width: 126px;
+  height: 126px;
+}
+
+#main .main_top .mian_content .new_books .authorList li .author-key-message {
+  position: absolute;
+  left: 158px;
+  top: 20px;
+  width: 170px;
+  overflow: hidden;
+  color: #666;
+}
+
+#main .main_top .mian_content .new_books .authorList li .author-detail-message {
+  position: absolute;
+  left: 158px;
+  top: 46px;
+  width: 170px;
+  height: 89px;
+  overflow: hidden;
+  color: #888;
+}
+
+#main .main_top .mian_content .new_books .authorList li .author-related-works {
+  position: absolute;
+  left: 12px;
+  top: 152px;
+  width: 254px;
+  height: 36px;
+  padding-left: 60px;
+  color: #666;
+  overflow: hidden;
+  line-height: 36px;
+  vertical-align: top;
+}
+
+#main .main_top .mian_content .new_books .authorList li .author-related-works span {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  line-height: 36px;
+}
+
+#main .main_top .mian_content .new_books .authorList li .author-related-works span a {
+  display: inline-block;
+  width: 60px;
+  height: 36px;
+  margin: 0 5px;
+  line-height: 36px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist {
+  padding-left: 12px;
+  padding-top: 8px;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist li {
+  color: #7a7a7a;
+  float: left;
+  width: 179px;
+  height: 234px;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist li .small-cover {
+  display: block;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-top: 13px;
+  text-align: center;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist li .small-cover img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist li .book-intro {
+  display: block;
+  height: 37px;
+  line-height: 18px;
+  width: 151px;
+  margin: 5px auto 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+#main .main_top .mian_content .new_books .new_boxlist li .price {
+  color: #cc3300;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+#main .main_top .mian_content .new_books .bargain-price-plate {
+  width: 100%;
+  margin-top: 28px;
+}
+
+#main .main_top .mian_content .new_books .bargain-price-plate .bargain-price-plate-a {
+  display: inline-block;
+  width: 210px;
+  height: 104px;
+}
+
+#main .main_top .mian_content .new_books .bargain-price-plate .bargain-price-plate-a img {
+  width: 210px;
+  height: 104px;
+}
+
+#main .main_top .mian_content .presell {
+  position: relative;
+  float: right;
+  width: 246px;
+  background: #ffffff;
+}
+
+#main .main_top .mian_content .presell .plate-title {
+  position: relative;
+  height: 32px;
+  border-bottom: 2px solid #e6e7e8;
+}
+
+#main .main_top .mian_content .presell .presell-plate {
+  height: 476px;
+  border-left: 1px solid #e4e4e4;
+  padding-left: 7px;
+  overflow: hidden;
+}
+
+#main .main_top .mian_content .presell .presell-plate a {
+  display: block;
+  width: 237px;
+}
+
+#main .main_top .mian_content .presell .hot-list,
+#main .main_top .mian_content .presell .hot-sort li {
+  cursor: pointer;
+}
+
+#main .main_top .mian_content .presell .hot-sort {
+  margin-top: 5px;
+  padding-top: 2px;
+  height: 25px;
+  overflow: hidden;
+}
+
+#main .main_top .mian_content .presell .hot-sort li {
+  display: block;
+  float: left;
+  width: 37px;
+  height: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #0163af;
+  cursor: pointer;
+}
+
+#main .main_top .mian_content .presell .hot-sort .active {
+  color: #333333;
+  background: url("../images/hot-active.gif") no-repeat;
+}
+
+#main .main_top .mian_content .presell .hot-list {
+  position: relative;
+  padding-left: 4px;
+  margin-top: 0;
+  height: 340px;
+  display: none;
+}
+
+#main .main_top .mian_content .presell .hot-list .active2 {
+  width: 241px;
+  height: 76px;
+  margin-left: 0;
+  margin-bottom: 4px;
+  background: #f8f8f8;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#main .main_top .mian_content .presell .hot-list li {
+  position: relative;
+  height: 29px;
+  margin-left: 12px;
+  border-bottom: 1px solid #f4f4f4;
+  cursor: pointer;
+}
+
+#main .main_top .mian_content .presell .hot-list li .number {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  _top: 7px;
+  display: block;
+  width: 13px;
+  height: 13px;
+  line-height: 13px;
+  background: url("../images/number-bg.gif") 0 0 no-repeat;
+  color: #565656;
+  text-align: center;
+}
+
+#main .main_top .mian_content .presell .hot-list li .number2 {
+  top: 5px;
+  margin-left: 12px;
+  background: url("../images/number-bg.gif") 0 -13px no-repeat;
+  color: #d70000;
+}
+
+#main .main_top .mian_content .presell .hot-list li .infor {
+  position: absolute;
+  left: 20px;
+  width: 187px;
+  height: 28px;
+  line-height: 28px;
+  padding-left: 4px;
+  overflow: hidden;
+  color: #666666;
+}
+
+#main .main_top .mian_content .presell .hot-list li .price {
+  position: absolute;
+  left: 96px;
+  top: 49px;
+  color: #cc3300;
+  font-weight: 600;
+  font-family: "微软雅黑";
+  display: none;
+}
+
+#main .main_top .mian_content .presell .hot-list li .small-img {
+  position: absolute;
+  left: 33px;
+  top: 9px;
+  width: 54px;
+  height: 54px;
+  text-align: center;
+  border: 1px solid #d2d2d2;
+  display: none;
+}
+
+#main .main_top .mian_content .presell .hot-list li .infor2 {
+  position: absolute;
+  left: 96px;
+  top: 10px;
+  height: 36px;
+  line-height: 18px;
+  width: 97px;
+  border: none;
+}
+
+#main .main_top .mian_content .presell .hot-topic-plate {
+  width: 238px;
+  margin: 0 0 0 7px;
+}
+
+#main .main_top .mian_content .presell .hot-topic-plate li {
+  float: left;
+  width: 218px;
+  height: 188px;
+  padding: 9px;
+  margin-top: 12px;
+  background: #e2f1ee;
+}
+
+#main .main_top .mian_content .presell .hot-topic-plate li img {
+  width: 218px;
+  height: 188px;
+}

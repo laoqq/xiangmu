@@ -1,0 +1,146 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-15 11:12:08
+ * @LastEditTime: 2019-08-20 17:54:48
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../iconfont/iconfont.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/taopao.css
+    " />
+  <style>
+    .contion {
+      width: 100%;
+      text-align: center;
+      height: 100px;
+      font-size: 20px;
+      padding-bottom: 30px;
+      box-sizing: border-box;
+    }
+
+    #text1 {
+      border: 1px solid #ccc;
+      width: 200px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    #sch,
+    #btn {
+      line-height: 30px;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .upd,
+    .add {
+      display: inline-block;
+      border: 1px solid red;
+      margin: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    #text2,
+    #text3 {
+      border: 1px solid #ccc;
+      width: 60px;
+      height: 30px;
+      margin-right: 10px;
+      margin-left: 10px;
+
+    }
+
+    #li {
+      width: 100%;
+      text-align: center;
+    }
+
+    #lista {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 30px;
+      font-size: 16px;
+    }
+
+    .active {
+      background-color: #58bc58;
+    }
+
+    .inf {
+      width: 100%;
+      font-size: 16px;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div class="inf">请<a href="login.html" class="login_a2">登陆</a></div>
+    <div class="contion">
+      <input type="text" id="text1" /><input type="button" value="搜索" id="btn" /><a href="###" class="upd">降序</a><a
+        href="###" class="add">升序</a>
+      <input type="text" id="text2">─<input type="text" id="text3"><input type="button" value="查询" id="sch">
+    </div>
+    <div id="lst"></div>
+    <div id="li"></div>
+  </div>
+</body>
+<script src="../js/common.js"></script>
+<script src="../js/js.js"></script>
+<script>
+  (function () {
+    let inf = document.querySelector('.inf');
+
+    function inti() {
+      let name = getCookie('name1');
+      if (name) {
+        inf.innerHTML = `欢迎你${name}<a class="login_a1" href="">退出</a>`
+      } else {
+        inf.innerHTML = `请<a class="login_a2" href="login.html">登陆</a>`
+      }
+    }
+    inti();
+    // var login_a1 = document.querySelector('.login_a1');
+    // var login_a2 = document.querySelector('.login_a2');
+    inf.onclick = (e) => {
+
+      if (e.target.className == 'login_a1') {
+        removeCookie('name1');
+        inti();
+      } else {
+        let url = location.href;
+        setCookie('url1', url);
+        inti();
+
+      }
+    }
+    // login_a1.onclick = () => {
+    //   removeCookie('name1');
+    //   inti();
+
+    // }
+    // login_a2.onclick = () => {
+    //   let url = location.href;
+    //   setCookie('url1', url);
+    //   inti();
+
+    // }
+  })();
+</script>
+
+</html>

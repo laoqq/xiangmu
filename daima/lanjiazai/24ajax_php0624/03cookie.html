@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookies的存储</title>
+    <script>
+        /*
+            cookie:浏览器存储数据的一项技术，需要用到环境打开才能使用；
+
+            应用场景：
+                * 7天免登陆
+        
+            怎么使用：存到浏览器的一个文本，字符串形式，形式：键值对的方式存取数据；
+
+                * 每个域名存50个(每个浏览器规定不一样)
+                * 会话级别：关闭浏览器就失效；
+                * 如果要永久存储：需要特别的设置cookie的失效时间
+                * cookie只能保留一段时间，浏览器会自动清除；
+            
+            操作：
+                * 增
+                * 删
+                * 改
+                * 查
+        */
+
+        //存 ：document.cookie = name=value[;expires=date][;path=路径][;domain=域名]
+//[]表示该值是可选
+
+        // document.cookie = 'name=malin';
+
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <input type="button" value="存cookie" id="btn1">
+    <input type="button" value="取cookie" id="btn2">
+    <input type="button" value="删除cookie" id="btn3">
+    <div id="output"></div>
+
+    <script>
+        (function() {
+
+            let input = document.getElementById('input');
+            let btn1 = document.getElementById('btn1');
+            let btn2 = document.getElementById('btn2');
+            let btn3 = document.getElementById('btn3');
+            let output = document.getElementById('output');
+
+            //存cookie
+            btn1.onclick = () => {
+                let val = input.value;
+                //把拿到的数据存到cookie，设置为7天有效
+                // var now = new Date();
+                // now.setDate(now.getDate() + 7);//未来七天内都有效
+                // // console.log(now.toUTCString());
+                // document.cookie = 'name=' + val + ';expires=' + now.toUTCString();//没有设置失效时间的话，默认就是立即失效
+                // document.cookie = 'pwd=123456;expires=' + now.toUTCString(); ;
+                setCookie('data',val,10);
+            }
+
+            function setCookie(key,val,iDay) {
+                //key：键名；val：键值；iDay：失效时间
+                var now = new Date();
+                now.setDate(now.getDate() + iDay);
+                document.cookie = key + '=' + val + ';expires=' + now.toUTCString() + ';path=/';//设置一个站点内的文件可以共享此cookie
+            }
+
+            function  getCookie(key) {//获取cookie值
+                var cookies = document.cookie;//name=malin; pwd=123456
+                var arr = cookies.split('; ');//['name=malin','pwd=123456']
+                for(var i = 0; i < arr.length; i++){ 
+                    var arr2 = arr[i].split('=');//['name','malin'
+                    if(key == arr2[0]) {  
+                        return arr2[1];
+                    }
+                };
+            }
+
+            function removeCookie(key) {//删除：设置失效时间为过去的时间，立即失效
+                setCookie(key,'',-1);
+            }
+
+            //取值
+            btn2.onclick = () => {//name=malin&pwd=123455
+                // var cookies = document.cookie;//name=malin; pwd=123456
+                // console.log(cookies);
+                var data = getCookie('data');
+                console.log(data);
+            }
+
+            
+            //删除cookie
+            btn3.onclick = () => {
+                removeCookie('data');
+            }
+
+        })();
+    
+    </script>
+</body>
+</html>

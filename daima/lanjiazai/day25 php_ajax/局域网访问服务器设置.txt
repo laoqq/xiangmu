@@ -1,0 +1,38 @@
+
+
+1.局域网访问服务器设置
+
+本地搭建服务器：php开发，lamp环境搭建好，配置防火墙就可以访问
+
+-设置文件：C:\wamp\bin\apache\apache2.4.17\conf\extra  httpd-vhosts.conf
+
+listen 1907
+<VirtualHost *:1907>
+    ServerName localhost
+    DocumentRoot D:\H5-1907\code\HTML51907
+    <Directory  "D:\H5-1907\code\HTML51907">
+        Options +Indexes +Includes +FollowSymLinks +MultiViews
+        AllowOverride All
+        #Require local
+		Require all granted 允许别人访问
+    </Directory>
+</VirtualHost>
+
+-配置防火墙：设置成入规则，开发端口即可(入站规则)
+
+
+
+
+线上服务器：
+
+服务：web服务、ftp服务、svn服务、git服务
+
+1.服务器：买一台电脑,放家里面，24小时不关机
+
+2.买一台服务器，托管：电信
+
+3.租用服务器：有人管，有人配置环境
+
+4.租用空间：云服务本质上，就是一台电脑划分为很多区域出租
+
+阿里云、腾讯云、华为云、谷歌云

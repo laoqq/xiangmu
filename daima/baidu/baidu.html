@@ -1,0 +1,231 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-21 08:46:37
+ * @LastEditTime: 2019-08-21 16:49:16
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            margin-top: 5px;
+            color: #000;
+        }
+
+        a:hover {
+            background: #ccc;
+        }
+
+        #box {
+            width: 650px;
+            height: 50px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #text1 {
+            width: 540px;
+            height: 38px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+
+        #btn {
+            width: 100px;
+            height: 36px;
+        }
+
+        #list {
+            width: 540px;
+            position: absolute;
+            left: 0;
+            top: 38px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='box'><input type="text" id="text1"><input type="button" value="百度一下" id="btn">
+        <ul id="list">
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+</body>
+<script src="../jquery-1.10.1.min.js"></script>
+<script>
+    function show(data) {
+        let arr = data.s;
+        let html = arr.map(item => {
+            return ` <li><a href="https://www.baidu.com/s?ie=utf-8&wd=${item}" target="_blank"">${item}</a></li>`;
+        }).join('');
+        $('#list').html(html);
+        document.documentElement.removeChild(script);
+    }
+
+    let timer = null;
+    let m = 0;
+    $('#text1').on('keyup', function () {
+        if (m == 0) {
+
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                script = document.createElement('script');
+                script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=show&wd=' + $(
+                    '#text1').val();
+                document.documentElement.appendChild(script);
+            }, 1000)
+        }
+    });
+    let j = -1;
+
+    function active(h) {
+        for (let i = 0; i < list.children.length; i++) {
+            $("#list li").eq(i).find('a').css('background', '');
+            // list.children[i].children[0].style.background = '';
+        }
+        // list.children[h].children[0].style.background = '#58bc58';
+        $("#list li").eq(h).find('a').css('background', '#58bc58');
+        $('#text1').val($("#list li").eq(h).find('a').html());
+        // text1.value = list.children[j].children[0].innerHTML;
+        m++;
+    }
+    window.onkeydown = (e) => {
+
+        let ev = e || window.event;
+
+        let leg = list.children.length;
+
+        if (ev.keyCode == 38) {
+
+            if (j <= 0) {
+                j = leg - 1;
+            } else {
+                j--;
+            }
+            active(j);
+        } else if (ev.keyCode == 40) {
+            if (j >=
+                leg - 1) {
+                j = 0;
+            } else {
+                j++;
+            }
+            active(j);
+
+        } else if (ev.keyCode == 13) {
+            if (j == -1) {
+                window.open('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=show&wd=' + $('#text1').val());
+            } else {
+                let url = $("#list li").eq(j).find('a').attr('href');
+                console.log(url);
+                window.open(url)
+            }
+
+        }
+    }
+    $("#btn").click(function () {
+        window.open('https://www.baidu.com/s?ie=utf-8&wd=' + $('#text1').val());
+    });
+</script>
+<!-- //
+
+// let text1 = document.getElementById("text1");
+// let btn = document.getElementById("btn");
+// let list = document.getElementById('list');
+// let script = null;
+
+// function show(data) {
+// let arr = data.s;
+// let html = arr.map(item => {
+// return ` <li><a href="https://www.baidu.com/s?ie=utf-8&wd=${item}" target="_blank"">${item}</a></li>`;
+//         }).join('');
+//         list.innerHTML = html;
+//         document.documentElement.removeChild(script);
+//         list.style.border = '1 px solid #000';
+//     }
+//     let timer = null;
+//     let m = 0;
+//     text1.onkeyup = function () {
+//         if (m == 0) {
+
+//             clearTimeout(timer);
+//             timer = setTimeout(() => {
+//                 script = document.createElement('script');
+//                 script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=show&wd=' + text1
+//                     .value;
+//                 document.documentElement.appendChild(script);
+//             }, 1000)
+//         }
+
+//     }
+//     let j = -1;
+
+//     function active(h) {
+//         for (let i = 0; i < list.children.length; i++) {
+//             list.children[i].children[0].style.background = '';
+//         }
+//         list.children[h].children[0].style.background = '#58bc58';
+//         text1.value = list.children[j].children[0].innerHTML;
+
+//         m++;
+//     }
+
+//     window.onkeydown = (e) => {
+
+//         let ev = e || window.event;
+
+//         let leg = list.children.length;
+
+//         if (ev.keyCode == 38) {
+
+//             if (j <= 0) {
+//                 j = leg - 1;
+//             } else {
+//                 j--;
+//             }
+//             active(j);
+//         } else if (ev.keyCode == 40) {
+
+//             if (j >= leg - 1) {
+//                 j = 0;
+//             } else {
+//                 j++;
+//             }
+//             active(j);
+
+//         } else if (ev.keyCode == 13) {
+//             if (j == -1) {
+//                 window.open('https://www.baidu.com/s?ie=utf-8&wd=' + text1.value);
+//             } else {
+//                 let url = list.children[j].children[0].href;
+//                 window.open(url)
+//             }
+
+
+//         }
+
+//         btn.onclick = () => {
+//             window.open('https://www.baidu.com/s?ie=utf-8&wd=' + text1.value);
+//         }
+//     }
+// </script> -->
+
+</html>

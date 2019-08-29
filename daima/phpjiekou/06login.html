@@ -1,0 +1,83 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-19 19:27:02
+ * @LastEditTime: 2019-08-19 20:34:20
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+</head>
+
+<body>
+    <form id="login" action="" method="post">
+        用户名：<input type="text" placeholder="写邮箱" id="mail" /><span id="inf1"></span><br />
+        密码：<input type="text" placeholder="写密码" id="psw" /><span id="inf2"></span><br />
+        <input type="button" value="登陆" id="btn" />
+    </form>
+</body>
+<script src="common.js"></script>
+<script>
+    (function () {
+
+        /*
+            需求：
+                * 验证用户名是否存在：select
+                * 不存在就可以注册：insert
+                * 注册成功可以登陆(存cookie) : select
+                * 登陆成功跳转页面，可以退出(查cookie是否含有该用户)
+                    * 如果本来就是在登陆页登陆：跳转首页 : window.open(url) location.href=url
+                    * 如果是非登陆页登陆的，跳转回上一页(localstorage存上一页路径)
+        */
+
+        let mail = document.getElementById('mail');
+        let psw = document.getElementById('psw');
+        let btn = document.getElementById('btn');
+        let inf1 = document.getElementById('inf1');
+        let inf2 = document.getElementById('inf2');
+
+        //3.注册成功可以登陆(存cookie) : select
+        btn.onclick = () => {
+            let _name = mail.value;
+            let _psw = psw.value;
+            if (_name && _psw) {
+                //登陆
+                ajax({
+                    type: 'post',
+                    url: 'api/03login.php',
+                    data: {
+                        name: _name,
+                        psw: _psw
+                    },
+                    success: str => {
+                        // console.log(str);
+                        if (str == 'yes') {
+                            //判断是否是登陆中，如果不是登陆中才设置cookie
+                            let oldname = getCookie('name');
+                            if (oldname) {
+                                //登陆中：不能重复登陆
+                                alert('你已登录');
+                            } else {
+                                //存cookie
+                                setCookie('name', _name, 1); //记录了登陆的状态
+                                alert('登陆成功');
+                            }
+
+                            location.href = '07main.html';
+                        } else {
+                            alert('登陆失败');
+                        }
+                    }
+                });
+            }
+        }
+    })();
+</script>
+
+</html>

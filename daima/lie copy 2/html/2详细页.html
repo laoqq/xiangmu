@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/详情页.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+</head>
+
+<body>
+    <div id="bod">
+        <fieldset>
+
+            <div id="box">
+                <!-- <div class="box1">
+                    <img src="../img/pic4.1.jpg" alt="" class="maximg">
+                    <ul class="list">
+                        <img class="minimg" src="../img/pic4.1.jpg" alt="">
+                    </ul>
+                </div>
+                <div class="box2">
+                    <h3 class="h_font">2019新款女夏汉元素两件套复古女装旗袍改良版连衣裙唐装</h3>
+                    <ul class="list2">
+                        <li><span>价格</span>
+                            <strong class="strong1"> <em class="em1">￥</em><em>199.00</em></strong>
+                        </li>
+                        <li>
+                            <span>优惠</span>
+                            <p><i class="iconfont icon-xingxing"></i>淘金币可抵<strong>111</strong>元</p>
+
+                        </li>
+                    </ul>
+                    <div class="box21">
+                        <span class="span1">配送</span>
+                    </div>
+                    <div class="box22">
+                        <dl class="box22_dl1">
+                            <dt>尺码</dt>
+                            <dd>
+                                <ul class="list3">
+                                    <li>X</li>
+                                    <li>M</li>
+                                    <li>L</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="box22_dl2">
+                            <dt>颜色分类</dt>
+                        </dl>
+                        <dl class="box22_dl3">
+                            <dt>数量</dt>
+                            <dd>
+                                <input class="input1" type="button" value="一">
+                                <input type="text" id="text1" class="text1">
+                                <input class="input1" type="button" value="+"><em>件</em><em>（库存<span
+                                        class="em_span">1999</span>件）</em>
+                            </dd>
+                        </dl>
+                        <dl class="box22_dl4">
+                            <dt>花呗分期</dt>
+                            <dd>
+                                <ul>
+                                    <li> ￥17.73x12期<br>
+                                        (含手续费)</li>
+                                    <li> ￥17.73x12期<br>
+                                        (含手续费)</li>
+                                    <li> ￥17.73x12期<br>
+                                        (含手续费)</li>
+                                    <li> ￥17.73x12期<br>
+                                        (含手续费)</li>
+                                    <li> ￥17.73x12期<br>
+                                        (含手续费)</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <div class="box3">
+                            <a class="a_1" href="">分期购买</a>
+                            <a class="a_2" href="">加入购物车</a>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script src="../js/common copy.js"></script>
+<script>
+    (function () {
+        //假数据
+        var data = [{
+            id: 01,
+            price: 756.00,
+            imgurl: ['../img/pic1.jpg', '../img/pic2.jpg', '../img/pic3.jpg'],
+            name: '伊诺法代maje19春夏高圆圆明星同款蓝色衬衫绑带气质OL连衣裙3色',
+            address: '爱尚宝贝116',
+            more: '169人付款',
+            city: '法国',
+            discount: 40,
+            nub: 1999
+
+        }, {
+            id: 02,
+            price: 980.00,
+            imgurl: ['../img/pic4.jpg', '../img/pic3.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国',
+            discount: 50,
+            nub: 1999
+        }, {
+            id: 03,
+            price: 980.00,
+            imgurl: ['../img/pic4.jpg', '../img/pic3.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国',
+            discount: 70,
+            nub: 1999
+        }, {
+            id: 04,
+            price: 980.00,
+            imgurl: ['../img/pic4.jpg', '../img/pic3.jpg'],
+            name: '伊诺法代maje2019夏季郭碧婷同款百褶压褶粉色条纹宽松大摆连衣裙',
+            address: '爱尚宝贝116',
+            more: '112人付款',
+            city: '法国',
+            discount: 80,
+            nub: 1999
+        }, {
+            id: 05,
+            price: 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利',
+            discount: 90,
+            nub: 1999
+        }, {
+            id: 06,
+            price: 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利',
+            discount: 100,
+            nub: 1999
+        }, {
+            id: 07,
+            price: 147.00,
+            imgurl: ['../img/pic5.jpg', '../img/pic2.jpg'],
+            name: '【素素意代】SANDRO 19春夏 甜美镂空蕾丝露背圆领连衣裙 R20476E',
+            address: 'chenguohui1313',
+            more: '97人付款',
+            city: '意大利',
+            discount: 110,
+            nub: 1999
+        }, {
+            id: 08,
+            price: 168.00,
+            imgurl: ['../img/pic6.jpg', '../img/pic2.jpg'],
+            name: '【KiKi法代】maje 19春夏V领束腰荷叶边褶皱印花连衣裙 RUFFLE',
+            address: '紫韩衣阁66',
+            more: '85人付款',
+            city: '法国',
+            discount: 112,
+            nub: 1999
+        }];
+        //找节点
+        var box = document.getElementById('box')
+
+        var url = location.search.slice(1); //获取穿过的数据id
+        var obj = incision(url); //将id字符串数据转换为对象
+        var i = obj.id;
+        var str = '';
+        data[i].imgurl.forEach(function (item) {
+            str += ` <img class="minimg" src="${item}" alt="">`;
+        })
+        //拼接
+        var html = ` <div class="box1">
+            <img src="${data[i].imgurl[0]}" alt="" class="maximg">
+            <ul class="list">
+                ${str}
+            </ul>
+        </div>
+        <div class="box2">
+            <h3 class="h_font">${data[i].name}</h3>
+            <ul class="list2">
+                <li><span>价格</span>
+                    <strong class="strong1"> <em class="em1">￥</em><em>${data[i].price}</em></strong>
+                </li>
+                <li>
+                    <span>优惠</span>
+                    <p><i class="iconfont icon-xingxing"></i>淘金币可抵<strong>${data[i].discount }</strong>元</p>
+
+                </li>
+            </ul>
+            <div class="box21">
+                <span class="span1">配送</span>
+            </div>
+            <div class="box22">
+                <dl class="box22_dl1">
+                    <dt>尺码</dt>
+                    <dd>
+                        <ul class="list3">
+                            <li>X</li>
+                            <li>M</li>
+                            <li>L</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="box22_dl2">
+                    <dt>颜色分类</dt>
+                </dl>
+                <dl class="box22_dl3">
+                    <dt>数量</dt>
+                    <dd>
+                        <input class="input1" type="button" value="一" id="btn1">
+                        <input type="text" id="text1" class="text1" value="1">
+                        <input class="input1" type="button" value="+" id="btn2"><em>件</em><em>（库存<span
+                                class="em_span">${data[i].nub}</span>件）</em>
+                    </dd>
+                </dl>
+                <dl class="box22_dl4">
+                    <dt>花呗分期</dt>
+                    <dd>
+                        <ul>
+                            <li> ￥17.73x12期<br>
+                                (含手续费)</li>
+                            <li> ￥17.73x12期<br>
+                                (含手续费)</li>
+                            <li> ￥17.73x12期<br>
+                                (含手续费)</li>
+                            <li> ￥17.73x12期<br>
+                                (含手续费)</li>
+                            <li> ￥17.73x12期<br>
+                                (含手续费)</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <div class="box3">
+                    <a class="a_1" href="">分期购买</a>
+                    <a class="a_2" href="">加入购物车</a>
+                </div>
+            </div>
+        </div> `;
+
+        box.innerHTML = html;
+        window.onload = function () {
+            // var list = document.getElementsByClassName('list'); //小图的ul;
+            var maximg = document.getElementsByClassName('maximg')[0]; //大图
+            var minimg = document.getElementsByClassName('minimg'); //小图
+            var btn1 = document.getElementById('btn1'); //减按钮
+            var btn2 = document.getElementById('btn2'); //加按钮
+            var text1 = document.getElementById('text1'); //数量显示框
+            var em_span = document.getElementsByClassName('em_span'); //库存量
+            var nb = Number(em_span.value);
+            //减的按钮事件
+            btn1.onclick = function () {
+                if (text1.value <= 1) {
+                    btn1.disabled = true;
+                    text1.value = 1;
+                } else {
+                    text1.value = Number(text1.value) - 1;
+                }
+            }
+            //加的按钮事件
+            btn2.onclick = function () {
+                if (text1.value >= nb) {
+                    btn2.disabled = true;
+                    text1.value = n;
+                } else {
+                    text1.value = Number(text1.value) + 1;
+                }
+            }
+            //滑过小图大图换图片
+            for (var i = 0; i < minimg.length; i++) {
+                minimg[i].onmouseover = function () {
+                    var min = this.src;
+                    maximg.src = min;
+                    console.log(min);
+                }
+            }
+        }
+    })();
+</script>
+
+</html>

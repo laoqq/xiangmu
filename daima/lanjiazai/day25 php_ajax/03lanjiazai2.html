@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>懒加载款式2</title>
+    <!-- <title>懒加载</title> -->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #list {
+            margin-bottom: 50px;
+        }
+
+        #list li {
+            width: 600px;
+            border-bottom: 1px solid #000;
+            clear: both;
+            padding: 20px 0;
+        }
+
+        #list li .title {
+            float: left;
+            cursor: pointer;
+        }
+
+        #list li .price {
+            float: right;
+        }
+
+        #pages {
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            background: #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #pages a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            background: #C2C2C2;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #pages .active {
+            background: lightcoral;
+        }
+
+        #loading {
+            display: none;
+        }
+    </style>
+    <script>
+        /*
+            需求：分页功能三种做法
+
+                * 生成页码：点击可以切换到对应的页码
+                * 懒加载：点击加载更多，加载下一页
+                * 懒加载：滚动到底部就自动的加载下一页
+        */
+    </script>
+</head>
+
+<body>
+    <h2>分页效果</h2>
+    <!--<input type="button" id="btn" value="升序" />-->
+    <ul id="list">
+        <!-- <li data-id="1">
+				<p class="title">标题</p>
+				<p class="price">价格</p>
+			</li> -->
+
+    </ul>
+    <p id="loading">
+        <img src="img/loading.gif" alt="">
+    </p>
+</body>
+<script src="../common.js"></script>
+<script>
+    /*
+        需求：
+            * 获取第一页的内容渲染到页面(按需加载)
+            * 根据总条数和每页的条数，生成页码  总条数：15  每页显示：10天  多少页：2== Math.ceil(15/10)
+            * 点击页码可以跳转到对应的页数
+    */
+
+    (function () {
+
+        let list = document.getElementById('list');
+        let loading = document.getElementById('loading');
+
+        //1.获取第一页的内容渲染到页面(按需加载)
+        //初始化数据
+        let ipage = 1;//获取第一页数据
+        let num = 15;//每页显示5条
+        var istrue = true;
+        var total = [];
+        function init() {
+            function creat(arr) {//DOM操作
+                //渲染第一页数据
+                let html = arr.data.map(item => {
+                    return `<li data-id="${item.uid}">
+                                    <p class="title">${item.name}</p>
+                                    <p class="price">${item.price}</p>
+                                </li>`;
+                }).join('');
+                list.innerHTML += html;
+                istrue = true;
+            }
+
+            ajax({//获取数据
+                type: 'get',
+                url: 'api/02getlist.php',
+                data: {
+                    page: ipage,
+                    num: num
+                },
+                success: str => {
+                    // console.log(str);
+                    let arr = JSON.parse(str);
+                    // console.log(arr);
+                    total = arr;
+                    creat(arr);
+                }
+            });
+        }
+
+        init();
+
+        //滚动滑轮到临界点的时候加载新数据
+
+        window.onscroll = function () {
+            let scrollTop = window.scrollY;
+            if (scrollTop + window.innerHeight >= list.offsetHeight + list.offsetTop) {
+                if (total.total == ipage || total.total <= 1) {
+                    loading.style.display = 'none';
+                } else {
+                    // console.log('到临界值了,需要加载');
+                    if (istrue) {
+                        istrue = false;
+                        loading.style.display = 'block';
+                        ipage++;//2
+                        setTimeout(function () {//定时器和ajax都是异步的
+                            loading.style.display = 'none';
+                            init();
+                        }, 2000);
+
+                    }
+                }
+
+
+            }
+        }
+
+    })();
+
+
+</script>
+
+</html>

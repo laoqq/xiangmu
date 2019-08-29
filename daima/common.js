@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-08-14 17:25:41
+ * @LastEditTime: 2019-08-24 15:22:17
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -151,7 +151,7 @@ function toDb(num) {
  * @LastEditTime: 2019-07-23 20:55:46
  * @LastEditors: Please set LastEditors
  */
-function newdata(t) {
+function Transformationtime(t) {
   //将时间转换成年月日的形式
   var tt = new Date(t); //时间形式的转换
   var year = tt.getFullYear(); //年
@@ -165,9 +165,7 @@ function newdata(t) {
 
   return {
     years: year,
-
     months: month,
-
     days: day,
     hours: hour,
     secs: seconds,
@@ -201,51 +199,273 @@ function css() {
   }
 }
 /*
- * @Description: post 和 gest
+ * @Description: 正则，表单的验证
  * @Author:
  * @Date: 2019-07-23 20:55:46
  * @LastEditTime: 2019-07-23 20:55:46
  * @LastEditors: Please set LastEditors
  */
+var checkReg = {
+  trim: function (str) {
+    //去掉前后空格
+    var reg = /^\s+|\s+$/g;
+    return str.replace(reg, "");
+  },
+  tel: function (str) {
+    //电话
+    var reg = /^1[3-9]\d{9}$/;
+    return reg.test(str);
+  },
+  email: function (str) {
+    //邮箱正则:a_a2-+.s @ a_a+2-.s  .s_a2
+    var reg = /^\w+([\-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; //网上推荐
+    return reg.test(str);
+  },
+  idcard: function (str) {
+    //身份证
+    var reg = /^(\d{17}|\d{14})[\dX]$/;
+    return reg.test(str);
+  },
+  psweasy: function (str) {
+    //6-18位首字母开头
+    var reg = /^[a-zA-Z]\w{5,17}$/;
+    return reg.test(str);
+  },
+  pwwagain: function (str1, str2) {
+    //确认密码
+    return str1 === str2; //全等 恒等
+  },
+  urladr: function (str) {
+    //路径：网址规则
+    var reg = /[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/;
+    return reg.test(str);
+  },
+  name: function (str) {
+    //账号字母开头,6-20位
+    var reg = /^[a-zA-Z][\w\-]{5,19}$/;
+    return reg.test(str);
+  },
+  chinese: function (str) {
+    //中文
+
+    var reg = /^[\u2E80-\u9FFF]+$/;
+    return reg.test(str);
+  },
+  birthday: function (str) {
+    //生日
+    var reg = /^((((19|20)\d{2})-(0?[13-9]|1[012])-(0?[1-9]|[12]\d|30))|(((19|20)\d{2})-(0?[13578]|1[02])-31)|(((19|20)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|((((19|20)([13579][26]|[2468][048]|0[48]))|(2000))-0?2-29))$/;
+    return reg.test(str);
+  }
+};
+/*
+ * @Description: 封装表单验证
+ * @Author: 良哥
+ * @Date: 2019-07-23 15:21:00
+ * @LastEditTime: 2019-07-23 16:10:27
+ * @LastEditors: Please set LastEditors
+ */
+
+function checkInput(ele, reg, inf, meg) {
+  /*
+                参数一：ele 要正则验证的表单
+                参数二：reg 正则不同
+                参数三：inf 提示信息节点不同
+                参数四：meg 提示信息不同,对象
+    */
+
+  ele.onblur = function () {
+    var val = ele.value.trim();
+    // var index = this.dataset.index; //用自定义属性的值作为开关对象的属性名
+    //1.非空验证
+    if (val) {
+      //2.正则验证
+      // var regEmail = /^[\w&%$#!\-]+@[\w&%$#!\-]+\.[a-zA-Z]+$/;
+      // var res = regEmail.test(email);
+      // eval():把字符串转成js
+      // var str = `checkReg.${reg}(val)`; //方法一：借助一个方法eval()
+      var res = checkReg[reg](val); //方法二：利用对象属性名可以接收变量的特性实现
+      // var res = eval(str);
+      // var res = reg(val);//实参
+      // console.log(res);
+      // var res = checkReg.email(val);
+      if (res) {
+        //符合规则
+        inf.innerHTML = meg.success;
+        inf.style.color = "#58bc58";
+        ele.istrue = true;
+      } else {
+        //不符合规则
+        inf.innerHTML = meg.failure;
+        inf.style.color = "red";
+        ele.istrue = false;
+      }
+    } else {
+      inf.innerHTML = meg.null;
+      inf.style.color = "red";
+      ele.istrue = false;
+    }
+  };
+}
+/*
+	运动框架封装：startMove()过渡    jq animate()
+	最终版：多对象，多属性，链式运动框架(运动队列)
+	参数一：对象名
+	参数二：属性，目标值  键名：属性名，键值：目标值    {'width':200,'heigth':400}  实现：宽度和高度一起改变，宽度变成200，高度变成400
+	参数三：回调函数(可选参数)
+ */
+
+function startMove(obj, json, fnend) {
+
+  clearInterval(obj.timer); //防止定时器叠加
+  obj.timer = setInterval(function () {
+
+    var istrue = true;
+
+    //1.获取属性名，获取键名：属性名->初始值
+    for (var key in json) { //key:键名   json[key] :键值
+      //			console.log(key); //width heigth opacity
+      var cur = 0; //存初始值
+
+      if (key == 'opacity') { //初始值
+        cur = css(obj, key) * 100; //透明度
+      } else {
+        cur = parseInt(css(obj, key)); // 300px  300  width heigth borderwidth px为单位的
+
+      }
+
+      //2.根据初始值和目标值，进行判断确定speed方向，变形：缓冲运动
+      //距离越大，速度越大,下面的公式具备方向
+      var speed = (json[key] - cur) / 6; //出现小数
+      speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed); //不要小数部分，没有这句话或晃动
+
+      //保证上一个属性全部都达到目标值了
+      if (cur != json[key]) { //width 200 heigth 400
+        istrue = false; //如果没有达到目标值，开关false
+      } else {
+        istrue = true; //true true
+      }
+
+      //3、运动
+      if (key == 'opacity') {
+        obj.style.opacity = (cur + speed) / 100; //0-1
+        obj.style.filter = 'alpha(opacity:' + (cur + speed) + ')'; //0-100
+      } else {
+        obj.style[key] = cur + speed + 'px'; //针对普通属性 left  top height 
+      }
+
+    }
+
+    //4.回调函数:准备一个开关,确保以上json所有的属性都已经达到目标值,才能调用这个回调函数
+    if (istrue) { //如果为true,证明以上属性都达到目标值了
+      clearInterval(obj.timer);
+      if (fnend) { //可选参数的由来
+        fnend();
+      }
+    }
+
+  }, 30); //obj.timer 每个对象都有自己定时器
+
+}
+/*
+ * @Description:
+ * @Author:
+ *
+ * @LastEditors: Please set LastEditors
+ */
+
 function ajax(opt) {
-  let dafaultData = {
-    data: "",
+  //默认参数
+  let defaultData = {
+    data: '',
     asyn: true,
     failure: null
-  };
+  }
 
-  dafaultData = Object.assign(dafaultData, opt);
+  Object.assign(defaultData, opt); //用默认参数
 
   let xhr = new XMLHttpRequest();
-
-  if (dafaultData.type.toLowerCase() == "get") {
-    if (dafaultData.data) {
-      dafaultData.data = tojoint(dafaultData.data);
-      dafaultData.url += "?" + dafaultData.data;
+  if (defaultData.type.toLowerCase() == 'get') {
+    //get方式
+    if (defaultData.data) {
+      defaultData.data = objToStr(defaultData.data);
+      defaultData.url += '?' + defaultData.data;
     }
-    xhr.open("get", dafaultData.url, dafaultData.asyn);
+    xhr.open('get', defaultData.url, defaultData.asyn);
     xhr.send(null);
-  } else if (dafaultData.type.toLowerCase() == "post") {
-    xhr.open("post", dafaultData.url, dafaultData.asyn);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    console.log(dafaultData.Date);
-    dafaultData.Date = tojoint(dafaultData.data);
-    console.log(tojoint(dafaultData.data));
-    xhr.send(dafaultData.Date);
+  } else if (defaultData.type.toLowerCase() == 'post') {
+    //post方式
+    xhr.open('post', defaultData.url, defaultData.asyn);
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    defaultData.data = objToStr(defaultData.data);
+    xhr.send(defaultData.data);
   }
+
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
       if (xhr.status == 200 || xhr.status == 304) {
+        //成功了
         let data = xhr.responseText;
-
-        dafaultData.success(data);
+        defaultData.success(data); //实参
       } else {
         //失败
         if (defaultData.failure) {
-          //写了这个回87
+          //写了这个回调
           defaultData.failure(xhr.status);
         }
       }
     }
+  }
+}
+
+/*
+ * @Description:
+ * @Author:
+ *
+ * @LastEditors: Please set LastEditors
+ */
+function setCookie(key, val, iDay) {
+  //key：键名；val：键值；iDay：失效时间
+  var now = new Date();
+  now.setDate(now.getDate() + iDay);
+  document.cookie = key + '=' + val + ';expires=' + now.toUTCString() + ';path=/'; //设置一个站点内的文件可以共享此cookie
+}
+
+function getCookie(key) { //获取cookie值
+  var cookies = document.cookie; //name=malin; pwd=123456
+  var arr = cookies.split('; '); //['name=malin','pwd=123456']
+  for (var i = 0; i < arr.length; i++) {
+    var arr2 = arr[i].split('='); //['name','malin'
+    if (key == arr2[0]) {
+      return arr2[1];
+    }
   };
 }
+
+function removeCookie(key) { //删除：设置失效时间为过去的时间，立即失效
+  setCookie(key, '', -1);
+};
+// var cookies = {
+
+//   setCookie: function (key, val, iDay) {
+//     //key：键名；val：键值；iDay：失效时间
+//     var now = new Date();
+//     now.setDate(now.getDate() + iDay);
+//     document.cookie = key + '=' + val + ';expires=' + now.toUTCString() + ';path=/'; //设置一个站点内的文件可以共享此cookie
+//   },
+//   getCookie: functiona(key) { //获取cookie值
+//     var cookies = document.cookie; //name=malin; pwd=123456
+//     var arr = cookies.split('; '); //['name=malin','pwd=123456']
+//     for (var i = 0; i < arr.length; i++) {
+//       var arr2 = arr[i].split('='); //['name','malin'
+//       if (key == arr2[0]) {
+//         return arr2[1];
+//       }
+//     }
+//   },
+
+//   removeCookie: function (key) { //删除：设置失效时间为过去的时间，立即失效
+//     setCookie(key, '', -1);
+
+//   }
+
+// }

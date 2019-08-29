@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表页数据渲染和分页功能实现</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        #list {
+            margin-bottom: 50px;
+        }
+
+        #list li {
+            width: 600px;
+            border-bottom: 1px solid #000;
+            clear: both;
+            padding: 20px 0;
+        }
+
+        #list li .title {
+            float: left;
+        }
+
+        #list li .price {
+            float: right;
+        }
+
+        #pages a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            background: #C2C2C2;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        #pages .active {
+            background: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>分页效果</h2>
+    <input type="button" id="btn" value="升序" />
+    <ul id="list">
+        <!-- <li data-id="1">
+				<p class="title">标题</p>
+				<p class="price">价格</p>
+			</li> -->
+    </ul>
+    <p id="pages">
+        <!-- <a class="active" href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a> -->
+    </p>
+
+</body>
+<script src="../common.js"></script>
+<script>
+    (function () {
+        /*
+            需求：
+                1、获取第一页的内容渲染到页面；
+                2.根据总条数和每页显示条数，计算总页数，生成页码；
+                3.点击页码，能够按需加载新一页数据过来渲染；
+                4.升序降序：按照价格；
+
+                拓展：
+                    1.查询价格区间的商品；
+                    2.模糊查询：查找某个关键字相关的商品
+        */
+
+        let list = document.getElementById('list');
+        let pages = document.getElementById('pages');
+        let btn = document.getElementById('btn');
+        let iPage = 1;//获取第一页内容
+        let num = 10;//每页10条内容
+        let paixu = '';//默认没有排序
+        // let now = 0;
+
+        //初始化： 1、获取第一页的内容渲染到页面；
+        function init() {
+            ajax2({
+                type: 'get',
+                url: 'api/01getdata.php',
+                data: 'page=' + iPage + '&num=' + num + '&paixu=' + paixu,
+                success: str => {
+                    // console.log(str);
+                    let arr = JSON.parse(str);//将字符串转成对象  [{},{},{}]
+                    console.log(arr);
+                    let html = arr.data.map((item, index) => {
+                        return `<li data-id="${item.gid}">
+                                    <p class="title">${index + 1}.${item.title}</p>
+                                    <p class="price">${item.price}</p>
+                                </li>`;
+                    }).join('');
+
+                    list.innerHTML = html;//数据渲染
+
+
+                    //2.根据总条数和每页显示条数，计算总页数，生成页码；
+                    let pagesNum = Math.ceil(arr.pages / arr.num);
+                    // console.log(pages);
+                    let pageBtns = '';
+                    for (let i = 0; i < 6; i++) {
+                        pageBtns += `<a href="#">${i + 1}</a>`;
+                    }
+
+                    pages.innerHTML = pageBtns;
+                    pages.children[iPage - 1].className = 'active';//第一页高亮
+
+                }
+            });
+        }
+
+        init();
+
+        //3.点击页码，能够按需加载新一页数据过来渲染；事件委托实现事件绑定
+        pages.onclick = ev => {
+            if (ev.target.tagName.toLowerCase() == 'a') {
+                // console.log('555');
+                //需求：点哪一页就想加载哪一页的数据
+                // for (var i = 0; i < pages.children.length; i++) {//排他
+                //     pages.children[i].className = '';
+                // }
+                // ev.target.className = 'active';
+                iPage = ev.target.innerHTML;
+                init();//调取最新的数据渲染到页面
+            }
+        }
+
+
+        //4.升序降序：按照价格；
+        btn.onclick = function()  {
+            if(this.value == '升序') {
+                //升序
+                paixu = 'asc';
+                this.value = '降序';
+            }else {
+                paixu = 'desc';
+                this.value = '升序';
+            }
+            init();
+            console.log(this);
+        }
+    })();
+</script>
+
+</html>

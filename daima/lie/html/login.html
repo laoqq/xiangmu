@@ -1,0 +1,122 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-20 11:11:20
+ * @LastEditTime: 2019-08-20 17:47:44
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #index_login {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        form,
+        ._loginp {
+            width: 100%;
+        }
+
+        ._login,
+        ._password,
+        ._btn {
+            width: 100%;
+            margin: 20px;
+        }
+
+
+
+        ._input1 {
+            margin-left: 50px;
+        }
+
+        ._input0 {
+            margin-right: 50px;
+            margin-left: 20px;
+        }
+    </style>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="index_login">
+        <form action="">
+            <div class="_login">账号：<input type="text" id="name" placeholder="请输入账号"></div>
+
+            <div class="_password">密码：<input type="text" id="password" placeholder="请输入密码"></div>
+            <p class="_loginp"></p>
+            <div class="_btn"><input class="_input0" type="button" value="注册"><input class="_input1" type="button"
+                    value="登陆"></div>
+        </form>
+    </div>
+</body>
+<script src="../js/common.js"></script>
+<script>
+    (function () {
+        let login_btn = document.getElementsByClassName('_input1')[0];
+        let login_name = document.getElementById('name')
+        let login_password = document.getElementById('password');
+        let inf = document.querySelector('._loginp');
+        let reg_btn = document.getElementsByClassName('_input0')[0];
+        reg_btn.onclick = () => {
+            location.href = 'reg.html';
+        }
+        login_btn.onclick = () => {
+            let name = login_name.value;
+            let password = login_password.value;
+            let sql = `SELECT * FROM user_table WHERE uname= '${name}' AND upassword=${password}`;
+            console.log(sql);
+            ajax({
+                type: "post",
+                url: "../verify_api/verfy.php",
+                data: {
+                    sql: sql
+                },
+                success: str => {
+
+                    console.log(str);
+                    if (str == 1) {
+                        inf.innerHTML = '';
+                        let oldname = getCookie('name1');
+                        let url = getCookie('url1');
+                        if (oldname != name) {
+                            alert('登陆成功');
+
+                            if (!url) {
+                                location.href = 'url';
+                            } else {
+                                location.href = 'taobao.html';
+                            }
+
+                            setCookie('name1', name, 1)
+                        } else {
+                            alert('你已登陆');
+
+                        }
+                    } else {
+                        inf.innerHTML = '账号或密码错误';
+                        inf.style.color = 'red';
+                        login_name.value = '';
+                        login_name.focus();
+                        login_password.value = '';
+                    }
+                }
+            });
+
+        }
+
+
+
+    })();
+</script>
+
+</html>

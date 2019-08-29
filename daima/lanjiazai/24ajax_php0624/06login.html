@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页面</title>
+</head>
+<body>
+        用户名：<input type="text" name="" autocomplete="off" id="username"> <span id="inf"></span><br>
+        密码：<input type="password" name="" id="pwd"><br>
+        <input type="button" value="登陆" id="loginbtn">
+</body>
+<script src="../common.js"></script>
+<script>
+    (function() {
+
+        let username = document.getElementById('username');
+        let inf = document.getElementById('inf');
+        let pwd = document.getElementById('pwd');
+        let loginbtn = document.getElementById('loginbtn');
+
+        /*
+            需求：
+                1.从url获取到用户名显示到表单；
+                2.输入密码后，点击登陆：登陆功能(把账号密码传给后端进行验证)
+                3.登陆成功：如果有上一页就回到上一页，如果没有就跳到首页；
+                4.退出；
+        */
+
+        //1.从url获取到用户名显示到表单；
+        // let str = location.search.slice(1);
+        // let obj = strToObj(str);
+        // username.value = obj.name;//设置用户名
+        // console.log(obj);
+
+
+        //2.输入密码后，点击登陆：登陆功能(把账号密码传给后端进行验证)
+        // setCookie('url','07index.html',1);
+        loginbtn.onclick = () => {
+            let name = username.value.trim();
+            let pwdVal = pwd.value.trim();
+            ajax2({
+                type : 'post',
+                url : 'api/04login.php',
+                data : 'name=' + name + '&pwd=' + pwdVal,
+                success : str => {
+                    console.log(str);
+                    if(str == 'yes') {
+                        //登陆：登陆成功：如果有上一页就回到上一页，如果没有就跳到首页；
+                        
+                        let url = getCookie('url');
+                        if(url) {
+                            //拿到就跳转到上一页
+                            location.href = url;
+                        }else{
+                            //拿不到跳转到首页
+                            console.log(666);
+                            location.href = '07index.html';
+                        }
+                        // console.log(url);
+                        
+                        setCookie('name',name,1);
+                    }else{
+                        alert('登陆失败');
+                    }
+                }
+            });
+
+        }
+
+    })();
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+</head>
+<body>
+    用户名：<input type="text" name="" autocomplete="off" id="username"> <span id="inf"></span><br>
+    密码：<input type="password" name="" id="pwd"><br>
+    <input type="button" value="注册" id="regbtn">
+</body>
+<script src="../common.js"></script>
+<script>
+
+    (function() {
+
+        /*
+            需求：
+                1.验证用户名是否存在；
+                2.注册；
+                3.登陆；
+                4.退出
+        */
+
+        let username = document.getElementById('username');
+        let inf = document.getElementById('inf');
+        let pwd = document.getElementById('pwd');
+        let regbtn = document.getElementById('regbtn');
+        let isok = false;
+
+        //1.验证用户名是否存在；
+        //失去焦点的时候验证用户名是否存在
+        username.onblur = () => {
+            var name = username.value.trim();
+            if(name) {
+                //非空
+                ajax2({
+                    type : 'get',
+                    url : 'api/02checkname.php',
+                    data : 'name=' + name,
+                    success : function(str) {
+                        console.log(str);
+                        if(str == 'yes') {
+                            inf.innerHTML = '可以注册';
+                            inf.style.color = '#58bc58';
+                            isok = true;
+                        }else{
+                            inf.innerHTML = '该用户名太受欢迎啦';
+                            inf.style.color = 'red';
+                            isok = false;
+                        }
+                    }
+                });
+            }else {
+                inf.innerHTML = '请输入用户名';
+            }
+        }
+
+
+        //注册功能
+        regbtn.onclick = () => {
+            var name = username.value.trim();
+            var pwdvalue = pwd.value.trim();
+
+            if(isok && name && pwdvalue) {
+                //注册功能
+                ajax2({
+                    type : 'post',
+                    url : 'api/03reg.php',
+                    data : 'name=' + name + '&pwd=' + pwdvalue,
+                    success : function(str) {
+                        console.log(str);
+                        if(str == 'yes') {
+                            //注册成功：跳转到登陆页(也有的网站是注册成功就自动登陆)
+                            location.href = '06login.html?name=' + name;
+                        }else{
+                            alert('注册失败');
+                        }
+                    }
+                });
+            }else{
+                inf.innerHTML = '请验证输入信息是否正确';
+            }
+        }
+
+    })();
+</script>
+</html>

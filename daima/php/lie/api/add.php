@@ -1,8 +1,12 @@
 <?php
 header('Content-type:text/html;charset=utf-8'); //防止中文乱码
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : ''; //页数，哪一页
+$num = isset($_REQUEST['num']) ? $_REQUEST['num'] : '';
+$data = isset($_REQUEST['data']) ? $_REQUEST['data'] : '';
+$index = ($page - 1) * $num;
 include "connect.php";
 // $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
-$sql = "SELECT * FROM liebiao  ORDER BY liebiao.price asc";
+$sql = "SELECT * FROM liebiao  ORDER BY liebiao.price $data LIMIT $index,$num";
 $res = $conn->query($sql);
 $content = $res->fetch_all(MYSQLI_ASSOC); //[{},{},{}]
 

@@ -1,0 +1,136 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-20 11:11:20
+ * @LastEditTime: 2019-08-20 19:21:57
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #index_login {
+            width: 350px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        form,
+        ._loginp {
+            width: 100%;
+        }
+
+        ._login,
+        ._password,
+        ._btn {
+            width: 100%;
+            margin: 20px;
+        }
+
+
+
+        ._input1 {
+            margin-left: 50px;
+        }
+
+        ._input0 {
+            margin-right: 50px;
+            margin-left: 20px;
+        }
+    </style>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="index_login">
+        <form action="">
+            <div class="_login">账号：<input type="text" id="name" placeholder="请输入账号"><span class="sp"></span></div>
+
+            <div class="_password">密码：<input type="text" id="password" placeholder="请输入密码"></div>
+            <p class="_loginp"></p>
+            <div class="_btn"><input class="_input0" type="button" value="注册"><input class="_input1" type="button"
+                    value="登陆"></div>
+        </form>
+    </div>
+</body>
+<script src="../js/common.js"></script>
+<script>
+    (function () {
+        let login_btn = document.getElementsByClassName('_input1')[0];
+        let reg_btn = document.getElementsByClassName('_input0')[0];
+        let login_name = document.getElementById('name')
+        let login_password = document.getElementById('password');
+        let inf = document.querySelector('._loginp');
+        let sp = document.querySelector(".sp");
+
+
+        login_name.onblur = () => {
+
+            let name = login_name.value;
+            let sql = `SELECT * FROM user_table WHERE uname= ${name}`;
+            ajax({
+                type: 'post',
+                url: "../verify_api/verfy.php",
+                data: {
+                    sql: sql
+                },
+                success: str => {
+                    if (str == 0) {
+                        sp.innerHTML = '可以注册';
+                        sp.style.color = '#58bc58';
+                    } else {
+                        sp.innerHTML = '账号已被注册';
+                        sp.style.color = 'red';
+                        login_name.innerHTML = '';
+                        login_name.focus();
+                    }
+                }
+            });
+
+
+
+        }
+
+
+
+        reg_btn.onclick = () => {
+            let name = login_name.value;
+            let password = login_password.value;
+            let sql = `INSERT INTO user_table(uname,upassword) VALUES("${name}","${password}")`;
+            console.log(sql);
+            ajax({
+                type: "post",
+                url: "../verify_api/reg.php",
+                data: {
+                    sql: sql
+                },
+                success: str => {
+                    console.log(str);
+                    if (str) {
+                        sp.innerHTML = '';
+                        alert('注册成功');
+                        location.href = 'login.html';
+                    } else {
+                        alert('注册失败');
+                        sp.innerHTML = '';
+                        login_name.innerHTML = '';
+                        login_name.innerHTML = '';
+                        login_name.focus();
+                    }
+                }
+            });
+
+        }
+
+
+
+    })();
+</script>
+
+</html>
