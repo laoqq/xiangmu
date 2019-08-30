@@ -1,0 +1,694 @@
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+a {
+    color: #333;
+}
+
+.fixe {
+    // position: fixed;
+    top: 0px;
+    width: 790px;
+    z-index: 1000;
+
+}
+
+#details_main {
+
+    .container {
+        width: 998px;
+        margin: 0 auto;
+
+        .box-shadow {
+            position: relative;
+            zoom: 1;
+            padding-top: 30px;
+            z-index: 10;
+
+            .box-content {
+                position: relative;
+                zoom: 1;
+                display: block;
+                padding: 0 10px 0px 8px;
+                background: url(../images/bg-box.png) left bottom repeat-y;
+                overflow: hidden;
+            }
+
+
+        }
+
+        .crumbs {
+            height: 25px;
+            margin: 5px 0 20px 8px;
+            color: #333;
+            line-height: 25px;
+            zoom: 1;
+
+            a {
+                color: #333;
+            }
+        }
+
+
+
+        .sidebar {
+            display: block;
+            float: left;
+            left: 0;
+            width: 186px;
+            padding-right: 4px;
+            text-align: right;
+            line-height: 20px;
+        }
+
+        .related-buy {
+            text-align: right;
+            line-height: 20px;
+
+
+
+            h2 {
+                border-top: 1px solid #e0e0e0;
+                border-bottom: 1px solid #e0e0e0;
+                background: #F6F6F6;
+                color: #333;
+                text-align: center;
+                line-height: 30px;
+                word-break: break-all;
+            }
+
+            li {
+                position: relative;
+                zoom: 1;
+                margin: 0 7px;
+                border-bottom: 1px solid #f4f4f4;
+                padding: 10px 0 10px 67px;
+                text-align: left;
+                line-height: 18px;
+
+                .cover-wrapper {
+                    display: block;
+                    position: absolute;
+                    left: 5px;
+                    top: 7px;
+                    width: 54px;
+                    height: 54px;
+                    border: 1px solid #ddd;
+                }
+
+                .book-name {
+                    display: block;
+                    height: 36px;
+                    text-align: left;
+                    overflow: hidden;
+                }
+            }
+
+            .common-emprice {
+                color: #D70000;
+                font-weight: bolder;
+                font-family: "微软雅黑";
+            }
+
+            .col-2 {
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 0;
+            }
+
+            .clear-history {
+                margin-right: 10px;
+                color: #656565;
+                line-height: 24px;
+            }
+        }
+
+
+
+        .book-info {
+            position: relative;
+            zoom: 1;
+        }
+
+        .content-holder {
+            float: left;
+            width: 790px;
+            _width: 785px;
+            padding-bottom: 20px;
+        }
+
+        .book-essential-info {
+            background: #fff;
+        }
+
+        .book-title {
+            margin: 0 10px;
+            color: #333;
+            font-size: 16px;
+            font-family: "微软雅黑";
+            font-weight: bolder;
+        }
+
+        .book-adcontent {
+            margin: 0 10px;
+            color: red;
+            font-size: 12px;
+            font-family: "微软雅黑";
+            font-weight: bolder;
+
+        }
+
+        .book-intro {
+            position: relative;
+            zoom: 1;
+            min-height: 400px;
+            margin-top: 20px;
+            border-bottom: 10px solid #f0f0f0;
+            padding: 0 10px 26px 335px;
+            background: #fff;
+
+            .reimg {
+                position: absolute;
+                width: 100px;
+                height: 80px;
+                top: 0px;
+                left: 0px;
+                background: #fff;
+                opacity: 0.5;
+                z-index: 50;
+                display: none;
+
+            }
+
+            .bgimg {
+                overflow: hidden;
+                position: absolute;
+                top: 0px;
+                left: 280px;
+                z-index: 50px;
+                width: 380px;
+                height: 380px;
+                display: none;
+
+                img {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    z-index: 51px;
+                }
+            }
+
+            .book-cover {
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                width: 280px;
+
+                .cover-show {
+                    display: block;
+                    width: 280px;
+                    height: 280px;
+                    text-align: center;
+
+                    img {
+                        display: inline-block;
+                        max-width: 100%;
+                        max-height: 100%;
+                        vertical-align: middle;
+                    }
+                }
+
+                .evaluate {
+                    margin: 10px 0 10px 25px;
+                    padding-left: 4px;
+                    line-height: 24px;
+                }
+
+
+            }
+
+            .book-sale-info {
+                .book-price {
+                    border-bottom: 1px dashed #E0E0E0;
+                    padding: 10px;
+                    padding-left: 10px;
+                    padding-left: 13px;
+                    color: #333333;
+                    line-height: 25px;
+
+                    .yuan {
+                        font-family: "微软雅黑";
+                        font-size: 24px;
+                        font-weight: bolder;
+                        color: #D70000;
+                    }
+
+                    .old-price {
+                        font-family: Arial;
+                    }
+
+                    .common-emprice {
+                        color: #D70000;
+                        font-weight: bolder;
+                        font-family: "微软雅黑";
+                    }
+                }
+
+                .book-other-info {
+                    border-bottom: 1px dashed #E0E0E0;
+                    padding: 10px;
+                    padding-left: 10px;
+                    padding-left: 13px;
+                    color: #333333;
+                    line-height: 25px;
+
+                    a {
+                        color: #136DC1;
+                    }
+                }
+
+                .book-word-count {
+                    padding: 5px 13px;
+                    color: #878787;
+                }
+
+                .buy-panel {
+                    margin-top: 15px;
+                    padding: 10px 10px 15px 13px;
+                    background: #F4F4F4;
+                    color: #444444;
+
+                    p {
+                        line-height: 27px;
+
+                        input {
+                            width: 30px;
+                            height: 16px;
+                            border: 1px solid #AAABAD;
+                        }
+                    }
+
+                    .add-to-cart {
+                        display: block;
+                        float: left;
+                        width: 160px;
+                        height: 45px;
+                        border: none;
+                        text-indent: -10000px;
+                    }
+
+                    .sell {
+                        background: url(../images/btn-addToCart.png) left top no-repeat;
+                    }
+
+                    .add-to-fav {
+                        display: block;
+                        float: left;
+                        height: 25px;
+                        margin: 13px 0 0 20px;
+                        padding-left: 20px;
+                        background: url(../imagesico-fav.gif) left center no-repeat;
+                        color: #136ec2;
+                        text-decoration: underline;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+
+        .book-ext-info {
+            border-bottom: 10px solid #f0f0f0;
+            padding: 20px 0;
+            background: #fff;
+
+            .book-tab {
+                position: relative;
+                zoom: 1;
+                height: 28px;
+                border-bottom: 1px solid #136EC2;
+                background: #fff;
+
+                .panel-detail {
+                    left: -1px;
+                }
+
+                li {
+                    display: block;
+                    position: relative;
+                    zoom: 1;
+                    bottom: 0px;
+                    float: left;
+                    min-width: 100px;
+                    border-bottom: 1px solid #136EC2;
+                    border-top: 1px solid #e6e6e6;
+                    border-right: 1px solid #e6e6e6;
+                    border-left: 1px solid #e6e6e6;
+                    color: #333;
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 25px;
+
+
+
+                    a {
+                        display: block;
+
+                        color: #333;
+                        text-decoration: none;
+                        outline: none;
+                        border-top: 2px solid #fff;
+                        border-bottom: 1px solid #136EC2;
+                    }
+
+                    .a_active {
+                        border-top: 2px solid #136EC2;
+                    }
+
+
+                }
+
+                .current {
+                    border-left: 1px solid #136EC2;
+                    border-right: 1px solid #136EC2;
+                    border-top: 1px inset #136EC2;
+                    border-bottom: 1px solid #ffffff;
+                    font-weight: bolder;
+                    z-index: 20;
+                    cursor: pointer;
+                }
+
+                li:hover a {
+                    font-weight: bolder;
+                }
+            }
+
+            .detail-content {
+                padding: 10px 5px 5px;
+
+                h2 {
+                    height: 29px;
+                    margin: 5px 0;
+                    background: #F0F0F0;
+                    color: #333333;
+                    font-size: 14px;
+                    text-indent: 20px;
+                    line-height: 29px;
+                }
+            }
+
+            .detail-item-wrapper {
+                position: relative;
+                padding-bottom: 33px;
+            }
+
+            .desp-content {
+                padding: 15px 20px 0;
+
+                .book-contents {
+                    overflow: hidden;
+                    padding-bottom: 5px;
+                    line-height: 22px;
+
+                    p {
+                        text-indent: 2em;
+                        line-height: 22px;
+                    }
+                }
+            }
+
+
+        }
+
+        .comment-content {
+            padding: 8px 0 15px 0;
+            background: #fff;
+
+            .score-holder {
+                height: 120px;
+                border-top: 1px solid #136EC2;
+                background: #F0F0F0;
+
+                .score {
+                    float: left;
+                    width: 80px;
+                    height: 75px;
+                    margin-top: 5px;
+                    padding: 34px 15px 0;
+                    background: url(../images/bg-score.gif) right top repeat-y;
+                    text-align: center;
+                    color: #333333;
+                    line-height: 20px;
+
+                    .score-percent {
+                        display: block;
+                        font-size: 24px;
+                        font-family: Arial;
+                        color: #D70000;
+                    }
+
+                    .prt-symbol {
+                        font-size: 14px;
+                        font-weight: bolder;
+                        font-family: Arial;
+                        color: #D70000;
+                    }
+                }
+
+                .rating {
+                    float: left;
+                    width: 232px;
+                    margin-top: 28px;
+                    _margin-top: 22px;
+                    height: 86px;
+                    padding: 0 20px 0 30px;
+                    background: url(../images/bg-score.gif) right top repeat-y;
+
+                    li {
+                        height: 20px;
+                        line-height: 20px;
+
+                        div {
+                            float: left;
+                        }
+                    }
+
+                    .energy-bar {
+                        width: 100px;
+                        height: 12px;
+                        margin: 2px;
+                        border: 1px solid #D6D6D6;
+                        background: #E6E6E6;
+                        font-size: 0;
+                        line-height: 0;
+
+                        span {
+                            display: block;
+                            width: 0%;
+                            height: 100%;
+                            background: #F4B00B;
+                            text-indent: -10000px;
+                            font-size: 0;
+                            line-height: 0;
+                        }
+                    }
+                }
+
+                .score-text {
+                    float: left;
+                    width: 217px;
+                    margin-top: 50px;
+                    border-left: 1px solid #F3F2F1;
+                    padding: 0px 15px 0px 22px;
+                    line-height: 20px;
+                }
+
+                .btn-add-comment {
+                    float: left;
+                    padding-top: 60px;
+
+                    a {
+                        display: block;
+                        width: 84px;
+                        height: 35px;
+                        background: url(../images/btn-addComment.png) left top no-repeat;
+                        text-indent: -10000px;
+                    }
+                }
+            }
+        }
+
+        .qa-content {
+            .qa-tip {
+                position: relative;
+                zoom: 1;
+                margin-top: 10px;
+                border-top: 1px solid #136EC2;
+                padding: 12px 50px 12px 20px;
+                background: #F0F0F0;
+                line-height: 20px;
+
+                .iwannaask {
+                    display: block;
+                    position: absolute;
+                    right: 15px;
+                    top: 6px;
+                    width: 83px;
+                    height: 31px;
+                    background: url(../images/btn-iask.png) left top no-repeat;
+                    text-indent: -10000px;
+                }
+            }
+        }
+
+        .buy-popup {
+            display: none;
+            position: absolute;
+            z-index: 11000;
+            left: 794px;
+            top: 630px;
+            width: 393px;
+            border: 2px solid #4494f8;
+            border-bottom-color: rgb(68, 148, 248);
+            border-bottom-style: solid;
+            border-bottom-width: 2px;
+            border-bottom: 1px solid #4494f8;
+            background: #fff;
+
+            .header {
+                display: block;
+                position: relative;
+                zoom: 1;
+                min-width: 350px;
+                height: 27px;
+                border-bottom: 1px solid #4494f8;
+                padding-left: 12px;
+                padding-right: 30px;
+                background: #f4f4f4;
+                overflow: hidden;
+                line-height: 27px;
+
+            }
+
+            .close-trigger {
+                display: block;
+                position: absolute;
+                right: 5px;
+                top: 0;
+                width: 27px;
+                height: 27px;
+                background: url(../images/btn-close-dlg.png) left top no-repeat;
+                text-indent: -10000px;
+            }
+
+            .summary {
+                height: 20px;
+                padding: 25px 0px 0 127px;
+                background: url(../../img/mall/gougou.png) 93px 21px no-repeat;
+                font-size: 14px;
+            }
+
+            .summary {
+                font-size: 14px;
+            }
+
+            .tip-detail {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .common-emprice {
+                color: #D70000;
+                font-weight: bolder;
+                font-family: "微软雅黑";
+            }
+
+            .btn-wrapper {
+                padding: 10px 0;
+                border-bottom: 1px solid #E6E6E6;
+                text-align: center;
+            }
+
+            .continue-buy {
+                display: inline-block;
+                width: 101px;
+                height: 33px;
+                background: url(../images/btn-continue-buy.png) left top no-repeat;
+                text-indent: -10000px;
+            }
+
+            .pay-now {
+                display: inline-block;
+                width: 109px;
+                height: 33px;
+                background: url(../images/btn-pay-now.png) left top no-repeat;
+                text-indent: -10000px;
+            }
+
+            .summary {
+                height: 20px;
+                padding: 25px 0px 0 127px;
+                background: url(../images/gougou.png) 93px 21px no-repeat;
+                font-size: 14px;
+            }
+
+            .btn-wrapper {
+                padding: 10px 0;
+                border-bottom: 1px solid #E6E6E6;
+                text-align: center;
+            }
+
+            .buy-again {
+                display: inline-block;
+                width: 109px;
+                height: 33px;
+                background: url(../images/btn-buy-again.png) left top no-repeat;
+                text-indent: -10000px;
+            }
+
+            .pay-now {
+                display: inline-block;
+                width: 109px;
+                height: 33px;
+                background: url(../images/btn-pay-now.png) left top no-repeat;
+                text-indent: -10000px;
+            }
+
+            .low-stock-tip {
+                display: none;
+                padding: 0 12px;
+
+                .tip-detail {
+                    margin-top: 20px;
+                }
+
+                .remain-book-num {
+                    margin: 0 3px;
+                    font-weight: bolder;
+                }
+            }
+
+            .btn-wrapper {
+                padding: 10px 0;
+                border-bottom: 1px solid #E6E6E6;
+                text-align: center;
+
+                button {
+                    height: 23px;
+                    padding: 0 13px;
+                    border: 1px solid #c6c6c6;
+                    border-radius: 2px;
+                    background: url(../images/bg-btn.png) left top repeat-x;
+                    line-height: 21px;
+                }
+            }
+        }
+
+
+    }
+}

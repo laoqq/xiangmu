@@ -1,73 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  .cpt-dlg-outer { position: absolute; top: 0px; left: 0px; padding: 2px;
+  background: #4494F8; background: #4494F8 \9; overflow: hidden; .dlg-holder
+  table { width: 100%; height: 100%; } table { border-collapse: collapse;
+  border-spacing: 0; font-size: 12px; .header-holder { height: 30px;
+  vertical-align: top; border-bottom: 1px solid #4494F8; background: yellow; }
+  .dlg-header { position: relative; height: 30px; padding-right: 30px;
+  background: #00859D; background-color: rgb(0, 133, 157); background-color:
+  #F4F4F4; .no-icon { padding-left: 10px; } } .dlg-title { display: block;
+  height: 30px; padding-left: 35px; line-height: 30px; color: #333; text-shadow:
+  5px 2px 6px #fff; text-align: left; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; } .dlg-close { display: block; position: absolute;
+  zoom: 1; right: 2px; top: 1px; width: 27px; height: 27px; background:
+  url(../images/btn-close-dlg.png) left top no-repeat; cursor: pointer;
+  text-decoration: none; text-indent: -99999px; } } .content-holder { width:
+  auto; vertical-align: top; } .dlg-alert { position: relative; min-height:
+  20px; font-size: 14px; _height: 50px; padding: 25px 10px 25px 60px; color:
+  #333; font-weight: bolder; line-height: 20px; } .success {
+  background-position: 0px top; } .alert-ico { display: block; position:
+  absolute; left: 10px; top: 10px; width: 50px; height: 51px; background:
+  url("../images/ico.png") -50px top no-repeat; background-position-x: -50px;
+  background-position-y: top; } .footer-holder { height: 40px; .dlg-footer {
+  height: 100%; text-align: center; button { margin: 0 5px; border: none;
+  border-radius: 3px; padding: 2px 0px 2px 5px; color: #666666; font-size: 14px;
+  font-weight: bolder; letter-spacing: 5px; } } } }
+  <head>
+    <meta charset="UTF-8" />
+    <title>留言本</title>
+    <link rel="stylesheet" href="css/css.css" type="text/css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>留言本</title>
-	<link rel="stylesheet" href="css/css.css" type="text/css" />
-</head>
+  <body>
+    <div id="header"></div>
 
-<body>
-	<div id="header"></div>
+    <div id="container">
+      <div id="list">
+        <dl>
+          <dt><strong>zmouse</strong> 说 :</dt>
+          <dd>内容 发布时间：2019-06-25 14:00:00</dd>
+          <dd class="t">
+            <a href="javascript:;" class="support">顶(<span>0</span>)</a>
+            |
+            <a href="javascript:;" class="oppose">踩(<span>0</span>)</a>
+          </dd>
+        </dl>
+      </div>
+      <div id="showMore">显示更多...</div>
 
-	<div id="container">
+      <div id="sidebar">
+        <div id="user" style="margin-bottom: 10px;">
+          <h4><span id="userinfo"></span> <a href="#" id="logout">退出</a></h4>
+        </div>
 
-		<div id="list">
-			<dl>
-				<dt>
-					<strong>zmouse</strong> 说 :
-				</dt>
-				<dd>内容 发布时间：2019-06-25 14:00:00</dd>
-				<dd class="t">
-					<a href="javascript:;" class="support">顶(<span>0</span>)</a>
-					|
-					<a href="javascript:;" class="oppose">踩(<span>0</span>)</a>
-				</dd>
-			</dl>
-		</div>
-		<div id="showMore">显示更多...</div>
+        <!-- 注册 -->
+        <div id="reg">
+          <h4>注册</h4>
+          <div>
+            <p>用户名：<input type="text" name="username" id="username1" /></p>
+            <p id="verifyUserNameMsg"></p>
+            <p>
+              密码：<input type="password" name="password" id="password1" />
+            </p>
+            <p><input type="button" value="注册" id="btnReg" /></p>
+          </div>
+        </div>
 
-		<div id="sidebar">
+        <!-- 登陆 -->
+        <div id="login">
+          <h4>登陆</h4>
+          <div>
+            <p>用户名：<input type="text" name="username2" id="username2" /></p>
+            <p>
+              密码：<input type="password" name="password2" id="password2" />
+            </p>
+            <p><input type="button" value="登陆" id="btnLogin" /></p>
+          </div>
+        </div>
 
-			<div id="user" style="margin-bottom: 10px;">
-				<h4><span id="userinfo"></span> <a href="#" id="logout">退出</a></h4>
-			</div>
-
-			<!-- 注册 -->
-			<div id="reg">
-				<h4>注册</h4>
-				<div>
-					<p>用户名：<input type="text" name="username" id="username1"></p>
-					<p id="verifyUserNameMsg"></p>
-					<p>密码：<input type="password" name="password" id="password1"></p>
-					<p><input type="button" value="注册" id="btnReg" /></p>
-				</div>
-			</div>
-
-			<!-- 登陆 -->
-			<div id="login">
-				<h4>登陆</h4>
-				<div>
-					<p>用户名：<input type="text" name="username2" id="username2"></p>
-					<p>密码：<input type="password" name="password2" id="password2"></p>
-					<p><input type="button" value="登陆" id="btnLogin" /></p>
-				</div>
-			</div>
-
-			<!-- 留言发表 -->
-			<div id="sendBox">
-				<h4>发表留言</h4>
-				<div>
-					<textarea id="content"></textarea>
-					<input type="button" value="提交" class="btn1" id="btnPost" />
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-</body>
-<script src="js/common.js"></script>
-<script src="js/js.js"></script>
-
+        <!-- 留言发表 -->
+        <div id="sendBox">
+          <h4>发表留言</h4>
+          <div>
+            <textarea id="content"></textarea>
+            <input type="button" value="提交" class="btn1" id="btnPost" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/common.js"></script>
+  <script src="js/js.js"></script>
 </html>

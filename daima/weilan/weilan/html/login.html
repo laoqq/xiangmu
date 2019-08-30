@@ -1,0 +1,92 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-29 21:32:28
+ * @LastEditTime: 2019-08-30 11:41:03
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="login-register-header header">
+            <div class="header-search clearfix">
+                <a href="###" class="logo">
+                    <img src="https://www.wl.cn/resources/img/mall/logo.png" alt="欢迎来到蔚蓝" />
+                </a>
+            </div>
+        </div>
+        <div class="container box-shadow padding-t-0">
+            <div class="box-content">
+
+                <div class="promotion-pic">
+                    <a href="javascript:;">
+                        <img src="http://static.wl.cn//upload/mall/login/2015-12-14/f38014ad50be999a1b3b8d15946ebca2.jpg"
+                            alt="促销图片" />
+                    </a>
+                </div>
+
+                <div class="login-frame">
+                    <h1>登录蔚蓝网</h1>
+                    <form id="J_loginForm" class="pw-validation pure">
+
+                        <div id="J_loginErrorTip" class="login-error-tip" style="display: block"></div>
+                        <p>
+                            <label class="login-label" for="J_userName">用户名：</label>
+                            <input value="" tabindex="1" type="text" id="J_userName" name="name" />
+                        </p>
+                        <p>
+                            <label class="login-label" for="J_pwd">密码：</label>
+                            <input value="" tabindex="2" type="password" id="J_pwd" data-valid-id="1" />
+
+                            <input tabindex="-1" type="password" style="display:none;" />
+                            <a href="###" class="forget-psw">忘记密码</a>
+                        </p>
+
+                        <p class="login-status">
+
+                            <input type="checkbox" class="remember-me" id="J_rememberMe" name="rem" value="1" />
+                            <label for="J_rememberMe">记住我的登录状态</label>
+                        </p>
+                        <p>
+                            <input class="but" type="button" id="J_loginBtn">
+                        </p>
+                    </form>
+                    <div class="partner-sites clearfix">
+                        <h2>使用合作网站登录蔚蓝:</h2>
+                        <p class="thirdpartys">
+                            <a href="###" class="thirdparty_icon thirdparty_icon_alipay" title="支付宝">Alipay</a>
+                            <a href="###" class="thirdparty_icon thirdparty_icon_txqq" title="QQ">QQ</a>
+                            <a href="###" target="_blank" class="thirdparty_icon thirdparty_icon_sina"
+                                title="新浪微博">Sina</a>
+                        </p>
+                    </div>
+                    <div class="register-now">
+                        <p>
+                            还不是蔚蓝网用户？
+                            <a href="register.html">立即注册</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id='login_footer'></div>
+    </div>
+</body>
+<script src="../lib/jquery-1.10.1.min.js"></script>
+<script src="../lib/jquery.cookie.js"></script>
+<script src="../js/login.js"></script>
+
+</html>

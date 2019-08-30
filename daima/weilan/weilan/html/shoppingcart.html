@@ -1,0 +1,161 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-30 15:05:07
+ * @LastEditTime: 2019-08-30 19:43:35
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cart</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <link rel="stylesheet" href="../css/shoppingcart.css">
+
+<body>
+    <div id="box">
+        <div id="shopping_header"></div>
+        <div id="shopping_right"></div>
+
+        <div class="container">
+
+            <!--购物车中详细内容-->
+            <form class="cart-info box-shadow" id="J_cartList">
+                <div class="box-content">
+
+                    <table class="cart-detail">
+                        <thead>
+                            <tr>
+                                <th width="460">商品名称</th>
+                                <th width="100">积分</th>
+                                <th width="100">蔚蓝价</th>
+                                <th width="100">优惠</th>
+                                <th width="100">数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="cart-list">
+                        <!-- <fieldset class="cart-group cart-group-0">
+
+                            <table class="cart-detail">
+                                <tbody>
+                                    <tr class="cart-list-tr" style="border-bottom:0px;">
+                                        <td class="col-cover" width="460">
+                                            <div class="cover-info"> <a href="https://www.wl.cn/9110821" target="_blank"
+                                                    class="book-cover"> <img
+                                                        src="http://img.wl.cn/s2/7034/9497034/9497034.jpg" alt="书籍封面">
+                                                    <input type="hidden" class="J_bookId" name="bookId" value="9110821">
+                                                </a> <a class="book-name" title="漫画美的人（上）"
+                                                    href="https://www.wl.cn/9110821" target="_blank">漫画美的人（上）</a> </div>
+                                        </td>
+                                        <td class="col-credit">3</td>
+                                        <td class="col-wl-price common-price" style="padding-top:0;"> ￥39.3 </td>
+                                        <td class="col-discount common-price"> ￥16.70 </td>
+                                        <td class="col-buy-num">
+                                            <div class="num-panel"> <a href="javascript:;" class="minus"></a> <input
+                                                    type="text" class="buy-num" value="1"> <a href="javascript:;"
+                                                    class="plus"></a> </div>
+                                        </td>
+                                        <td class="col-op"> <a href="javascript:;" class="J_collect">收藏</a> <a
+                                                href="javascript:;" class="J_del" data-activeid="-1">删除</a> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>  -->
+                    </div>
+                    <table class="cart-detail">
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="total-price-holder">
+                                        <a href="javascript:;" class="clear-all" id="J_empty">清空购物车</a>
+                                        <p>
+                                            <span class="title">商品总金额：</span>
+                                            <em class="common-price">￥<b class="syb-rmb" id="J_price">0</b></em>
+                                        </p>
+                                        <p>
+                                            <span class="title">优惠：</span>
+                                            <em class="common-price">￥<b class="syb-rmb" id="J_thriftPrice">0</b></em>
+                                        </p>
+                                        <p class="sum">
+                                            <span class="title">合计不含运费：</span>
+                                            <em class="common-price">￥<b class="syb-rmb" id="J_total">0</b></em>
+                                        </p>
+
+                                        <button class="go-to-pay">去结算</button>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </form>
+            <!--{购物车中详细内容 End}-->
+
+            <!--{赠品区 Start}-->
+
+            <div class="recommend-books buy-after-buy box-shadow">
+                <i class="box-gap"></i>
+                <div class="box-content">
+                    <div class="recommend-tip">
+                        <p class="tip-txt"><strong>购买了以上商品的顾客还买过</strong></p>
+
+                    </div>
+                    <ul class="book-list clearfix" id="J_data_alsoBuy">暂无数据！</ul>
+                </div>
+            </div>
+        </div>
+        <div style="display:none" class="cpt-dlg-outer" theme="theme-a" id="dlg"
+            style="width: 476px; position: fixed; z-index: 1000; left: 50%; margin-left: -238px; top: 150px;">
+            <div class="dlg-holder">
+                <table cellspacing="0" cellpadding="0" border="0">
+                    <thead>
+                        <tr>
+                            <th class="header-holder">
+                                <div class="dlg-header">
+                                    <h2 class="dlg-title no-icon">删除确认</h2><a class="dlg-close">×</a>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="content-holder">
+                                <div class="dlg-content" style="height: auto;">
+                                    <div class="dlg-confirm"> <i class="confirm-ico"></i>
+                                        <div>
+                                            <p>您确定不购买该商品？</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="footer-holder">
+                                <div class="dlg-footer"><button type="button">确定</button><button
+                                        type="button">取消</button></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div id="shopping_footer"></div>
+    </div>
+</body>
+<script src="../lib/jquery-1.10.1.min.js"></script>
+<script src="../lib/jquery.cookie.js"></script>
+<script src="../js/shoppingcart.js"></script>
+
+</html>

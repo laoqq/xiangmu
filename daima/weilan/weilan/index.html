@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-23 19:42:24
- * @LastEditTime: 2019-08-26 20:19:57
+ * @LastEditTime: 2019-08-30 18:59:43
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -58,7 +58,86 @@
 <body>
     <div id="index_body">
         <div id="right"></div>
-        <div id="header"></div>
+        <div id="header">
+            <div class="header-tips clearfix">
+                <div class="tips">
+                    <a href="###">收藏蔚蓝</a><span class="hy">您好，欢迎来到蔚蓝网！</span>
+                    <span id="lr">[<a id="login" href="html/login.html">登陆</a>] [<a href="html/register.html"
+                            id='register.html'>免费注册</a>]</span>
+                </div>
+                <div class="links">
+                    <a href="" class="a_count">
+                        <em>购物车</em>
+                        <span></span>
+                        <em>件</em>
+                    </a>
+                    <a href="###">我的蔚蓝</a>
+                    <a href="###">图书批发</a>
+                    <a href="##" target="_blank">图书馆</a>
+                    <a href="###">帮助中心</a>
+                    <div class="links_div">
+                        <span>客服服务</span>
+                        <ul class="click">
+                            <li><a href="###">意见建议</a></li>
+                            <li><a href="###">蔚蓝公告</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-main">
+                <a href="###"><img alt="" /></a>
+                <div class="mian-input">
+                    <input type="text" style="border: 2px solid rgb(76, 178, 244); color: rgb(187, 188, 188);" />
+
+                    <button type="submit"></button>
+                    <p>
+                        <a href="###" style=" color: #1760BC; font-weight: bold;">高级搜索</a>
+                        <span style="float: left;">热门搜索：</span>
+
+                        <a target="_blank" href="###">说话技巧</a>
+
+                        <a target="_blank" href="###">我是大医生</a>
+
+                        <a target="_blank" href="###">牛津高阶</a>
+
+                        <a target="_blank" href="###">金一南</a>
+
+                        <a target="_blank" href="###">秘密花园</a>
+                    </p>
+                </div>
+                <div class="bookcount">
+                    <br />
+                    <font style="font-weight:bold; font-size:16px;color:#6b6b6b;">共有图书</font>
+                    <font style="font-weight:bold;font-size:18px;color:blue;">479708</font>
+                    <font style="font-weight:bold;font-size:16px;color:#6b6b6b;">种</font><br />
+                </div>
+            </div>
+
+            <div class="header-nav">
+                <div class="main-nav">
+                    <h2 class="all-categories">
+                        全部商品分类
+                    </h2>
+                    <ul>
+                        <li class="current"><a href="../index.html">首页</a></li>
+
+                        <li class="nav-bar"></li>
+
+                        <li><a href="###">图书</a></li>
+
+                        <li class="nav-bar"></li>
+
+                        <li><a href="###">特价</a></li>
+
+                        <li class="nav-bar"></li>
+
+                        <li><a href="###">团购</a></li>
+
+                        <li class="nav-bar"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div id="main">
             <div class="main_container clearfix">
                 <div class="side_nav ">
@@ -1766,10 +1845,11 @@
     </div>
 </body>
 <script src="lib/jquery-1.10.1.min.js"></script>
+<script src="lib/jquery.cookie.js"></script>
 <script src="lib/swiper.js"></script>
 <script src="js/common.js"></script>
 <script src="js/index.js"></script>
 
-
+<!-- <script src="js/require.js" data-main="js/index_rq.js"></script> -->
 
 </html>

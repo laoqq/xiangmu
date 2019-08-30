@@ -7,6 +7,11 @@
     height: 0;
 }
 
+a {
+    cursor: pointer;
+    display: inline-block
+}
+
 #main {
 
     width: 998px;
@@ -236,10 +241,12 @@
                             }
 
                             .activeup {
+                                background-image: url("../images/up.png");
                                 border: 1px solid #EA701D;
                                 background-color: #f4f4f4;
                                 background-position: 90% 4px;
                                 border-radius: 4px;
+
                             }
 
 
@@ -318,6 +325,7 @@
                         border: solid 1px white;
                         cursor: pointer;
                         border-radius: 3px;
+
 
                         .search-book-img {
                             width: 160px;

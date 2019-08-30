@@ -1,10 +1,10 @@
 <?php
 
-include "cot.php";
+include "cont.php";
 
 $name = isset($_REQUEST['name']) ? $_REQUEST['name'] : "";
 
-$sql = "SELECT * FROM admin WHERE acct= '$name'";
+$sql = "SELECT * FROM user WHERE uaccount= '$name'";
 $res = $conn->query($sql);
 
 if ($res->num_rows >= 1) {

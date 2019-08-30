@@ -39,5 +39,4 @@ $data = array(
 echo json_encode($data, JSON_UNESCAPED_UNICODE);
 $res1->close();
 $res2->close();
-
 $conn->close();//关闭数据库

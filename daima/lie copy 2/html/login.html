@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-20 11:11:20
- * @LastEditTime: 2019-08-20 17:47:44
+ * @LastEditTime: 2019-08-30 21:20:38
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -60,7 +60,23 @@
     </div>
 </body>
 <script src="../js/common.js"></script>
+<script src="../js/jquery-1.10.1.min.js"></script>
 <script>
+    $(function () {
+        var obj = {
+            10: 1,
+            50: 2
+        };
+        $.each(obj, function (key, value) {
+            if (key == 10) {
+                obj.key++;
+                console.log(key, obj.key++);
+            }
+        });
+        console.log(obj)
+    })
+</script>
+<!-- <script>
     (function () {
         let login_btn = document.getElementsByClassName('_input1')[0];
         let login_name = document.getElementById('name')
@@ -117,6 +133,6 @@
 
 
     })();
-</script>
+</script> -->
 
 </html>

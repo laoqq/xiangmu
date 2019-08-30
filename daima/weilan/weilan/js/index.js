@@ -2,14 +2,35 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-24 09:18:22
- * @LastEditTime: 2019-08-27 10:25:32
+ * @LastEditTime: 2019-08-30 19:13:37
  * @LastEditors: Please set LastEditors
  */
 (function () {
-    $('#header').load('html/header.html');
+
+    function ck() {
+
+        let na = $.cookie('name');
+        if (na) {
+            $(".hy").html(na + "您好，欢迎来到蔚蓝网！")
+            $("#lr").html(`<a id="out" href="html/login.html">安全退出</a>`);
+        } else {
+            $(".hy").html("您好，欢迎来到蔚蓝网！")
+            $("#lr").html(`[<a id="login" href="html/login.html">登陆</a>] [<a href=" html/register.html" id='register'>免费注册</a>]`)
+        }
+    }
+    ck();
+
 
     $('#index_footer').load('html/footer.html');
     $("#right").load("html/right.html");
+
+    $("#login").click(function () {
+        let url = window.location.href;
+        $.cookie('url', url, {
+            path: '/'
+        });
+
+    })
     let endtime = "2019-09-24 16:16:00";
     let end = Date.parse(endtime);
     let tiemr = setInterval(function () {
@@ -116,7 +137,7 @@
         $(this).siblings().children().find('.small-img').hide();
         $(this).children().find('.price').show();
         $(this).siblings().children().find('.price').hide();
-    })
+    });
     let mySwiper = new Swiper('.swiper-container', {
         loop: true,
         simulateTouch: false,

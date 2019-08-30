@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 19:34:40
- * @LastEditTime: 2019-08-29 01:51:06
+ * @LastEditTime: 2019-08-30 11:00:14
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -10,6 +10,8 @@
 
   $("#list_footer").load("footer.html");
   $("#list_right").load("right.html");
+
+
   let isture = true;
   $("#categoriesTree_1_switch").click(function () {
     if (isture) {
@@ -205,21 +207,51 @@
       localStorage.url = "../api/price.php";
       rendering();
     }
-
   });
   localStorage.style = "list1";
-  let ist = true;
+
   $("#list1").click(function () {
     localStorage.style = "list1";
-    $(this).addClass("list-pic")
-    $("#list2").removeClass('list-pic');
+    $(this).addClass("list-pic");
+    $("#list2").removeClass("list-pic");
     rendering();
   });
   $("#list2").click(function () {
     localStorage.style = "list2";
-    $(this).addClass("list-pic")
-    $("#list1").removeClass('list-pic');
+    $(this).addClass("list-pic");
+    $("#list1").removeClass("list-pic");
     rendering();
   });
 
+  $("#J_template ").on("click", ".buy-btn", function () {
+    $(".box").css("display", "block");
+    $(".cpt-dlg-outer").css("display", "block");
+  });
+  $(".dlg-holder").on("click", ".dlg-close", function () {
+    $(".box").css("display", "none");
+    $(".cpt-dlg-outer").css("display", "none");
+  });
+  $(".dlg-holder").on("click", "button", function () {
+    $(".box").css("display", "none");
+    $(".cpt-dlg-outer").css("display", "none");
+  });
+  $("#J_template ").on("click", ".save-btn", function () {
+    $(".box").css("display", "block");
+    $(".cpt-dlg-outer").css("display", "block");
+    $(".dlg-holder")
+      .find(".min")
+      .html("收藏成功");
+    $(".dlg-holder")
+      .find(".alert-ico")
+      .css("background-position", "0");
+  });
+  $("#J_template ").on("click", ".a_amtion", function () {
+    let id = $(this)
+      .parent(".search-book-list")
+      .data("id");
+
+    window.open("details.html?id=" + id);
+    // $(".box").css("display", "block");
+    // $(".cpt-dlg-outer").css("display", "block");
+  });
 })();
