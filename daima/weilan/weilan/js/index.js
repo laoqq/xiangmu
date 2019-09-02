@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-24 09:18:22
- * @LastEditTime: 2019-08-30 19:13:37
+ * @LastEditTime: 2019-08-31 21:27:13
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -25,11 +25,34 @@
     $("#right").load("html/right.html");
 
     $("#login").click(function () {
-        let url = window.location.href;
+        let url = location.href;
         $.cookie('url', url, {
             path: '/'
         });
 
+    })
+    $("#out").click(function () {
+        window.open('', '_self');
+        window.close();
+        // $.removeCookie('name', {
+        //   path: '/'
+        // });
+        // $.removeCookie('name', {
+        //   domain: 'localhost',
+        //   path: '/'
+        // });
+        // $.cookie("name", '', {
+        //   path: "/"
+        // })
+        $.removeCookie('name', {
+            path: '/'
+        });
+        $("#login").click(function () {
+            let url = location.href;
+            localStorage.href = url;
+
+            location.href = "../html/login.html";
+        })
     })
     let endtime = "2019-09-24 16:16:00";
     let end = Date.parse(endtime);

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 19:34:40
- * @LastEditTime: 2019-08-30 11:00:14
+ * @LastEditTime: 2019-09-02 01:39:55
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -224,8 +224,31 @@
   });
 
   $("#J_template ").on("click", ".buy-btn", function () {
+    let arr = [];
     $(".box").css("display", "block");
     $(".cpt-dlg-outer").css("display", "block");
+    // console.log($("#nprice").html(), $("#oldprice").html())
+    // console.log(localStorage.arr)
+    if (localStorage.arr) {
+      arr = localStorage.arr.split(",");
+    }
+
+    let id = $(this).data("id");
+
+    let price = $("#nprice").html();
+    let oldprice = $("#oldprice").html();
+    if (localStorage.ptall && localStorage.tall) {
+      localStorage.ptall = Number(localStorage.ptall) + Number(oldprice);
+
+      localStorage.tall = Number(localStorage.tall) + Number(price);
+    } else {
+      localStorage.ptall = Number(oldprice);
+      localStorage.tall = Number(price);
+    }
+    localStorage.removeItem('arr');
+    arr.push(id);
+    console.log(arr);
+    localStorage.arr = arr;
   });
   $(".dlg-holder").on("click", ".dlg-close", function () {
     $(".box").css("display", "none");

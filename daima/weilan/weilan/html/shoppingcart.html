@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-30 15:05:07
- * @LastEditTime: 2019-08-30 19:43:35
+ * @LastEditTime: 2019-09-02 01:55:09
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -23,9 +23,7 @@
     <div id="box">
         <div id="shopping_header"></div>
         <div id="shopping_right"></div>
-
         <div class="container">
-
             <!--购物车中详细内容-->
             <form class="cart-info box-shadow" id="J_cartList">
                 <div class="box-content">
@@ -41,6 +39,7 @@
                                 <th>操作</th>
                             </tr>
                         </thead>
+
                     </table>
                     <div class="cart-list">
                         <!-- <fieldset class="cart-group cart-group-0">
@@ -57,8 +56,8 @@
                                                     href="https://www.wl.cn/9110821" target="_blank">漫画美的人（上）</a> </div>
                                         </td>
                                         <td class="col-credit">3</td>
-                                        <td class="col-wl-price common-price" style="padding-top:0;"> ￥39.3 </td>
-                                        <td class="col-discount common-price"> ￥16.70 </td>
+                                        <td class="col-wl-price common-price" style="padding-top:0;"> 39.3 </td>
+                                        <td class="col-discount common-price"> 16.70 </td>
                                         <td class="col-buy-num">
                                             <div class="num-panel"> <a href="javascript:;" class="minus"></a> <input
                                                     type="text" class="buy-num" value="1"> <a href="javascript:;"
@@ -77,6 +76,8 @@
                                 <td colspan="6">
                                     <div class="total-price-holder">
                                         <a href="javascript:;" class="clear-all" id="J_empty">清空购物车</a>
+                                        <a href="javascript:;" class="clear-all" id="J_select"
+                                            style="left: 150px">删除所选</a>
                                         <p>
                                             <span class="title">商品总金额：</span>
                                             <em class="common-price">￥<b class="syb-rmb" id="J_price">0</b></em>
@@ -99,10 +100,6 @@
                     </table>
                 </div>
             </form>
-            <!--{购物车中详细内容 End}-->
-
-            <!--{赠品区 Start}-->
-
             <div class="recommend-books buy-after-buy box-shadow">
                 <i class="box-gap"></i>
                 <div class="box-content">
@@ -114,8 +111,8 @@
                 </div>
             </div>
         </div>
-        <div style="display:none" class="cpt-dlg-outer" theme="theme-a" id="dlg"
-            style="width: 476px; position: fixed; z-index: 1000; left: 50%; margin-left: -238px; top: 150px;">
+        <div class="cpt-dlg-outer" theme="theme-a" id="dlg" style="display:none ;width: 476px; position: fixed; z-index: 1000; left: 50%; margin-left: -238px; top:
+            150px;">
             <div class="dlg-holder">
                 <table cellspacing="0" cellpadding="0" border="0">
                     <thead>
@@ -143,8 +140,10 @@
                     <tfoot>
                         <tr>
                             <td class="footer-holder">
-                                <div class="dlg-footer"><button type="button">确定</button><button
-                                        type="button">取消</button></div>
+                                <div class="dlg-footer">
+                                    <button type="button">确定</button>
+                                    <button type="button">取消</button>
+                                </div>
                             </td>
                         </tr>
                     </tfoot>
@@ -157,5 +156,6 @@
 <script src="../lib/jquery-1.10.1.min.js"></script>
 <script src="../lib/jquery.cookie.js"></script>
 <script src="../js/shoppingcart.js"></script>
+
 
 </html>

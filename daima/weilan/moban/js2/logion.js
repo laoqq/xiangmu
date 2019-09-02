@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-22 19:51:30
- * @LastEditTime: 2019-08-24 10:09:22
+ * @LastEditTime: 2019-08-31 13:16:36
  * @LastEditors: Please set LastEditors
  */
 $(function () {
@@ -22,6 +22,7 @@ $(function () {
                 // dataType: "",
                 success: function (response) {
                     if (response == 1) {
+                        console.log(response);
                         alert("登陆成功");
                         location.href = "01admin.html";
                         sessionStorage.name = $("#na").val();

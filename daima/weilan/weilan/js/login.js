@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-29 23:27:46
- * @LastEditTime: 2019-08-30 19:29:13
+ * @LastEditTime: 2019-08-31 22:19:14
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -86,9 +86,9 @@
         }
         lg.then(function (response) {
             if (response > 0) {
-                let url = $.cookie('url');
+                let url = getCookie("url");
                 if (url) {
-                    window.open(url);
+                    location.href = "url";
                     if (isture) {
                         $.cookie('name', name, {
                             path: '/',

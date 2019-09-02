@@ -2,16 +2,16 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2018-09-12 08:27:06
- * @LastEditTime: 2019-08-29 11:08:06
+ * @LastEditTime: 2019-09-02 00:15:39
  * @LastEditors: Please set LastEditors
  */
 function page_ctrl(data_obj) {
   var obj_box =
-    data_obj.obj_box !== undefined
-      ? data_obj.obj_box
-      : function() {
-          return;
-        }; //翻页容器dom对象,必要参数
+    data_obj.obj_box !== undefined ?
+    data_obj.obj_box :
+    function () {
+      return;
+    }; //翻页容器dom对象,必要参数
   var total_item =
     data_obj.total_item !== undefined ? Number(data_obj.total_item) : 0; //数据条目总数,默认为0,组件将不加载
   var per_num = data_obj.per_num !== undefined ? Number(data_obj.per_num) : 10; //每页显示条数,默认为10条
@@ -42,7 +42,7 @@ function page_ctrl(data_obj) {
           action: localStorage.action
         },
         // dataType: "json",
-        success: function(response) {
+        success: function (response) {
           let arr = JSON.parse(response);
           if (arr.total == 0) {
             $("#J_template").html("暂没有数据！");
@@ -59,10 +59,8 @@ function page_ctrl(data_obj) {
       let ht = "";
 
       if (localStorage.style == "list1") {
-        ht += $.map(arr.data, function(ele) {
-          return `<div class="search-book-list bookList-text clearfix" data-id=${
-            ele.bookid
-          }> <a target="_blank" class="a_amtion">
+        ht += $.map(arr.data, function (ele) {
+          return `<div class="search-book-list bookList-text clearfix"  data-id=${ele.bookid}> <a target="_blank" class="a_amtion">
                 <div class="bookList-text-img bk-img-box"> <img alt="${
                   ele.booktitle
                 }"
@@ -81,20 +79,19 @@ function page_ctrl(data_obj) {
               <p class="bookList-text-detail">
                 ${ele.bookdetailbookprice}
               </p>
-              <p class="bookList-text-price"> 蔚蓝价：<span class="red">${
-                ele.price
-              }</span> 定价：<del>
-              ${ele.pricing}</del> <span
-                  class="lightRed">省：<em>${ele.pricing -
-                    ele.price}</em></span> </p>
+              <p class="bookList-text-price"> 蔚蓝价：<span class="red" id="nprice">
+              ${ele.price}</span> 
+              定价：<del id="oldprice">${ele.pricing}</del> <span class="lightRed">省：
+              <em>${ele.pricing - ele.price}</em></span> </p>
               <div>
-                <p class="btn bookList-text-btn clearfix"> <a target="_blank" class="buy-btn"id="buy_id" data-wlid="8648288"></a>
+                <p class="btn bookList-text-btn clearfix"> <a target="_blank" class="buy-btn"id="buy_id" data-id=
+          ${ele.bookid}></a>
                   <a href="javascript:;" data="8648288" class="save-btn J_addFav"></a> </p>
               </div>
             </div>`;
         }).join("");
       } else {
-        ht += $.map(arr.data, function(ele) {
+        ht += $.map(arr.data, function (ele) {
           return `<div class="search-book-item" data-id=${ele.bookid}> <a target="_blank"  class="a_amtion">
                 <div class = "search-book-img bk-img-box" > <img src = "${ele.bookimg}"
                     alt = "${ele.booktitle}"
@@ -102,7 +99,8 @@ function page_ctrl(data_obj) {
               </a>
               <p class="search-book-price red">￥${ele.price}（<span>${ele.discount}折</span>）</p>
               <div>
-                <p class="btn clearfix"> <a class="buy-btn" data-wlid="8198215"></a> <a href="javascript:;"
+                <p class="btn clearfix"> <a class="buy-btn"data-id=
+          ${ele.bookid}></a> <a href="javascript:;"
                     data="8198215" class="save-btn J_addFav"></a> </p>
               </div>
             </div>`;
@@ -180,7 +178,7 @@ function page_ctrl(data_obj) {
     }
   }
   page_even();
-  $(obj_box + " .page_ctrl").on("click", "button", function() {
+  $(obj_box + " .page_ctrl").on("click", "button", function () {
     var that = $(this);
     if (that.hasClass("prev_page")) {
       if (current_page != 1) {
