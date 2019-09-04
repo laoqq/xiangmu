@@ -1,4 +1,5 @@
 <?php
+
 include "cot.php";
 $required = isset($_REQUEST['required']) ? $_REQUEST['required'] : "";
 $accution = isset($_REQUEST['accution']) ? $_REQUEST['accution'] : "";

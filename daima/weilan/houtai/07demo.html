@@ -1,0 +1,189 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-22 15:22:40
+ * @LastEditTime: 2019-09-04 20:27:25
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Matrix Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="css/fullcalendar.css" />
+	<link rel="stylesheet" href="css/jquery.gritter.css" />
+	<link rel="stylesheet" href="css/matrix-style2.css" />
+	<link rel="stylesheet" href="css/matrix-media.css" />
+	<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/toPage.css">
+	<style>
+		td {
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="content">
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="widget-box">
+					<div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+						<h5>商品信息表</h5>
+						<span class="label label-info">Featured</span>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>gid</th>
+									<th>书的标题</th>
+									<th>作者</th>
+									<th>标价</th>
+									<th>售价</th>
+									<th>折扣</th>
+									<th>库存</th>
+									<th>简介</th>
+									<th>图片路径</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- <tr>
+									<td>1</td>
+									<td contenteditable="true">苹果10</td>
+									<td contenteditable="true">12000</td>
+									<td contenteditable="true">30</td>
+									<td contenteditable="true">30</td>
+									<td contenteditable="true">30</td>
+									<td contenteditable="true">30</td>
+									<td contenteditable="true">30</td>
+									<td contenteditable="true">http://sss.jpg</td>
+									<td>
+
+										<input type="button" class="btn btn-info" value="修改并保存">
+										<input type="button" class="btn btn-danger" value="删除">
+									</td>
+								</tr> -->
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="page_1"></div>
+				<div class="widget-box">
+					<div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+						<h5>添加新的商品</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<form class="form-horizontal">
+							<div class="control-group">
+								<label class="control-label">书的标题</label>
+								<div class="controls">
+									<input type="text" placeholder="" data-title="A tooltip for the input"
+										class="span11 tip" data-original-title="">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">作者</label>
+								<div class="controls">
+									<input type="text" placeholder="" style="margin: 0 auto;" class="span11">
+								</div>
+							</div>
+
+
+							<div class="control-group">
+								<label class="control-label">标价</label>
+								<div class="controls">
+									<div class="input-append">
+										<input type="text" placeholder="5.00" class="span11">
+										<span class="add-on">$</span> </div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">售价</label>
+								<div class="controls">
+									<div class="input-append">
+										<input type="text" placeholder="5.00" class="span11">
+										<span class="add-on">$</span> </div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">折扣</label>
+								<div class="controls">
+									<div class="input-append">
+										<input type="text" placeholder="50" class="span11">
+										<span class="add-on">折</span> </div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">库存</label>
+								<div class="controls">
+									<div class="input-append">
+										<input type="text" placeholder="500" class="span11">
+									</div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">简介</label>
+								<div class="controls">
+									<input type="text" placeholder="书的介绍" style="margin: 0 auto;" class="span11">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">图片路径</label>
+								<div class="controls">
+									<input type="text" placeholder="../images/picture/9357377.jpg"
+										style="margin: 0 auto;" class="span11">
+								</div>
+							</div>
+
+						</form>
+						<div class="form-actions">
+							<input type="button" value="保存" class="btn btn-success">
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<hr>
+			<div class="row-fluid">
+
+			</div>
+		</div>
+	</div>
+
+	<script src="js/excanvas.min.js"></script>
+	<script src="http://www.jq22.com/jquery/jquery-1.7.1.js"></script>
+	<!-- <script src="js/jquery.ui.custom.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.flot.min.js"></script>
+	<script src="js/jquery.flot.resize.min.js"></script>
+	<script src="js/jquery.peity.min.js"></script>
+	<script src="js/jquery.gritter.min.js"></script>
+	<script src="js/matrix.js"></script>
+	<script src="js/fullcalendar.min.js"></script>
+	<script src="js/matrix.calendar.js"></script>
+	<script src="js/matrix.chat.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/matrix.form_validation.js"></script>
+	<script src="js/jquery.wizard.js"></script>
+	<script src="js/jquery.uniform.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/matrix.popover.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/matrix.tables.js"></script>
+	<script src="js/matrix.interface.js"></script> -->
+	<script src="js2/toPage1.js"></script>
+	<script src="js2/07demo.js"></script>
+
+</body>
+
+</html>

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-29 11:18:41
- * @LastEditTime: 2019-09-02 17:20:31
+ * @LastEditTime: 2019-09-04 09:29:38
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -176,7 +176,7 @@
   });
 
   $("#book_info").on("change", "#J_buyNumField", function () {
-    console.log(1);
+
     if ($("#J_buyNumField").val() >= 28) {
       $("#J_buyNumField").val(28);
       $("#J_bookDetailPopup")
@@ -187,6 +187,7 @@
         .siblings()
         .css("display", "none");
     }
+    $("#J_buyNum").html($("#J_buyNumField").val());
   });
   $("#book_info").on("click", "#J_addToCart", function () {
     let name = $.cookie("name");
@@ -200,8 +201,7 @@
   });
   let arr = [];
 
-  let tall = 0;
-  let ptall = 0;
+
 
   function gopi() {
     $("#J_cartBookCount").html(arr.length);
@@ -243,7 +243,8 @@
     } else {
       arr.push(localStorage.arr)
     }
-    let id = $(".book-intro").data("id");
+    let id = $(".book-intro").data('id');
+    id = id.toString();
     $("#J_bookDetailPopup").css("display", "block");
     if (arr.length <= 1) {
       $("#J_bookDetailPopup")
@@ -251,14 +252,14 @@
         .css("display", "block");
       ar()
       gopi();
-    } else if (arr.length >= 2 && arr.includes('id') == true) {
+    } else if (arr.includes(id) == true) {
       $("#J_bookDetailPopup")
         .find("#J_buyAgainTip")
         .css("display", "block");
       $("#J_bookDetailPopup")
         .find("#J_buySuccessTip")
         .css("display", "none");
-    } else if (arr.length >= 2 && arr.includes(id) == false) {
+    } else if (arr.includes(id) == false) {
       $("#J_bookDetailPopup")
         .find("#J_buySuccessTip")
         .css("display", "block");

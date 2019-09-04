@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-22 19:50:03
- * @LastEditTime: 2019-08-24 10:01:05
+ * @LastEditTime: 2019-09-04 16:33:00
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -33,42 +33,31 @@
 				<div class="span12">
 					<div class="widget-box">
 						<div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-							<h5>添加新用户</h5>
+							<h5>修改密码</h5>
 						</div>
 						<div class="widget-content nopadding">
-							<form class="form-horizontal" method="post" action="#" name="basic_validate"
-								id="basic_validate" novalidate="novalidate">
-								<div class="control-group">
-									<label class="control-label">用户名</label>
-									<div class="controls">
-										<input type="text" name="required" id="required">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">邮箱</label>
-									<div class="controls">
-										<input type="text" autocomplete="off" name="accution" id="accution">
-										<span id="inuser_1"
-											style="text-align: center;font-size:16px ;line-height: 30px;"></span>
-									</div>
-
-								</div>
+							<form class="form-horizontal" method="post" action="#" name="password_validate"
+								id="password_validate" novalidate="novalidate">
 								<div class="control-group">
 									<label class="control-label">密码</label>
 									<div class="controls">
-										<input type="text" autocomplete="off" name="date" id="date"
-											placeholder=" 密码必须为6-18位且首字母开头">
-										<span id="inuser_2"
+										<input type="password" name="pwd" id="pwd" placeholder="密码为6-18位首字母开头">
+										<span id="inf_1"
 											style="text-align: center;font-size:16px ;line-height: 30px;"></span>
 									</div>
-
+								</div>
+								<div class="control-group">
+									<label class="control-label">确认密码</label>
+									<div class="controls">
+										<input type="password" name="pwd2" id="pwd2" placeholder="密码为6-18位首字母开头">
+										<span id="inf_2"
+											style="text-align: center;font-size:16px ;line-height: 30px;"></span>
+									</div>
 								</div>
 								<div class="form-actions">
-									<input type="button" autocomplete="off" value="保存" class="btn btn-success"
-										id="inst_btn">
-									<br>
-									<span id="inuser_3"
-										style="text-align: center;font-size:16px ;line-height: 30px;"></span>
+									<input type="button" value="保存" class="btn btn-success" id="success_btn">
+									<p style="width: 100%;line-height: 30px ;font-size: 16px; display: none " id="lg">
+										修改成功请重新<a href="09login.html" style="color: orangered">登陆</a></p>
 								</div>
 							</form>
 						</div>
@@ -80,14 +69,14 @@
 
 	<script src="http://www.jq22.com/jquery/jquery-1.7.1.js"></script>
 	<script src="js2/common.js"></script>
-	<script src="js/jquery.ui.custom.js"></script>
+	<!-- <script src="js/jquery.ui.custom.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.uniform.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/matrix.js"></script>
-	<script src="js/matrix.tables.js"></script>
-	<script src="js2/adduser.js"></script>
+	<script src="js/matrix.tables.js"></script> -->
+	<script src="js2/editpsw.js"></script>
 </body>
 
 </html>

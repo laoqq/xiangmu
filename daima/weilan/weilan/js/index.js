@@ -2,10 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-24 09:18:22
- * @LastEditTime: 2019-08-31 21:27:13
+ * @LastEditTime: 2019-09-03 21:46:30
  * @LastEditors: Please set LastEditors
  */
 (function () {
+    let url = decodeURIComponent($.cookie('url'));
+    console.log(url)
 
     function ck() {
 

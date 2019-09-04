@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-29 23:27:46
- * @LastEditTime: 2019-08-31 22:19:14
+ * @LastEditTime: 2019-09-03 22:04:04
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -12,11 +12,12 @@
 
         if ($.cookie('name') == $("#J_userName").val()) {
             alert("你已登陆");
-            window.open('../index.html');
+            let url = decodeURIComponent($.cookie('url'));
+            location.href = url;
         } else {
             let name = $("#J_userName").val();
 
-            console.log(name);
+
             if (name) {
                 ac = new Promise(function (resolved) {
 
@@ -60,8 +61,7 @@
         let name = $("#J_userName").val();
         let password = $("#J_pwd").val();
         let isture = $('#J_rememberMe').prop('checked');
-        console.log(isture)
-        console.log(name, password);
+
         if (password) {
 
             lg = new Promise(function (resolved) {
@@ -86,9 +86,10 @@
         }
         lg.then(function (response) {
             if (response > 0) {
-                let url = getCookie("url");
+                let url = decodeURIComponent($.cookie('url'));
+                console.log(url)
                 if (url) {
-                    location.href = "url";
+                    location.href = url;
                     if (isture) {
                         $.cookie('name', name, {
                             path: '/',
