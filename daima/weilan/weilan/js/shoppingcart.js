@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-30 15:05:28
- * @LastEditTime: 2019-09-04 21:37:21
+ * @LastEditTime: 2019-09-05 15:16:08
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -95,7 +95,11 @@
                             name: na,
                             sk: 1
                         },
-                        success: function (response) {}
+                        success: function (response) {
+                            localStorage.removeItem('tall');
+                            localStorage.removeItem('ptall');
+                            localStorage.removeItem('arr');
+                        }
                     });
                 } else {
                     $.ajax({
@@ -108,7 +112,9 @@
                             name: na,
                             sk: 0
                         },
-                        success: function (response) {}
+                        success: function (response) {
+
+                        }
                     });
                 }
 

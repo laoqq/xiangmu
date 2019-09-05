@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @J_pwd_email: 2019-08-30 11:38:31
- * @LastEditTime: 2019-09-05 10:31:57
+ * @LastEditTime: 2019-09-05 15:11:00
  * @LastEditors: Please set LastEditors
  */
 let isto1 = false;
@@ -37,20 +37,26 @@ let isto3 = false;
                     success: function (response) {
                         console.log(response);
                         if (response == 1) {
+                            $("#inf1").removeClass("success-content")
                             $("#inf1").html("该邮箱已被注册").addClass("error-content");
 
                         } else {
+                            $("#inf1").removeClass("error-content")
                             $("#inf1").html('').addClass("success-content");
                             isto1 = true;
                         }
                     }
                 });
             } else {
+                $("#inf1").removeClass("success-content")
                 $("#inf1").html("邮箱格式错误").addClass("error-content")
+
 
             }
         } else {
+            $("#inf1").removeClass("success-content")
             $("#inf1").html("邮箱不能为空").addClass("error-content");
+
 
         }
     });
@@ -58,10 +64,14 @@ let isto3 = false;
         let password = $("#J_pwd_email").val();
         let istrue1 = checkReg.psweasy(password);
         if (istrue1 == false) {
+            $("#inf2").removeClass("success-content")
             $("#inf2").html("请输入长为6-20个字符的密码，必须包含数字、字母").addClass("error-content");
 
+
         } else {
+            $("#inf2").removeClass("error-content")
             $("#inf2").html("").addClass("success-content");
+
             isto2 = true;
         }
     });
@@ -70,10 +80,15 @@ let isto3 = false;
         let password2 = $("#J_pwd_email").val();
         let istrue1 = checkReg.pwwagain(password1, password2);
         if (istrue1 == false || isto2 == false) {
+            $("#inf3").removeClass("success-content")
             $("#inf3").html("两次输入密码不匹配").addClass("error-content");
 
+
+
         } else {
+            $("#inf3").removeClass("error-content")
             $("#inf3").html("").addClass("success-content");
+
             isto3 = true;
         }
     });
@@ -109,39 +124,104 @@ let isto3 = false;
         }
 
     });
-    let arr = [];
+    let is_ture = false;
 
     $("#J_phone").blur(function () {
         let phone = $(this).val();
         if (phone == '') {
+            $("#in1").removeClass("success-content");
             $("#in1").html('手机号不能为空！').addClass("error-content");
-
+            is_ture = false;
         } else {
             if (checkReg.tel(phone)) {
-                arr.push(1);
-                $("#in1").html('').addClass("success-content");
+                $.ajax({
+                    type: "post",
+                    url: "../api/account.php",
+                    data: {
+                        name: phone
+                    },
+
+                    success: function (response) {
+                        if (response == 0) {
+                            is_ture = true;
+                            $("#in1").removeClass("error-content");
+                            $("#in1").html('').addClass("success-content");
+                        } else {
+                            is_ture = false;
+                            $("#in1").removeClass("success-content");
+                            $("#in1").html('手机号已被注册').addClass("error-content");
+                        }
+                    }
+                });
+
+
             } else {
-                $("#in1").html('手机号格式错误！').addClass("error-content");
+                is_ture = false;
+                $("#in1").removeClass("success-content")
+                $("#in1").html('手机号格式错误！').addClass("error-content");;
             }
         }
     })
     $("#J_pwd").blur(function () {
+        let pwd = $(this).val();
+        if (pwd == '') {
+            is_ture = false;
+            $("#in2").removeClass("success-content");
+            $("#in2").html('密码不能为空！').addClass("error-content");
 
+        } else {
+            if (checkReg.psweasy(pwd)) {
+                is_ture = true;
+                $("#in2").removeClass("error-content");
+                $("#in2").html('').addClass("success-content");
+
+
+            } else {
+                is_ture = false;
+                $("#in2").removeClass("success-content");
+                $("#in2").html('密码格式错误！').addClass("error-content");
+
+            }
+
+        }
+    })
+    $("#J_pwd_p").blur(function () {
+        if ($("#J_pwd_p").val() == '') {
+            is_ture = false;
+            $("#in3").html('密码不能为空！').addClass("error-content");
+        } else {
+            if ($("#J_pwd_p").val() == $("#J_pwd").val()) {
+
+                is_ture = true;
+                $("#in3").removeClass("error-content");
+                $("#in3").html('').addClass("success-content");
+
+            } else {
+                is_ture = false;
+                $("#in3").removeClass("success-content");
+                $("#in3").html('两次密码不一致！').addClass("error-content");
+
+            }
+        }
     })
     var show_num = [];
     draw(show_num);
     $("#J_validCodes").blur(function () {
         let val = $(this).val().toLowerCase();
         let num = show_num.join("");
-
         if (val == '') {
+            $("#in4").removeClass("success-content");
             $("#in4").html('验证码不能为空！').addClass("error-content")
         } else if (val == num) {
+            is_ture = true;
+            $("#in4").removeClass("error-content");
             $("#in4").html("").addClass("success-content");
             // $(this).val('');
             draw(show_num);
 
         } else {
+            is_ture = false;
+            $("#in4").removeClass("success-content");
             $("#in4").html('验证码错误！请重新输入！').addClass("error-content")
 
             $(this).val('');
@@ -207,5 +287,75 @@ let isto3 = false;
         var b = Math.floor(Math.random() * 256);
         return "rgb(" + r + "," + g + "," + b + ")";
     }
+    var arr_p = '';
+    $('#register').click(function () {
 
+        let phone = $("#J_phone").val();
+        console.log(phone)
+        let time = 60;
+        let timer = setInterval(function () {
+
+            $('#register').html(time + "秒后可重新发送");
+            $('#register').attr("disabled", "true")
+            if (time < 0) {
+                clearInterval(timer);
+                $('#register').removeAttr("disabled");
+                $('#register').html("发送手机确认码");
+            }
+
+
+            time--;
+
+        }, 1000)
+        arr_p = randomCode();
+        $.ajax({
+            type: "post",
+            url: "../api/phone.php",
+            data: {
+                rg: arr_p,
+                phone: phone
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    })
+    $("#J_validCode").blur(function () {
+        if ($(this).val() == arr_p) {
+            $("#in5").removeClass("error-content");
+            $("#in5").html("").addClass("success-content");
+            is_ture = true;
+        } else {
+            is_ture = false;
+            $("#in5").removeClass("success-content");
+            $("#in5").html('确认码错误！请重新输入！').addClass("error-content")
+        }
+
+    });
+    $("#register_submit").click(function () {
+
+        if (is_ture) {
+            let phone = $("#J_phone").val();
+            let password = $("#J_pwd").val();
+            $.ajax({
+                type: "post",
+                url: "../api/register.php",
+                data: {
+                    accution: phone,
+                    password: password
+                },
+
+                success: function (response) {
+                    if (response) {
+                        alert("注册成功!");
+                    }
+                }
+            });
+        } else {
+            alert("注册失败,注册信息填写有误!");
+        }
+
+
+    })
 })();

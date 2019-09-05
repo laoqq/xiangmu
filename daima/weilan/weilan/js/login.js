@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-29 23:27:46
- * @LastEditTime: 2019-09-03 22:04:04
+ * @LastEditTime: 2019-09-05 15:57:57
  * @LastEditors: Please set LastEditors
  */
 (function () {
@@ -13,7 +13,12 @@
         if ($.cookie('name') == $("#J_userName").val()) {
             alert("你已登陆");
             let url = decodeURIComponent($.cookie('url'));
-            location.href = url;
+
+            if (url != undefined) {
+                window.open(url);
+            } else {
+                window.open('../index.html');
+            }
         } else {
             let name = $("#J_userName").val();
 
@@ -87,9 +92,9 @@
         lg.then(function (response) {
             if (response > 0) {
                 let url = decodeURIComponent($.cookie('url'));
-                console.log(url)
-                if (url) {
-                    location.href = url;
+
+                if (url != undefined) {
+
                     if (isture) {
                         $.cookie('name', name, {
                             path: '/',
@@ -100,7 +105,9 @@
                             path: '/'
                         })
                     }
+                    window.open(url);
                 } else {
+
                     if (isture) {
                         $.cookie('name', name, {
                             path: '/',
@@ -112,6 +119,7 @@
                         })
                     }
                     window.open('../index.html');
+
                 }
 
 

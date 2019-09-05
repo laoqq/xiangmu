@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-30 09:19:02
- * @LastEditTime: 2019-09-05 10:31:10
+ * @LastEditTime: 2019-09-05 14:55:39
  * @LastEditors: Please set LastEditors
  -->
 <!DOCTYPE html>
@@ -65,11 +65,11 @@
                             <label>登录密码：</label>
                             <input type="password" id="J_pwd" name="passWord" placeholder="6-20个字符,必须包含数字、字母">
                             <input type="hidden" id="J_pwd_hidden" name="passwd">
-                            <span id="inf2"></span>
+                            <span id="in2"></span>
                         </p>
                         <p>
                             <label>确认密码：</label>
-                            <input type="password" name="repeatPassWord">
+                            <input type="password" name="repeatPassWord" id="J_pwd_p">
                             <span id="in3"></span>
                         </p>
                         <p class="register-validCodeButton-label">
@@ -81,7 +81,7 @@
                                 src="https://www.wl.cn//reg/veriValidCode"> -->
                             <span id="in4" style="position: absolute;left: 280px;"></span>
                             <br>
-                            <button class="register-validCodeButton" type="button">发送手机确认码</button>
+                            <button class="register-validCodeButton" type="button" id="register">发送手机确认码</button>
                         </p>
                         <br>
                         <br>
@@ -91,7 +91,7 @@
                             <span id="in5"></span>
                         </p>
                         <p>
-                            <input type="button" value="" class="register-submit">
+                            <input type="button" value="" class="register-submit" id="register_submit">
                             <!-- <button class="register-submit" type="submit"></button> -->
                         </p>
                     </form>

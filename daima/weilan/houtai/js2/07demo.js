@@ -113,7 +113,6 @@
             url: "api/goodmodify.php",
             data: {
                 action: 2,
-
                 booktitle: booktitle,
                 bookauthor: bookauthor,
                 pricing: pricing,
