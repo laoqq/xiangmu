@@ -5,7 +5,7 @@ https://blog.csdn.net/qq_40028324/article/details/82454829 生成注释的插件
  * @Description: 封装生成随机颜色函数:可以生成16进制和rgb格式的
  * @Author: qiguoqing
  * @Date: 2019-07-23 15:21:00
- * @LastEditTime: 2019-08-24 15:22:17
+ * @LastEditTime: 2019-09-05 10:24:35
  * @LastEditors: Please set LastEditors
  */
 function randomColor(type) {
@@ -259,7 +259,7 @@ var checkReg = {
 };
 /*
  * @Description: 封装表单验证
- * @Author: 良哥
+
  * @Date: 2019-07-23 15:21:00
  * @LastEditTime: 2019-07-23 16:10:27
  * @LastEditors: Please set LastEditors
